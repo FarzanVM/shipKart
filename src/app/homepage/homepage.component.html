@@ -1,0 +1,48 @@
+<html>
+    <body>
+        <div class="header">
+            <h1>ShipKart</h1>
+            <div class="searchBar">
+                <input type="search" placeholder="Search For...">
+            </div>
+            <button>Login</button>
+            <button>
+                <fa-icon [icon]="faCartShopping"></fa-icon> 
+                Cart</button>
+            <button>
+                <fa-icon [icon]="faStore"></fa-icon> a seller</button>
+        </div>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="footer">
+            <div class="information">
+                <ul>
+                    <li>About</li>
+                    <li>Contact Us</li>
+                    <li>About Us</li>
+                    <li>Careers</li>
+                </ul>
+                <ul>
+                    <li>Help</li>
+                    <li>Payments</li>
+                    <li>Shipments</li>
+                    <li>Cancelation & return policy</li>
+                </ul>
+                <ul>
+                    <li>Mail Us</li>
+                    <li>Shipkart Private Limited</li>
+                    <li>Building x ,floor x10</li>
+                    <li>florida</li>
+                </ul>
+                <ul>
+                    <li>Socials</li>
+                    <li>Linkedin</li>
+                    <li>Instagram</li>
+                    <li>FaceBook</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
+
