@@ -10,7 +10,6 @@
         height:200px;
         border-radius: 5px;
         position: relative;
-        border: 1px solid blue;
         img{
             width:200px;
             height:200px;
@@ -26,7 +25,6 @@
         display: flex;
         width: 600px;
         flex-direction: column;
-        border: 1px solid blue;
         h3{
             margin: 5px 0px;
         }
@@ -34,18 +32,13 @@
             display: flex;
             column-gap: 10px;
             align-items: center;
-            border: 1px solid green;
             .totalrating{
-                // box-sizing: border-box;
                 padding: 2px 4px 2px 6px;
                 background-color: #388e3c;
                 border-radius: 3px;
                 font-size: 12px;
                 font-weight: 600;
-                // width: 40px;
-                // height: 20px;
                 color: #fff;
-                // vertical-align: middle;
                 fa-icon{
                     font-size: 12px;
                 }
@@ -69,13 +62,41 @@
                     // list-style-position: inside
                 }
             }
-            border: 1px solid blue;
+        }    
+    }
+    .price-section{
+        display: flex;
+        width: 300px;
+        flex-direction: column;
+        h2{
+            margin: 5px 0px;
         }
-        .price-section{
-            display: flex;
-            width: 300px;
-            flex-direction: column;
+        p{
+            margin: 5px 0px;
+            display: inline;
         }
-        
+        .price-discount{
+            display: block;
+
+        }
+        .original-price{
+            font-size: 14px;
+            font-weight: 600;
+            color: #878787;
+            text-decoration: line-through;
+        }
+        .discount{
+            font-size: 13px;
+            color: #388e3c;
+            font-weight: 700;
+        }
+        .deliverydate{
+            font-size: 12px;
+        }
+        .extra{
+            font-size: 12px;
+            font-weight: 600;
+            color:rgb(38, 165, 65)
+        }
     }
 }

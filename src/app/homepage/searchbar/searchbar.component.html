@@ -1,0 +1,19 @@
+<div class="searchBar">
+    <div class="searchcontainer">
+        <input type="search" placeholder="Search For...">
+        <div class="icon">
+            <fa-icon [icon]="faSearch"></fa-icon>
+        </div>
+         
+    </div>
+    <div class="resultcontainer">
+        <ng-container *ngFor="let result of searchResults">
+            <div class="result">
+                {{result}}
+            </div>
+        </ng-container>
+        
+
+    </div>
+</div>
+
