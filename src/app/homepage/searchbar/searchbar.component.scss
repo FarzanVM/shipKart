@@ -29,7 +29,7 @@
         position: absolute;
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 100%;      
         height: 400px;
         background-color: #fff;
         z-index: 10;
@@ -37,7 +37,14 @@
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         .result{
             width: 100%;
+            box-sizing: border-box;
             padding: 10px;
+            .matched{
+                color: black;
+            }
+            .unmatched{
+                color: rgb(164, 161, 161);
+            }
         }
         .result:hover{
             background-color:rgb(231, 250, 255) ;

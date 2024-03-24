@@ -1,6 +1,6 @@
 <div class="searchBar">
     <div class="searchcontainer">
-        <input type="search" placeholder="Search For...">
+        <input type="search" placeholder="Search For..." [formControl]="userInput">
         <div class="icon">
             <fa-icon [icon]="faSearch"></fa-icon>
         </div>
@@ -9,7 +9,7 @@
     <div class="resultcontainer">
         <ng-container *ngFor="let result of searchResults">
             <div class="result">
-                {{result}}
+                <span class="matched">{{userInput.value}}</span><span class="unmatched">{{result}}</span>
             </div>
         </ng-container>
         

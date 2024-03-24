@@ -1,15 +1,30 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, ReactiveFormsModule} from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-searchbar',
   standalone: true,
-  imports: [FontAwesomeModule,CommonModule],
+  imports: [FontAwesomeModule,CommonModule,ReactiveFormsModule],
   templateUrl: './searchbar.component.html',
   styleUrl: './searchbar.component.scss'
 })
-export class SearchbarComponent {
+export class SearchbarComponent implements OnInit {
+  mockdata:any[]=["mobiles","toys","dress","Iphone"]
   faSearch=faSearch;
-  searchResults:any[]=["mobiles","toys","dress","Iphone"]
+  searchResults:any[]=[]
+
+  userInput:any=new FormControl('')
+  ngOnInit(): void {
+   this.userInput.valueChanges.subscribe((data:any)=>{
+    this.searchResults = this.mockdata.map(item=>{
+      if(item.slice(0,data.length).toLowerCase()===data.toLowerCase()){
+        return item.substr(data.length)
+      }
+    }).filter(item=>item!=null)
+    console.log(this.searchResults)
+   })
+  }
+  
 }
