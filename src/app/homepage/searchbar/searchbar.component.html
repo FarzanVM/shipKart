@@ -6,14 +6,15 @@
         </div>
          
     </div>
-    <div class="resultcontainer">
+    <div *ngIf="searchResults.length>0" class="resultcontainer" >
         <ng-container *ngFor="let result of searchResults">
             <div class="result">
                 <span class="matched">{{userInput.value}}</span><span class="unmatched">{{result}}</span>
             </div>
         </ng-container>
-        
-
+    </div>
+    <div class="errormsg" *ngIf="userInput.dirty &&userInput.value.length>0 && searchResults.length==0">
+        <h5>No result Found</h5>
     </div>
 </div>
 

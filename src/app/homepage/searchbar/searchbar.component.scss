@@ -39,6 +39,7 @@
             width: 100%;
             box-sizing: border-box;
             padding: 10px;
+            cursor: pointer;
             .matched{
                 color: black;
             }
@@ -49,5 +50,17 @@
         .result:hover{
             background-color:rgb(231, 250, 255) ;
         }
+    }
+    .errormsg{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        width: 100%;      
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: #fff;
+        z-index: 10;
+        margin-top: 2px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     }
 }
