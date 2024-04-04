@@ -1,0 +1,26 @@
+<div  class="formContainer">
+    <div *ngIf="loginFormOpened" class="loginForm">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <input type="text"  formControlName="email" placeholder="Email" required>
+            <input type="password" formControlName="password" placeholder="Password">
+            <button>Login</button>
+            <p  class="errmsg" *ngIf="this.loginForm.invalid">email not valid</p>
+        </form>
+        {{this.loginForm.invalid}}
+        <div class="signupmsg">
+            <p>New to shipKart?</p><a (click)="openSignupForm()">create account</a>
+        </div>
+    </div>
+    <div  *ngIf="signupFormOpened"  class="signupForm">
+        <form [formGroup]="signupForm" (ngSubmit)="createAccount()">
+            <input type="text" formControlName="email" placeholder="Email">
+            <input type="password" formControlName="password" placeholder="Password">
+            <button>create account</button>
+        </form>
+        <div class="loginmsg">
+            <button (click)="openloginForm()">Already have an account?Login</button>
+        </div>
+       
+    </div>
+
+</div>

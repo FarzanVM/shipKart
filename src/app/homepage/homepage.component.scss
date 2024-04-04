@@ -22,6 +22,7 @@ body{
         border: none;
         padding: 5px;
         background-color: white;
+        cursor: pointer;
         font-size: large;
     }
 }
@@ -31,6 +32,8 @@ body{
 }
 .footer{
     display: flex;
+    position: fixed;
+    bottom: 0;
     width: 100%;
     background-color: rgb(49, 47, 47);
     color: rgb(213, 211, 211);

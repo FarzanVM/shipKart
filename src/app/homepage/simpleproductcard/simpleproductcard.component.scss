@@ -1,0 +1,75 @@
+.simpleCard{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    padding: 10px;
+    width: 300px;
+    height: auto;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    .imgContainer{
+        width: 100%;
+        height:250px;
+        background-color: greenyellow;
+    }
+    .rating {
+        display: flex;
+        column-gap: 10px;
+        align-items: center;
+
+        .totalrating {
+            padding: 2px 4px 2px 6px;
+            background-color: #388e3c;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #fff;
+
+            fa-icon {
+                font-size: 12px;
+            }
+        }
+
+        .review {
+            color: #878787;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+    }
+    .price-section{
+        display: block;
+        p {
+            margin: 5px 0px;
+            display: inline;
+        }
+        .current-price {
+            margin: 5px 0px;
+            font-size: 18px;
+            font-weight: 600;
+            fa-icon{
+                font-size: 20px;
+            }
+        }
+        .original-price {
+            font-size: 14px;
+            font-weight: 600;
+            color: #878787;
+            text-decoration: line-through;
+        }
+    
+        .discount {
+            font-size: 13px;
+            color: #388e3c;
+            font-weight: 700;
+        }
+    
+        .deliverymethod {
+            font-size: 12px;
+        }
+    }
+}
+.simpleCard:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

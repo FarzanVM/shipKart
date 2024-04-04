@@ -1,16 +1,28 @@
 <div class="allproductContainer">
     <div class="filterOptions">
         <div class="">
-            <h2>Filter</h2>
+            <p class="heading">Filters</p>
         </div>
         <div class="price">
-            <h3>Price</h3>
+            <p class="subheading">Price</p>
+            <div class="rangeContainer">
+                <input #range type="range" min="1" max="100000" class="rangeSlider" (input)="selectRange(range)">
+                <input #range type="range" min="1" max="100000" class="rangeSlider" (input)="selectRange(range)">
+                
+            </div>
+            
+            <div class="pricerange">
+                <div class="startrange">{{startVal}}</div>
+                <p>to</p>
+                <div class="endrange">{{endVal}}</div>
+            </div>
+           
         </div>
         <div>
-            <h3>Brand</h3>
-        </div>>
+            <p class="subheading">Brand</p>
+        </div>
         <div>
-            <h3>Customer Ratings</h3>
+            <p class="subheading">Customer rating</p>
         </div>
         
     
@@ -28,7 +40,8 @@
                 <button>Newest</button>
             </div>
         </div>
-        <app-product-card></app-product-card>
+        <!-- <app-product-card></app-product-card> -->
+        <app-simpleproductcard></app-simpleproductcard>
     
     </div>
 </div>

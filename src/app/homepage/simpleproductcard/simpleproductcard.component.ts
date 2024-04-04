@@ -3,13 +3,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faHeart,faStar,faIndianRupee} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-product-card',
+  selector: 'app-simpleproductcard',
   standalone: true,
   imports: [FontAwesomeModule],
-  templateUrl: './product-card.component.html',
-  styleUrl: './product-card.component.scss'
+  templateUrl: './simpleproductcard.component.html',
+  styleUrl: './simpleproductcard.component.scss'
 })
-export class ProductCardComponent {
+export class SimpleproductcardComponent {
   faHeart=faHeart;
   faStar=faStar;
   farupee=faIndianRupee
