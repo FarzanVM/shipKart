@@ -2,6 +2,7 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ProductService } from '../../../services/productservice/product.service';
 
 @Component({
   selector: 'app-addproduct',
@@ -12,6 +13,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class AddproductComponent implements OnInit{
  
+  constructor(private productservice:ProductService){}
   url:any;
   invalidForm:boolean=true;
   productForm=new FormGroup({
@@ -49,12 +51,20 @@ export class AddproductComponent implements OnInit{
     reader.readAsDataURL(files[0])
    reader.onload=()=>{
       this.url = reader.result
-      this.productForm.patchValue({productimg:this.url})
+      this.productForm.patchValue({productimg:"product image heeheh"})
     } 
   }
 
   addProduct(){
-    console.log(this.productForm.value)
+    
+    let storename = localStorage.getItem('storename');
+    const product = {...this.productForm.value,
+      storename:storename
+    }
+    console.log(product)
+    this.productservice.addProduct(product).subscribe(res=>{
+      console.log(res)
+    })
   }
 
 }

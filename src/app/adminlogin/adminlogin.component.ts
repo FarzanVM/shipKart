@@ -67,11 +67,15 @@ export class AdminloginComponent implements OnInit{
   login(){
     this.submitted=true
     if(this.loginForm.invalid){
-      console
+      
     }
     else{
-      this.adminservice.login(this.loginForm.value).subscribe((data)=>{
+      this.adminservice.login(this.loginForm.value).subscribe((data:any)=>{
         console.log(data)
+        localStorage.setItem('token',data['token'])
+        localStorage.setItem('storename',data['storename'])
+        const t=localStorage.getItem('token');
+        console.log(t)
         this.router.navigateByUrl('/admin')
       },
     error=>{
