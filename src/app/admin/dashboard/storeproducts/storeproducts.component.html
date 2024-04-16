@@ -1,1 +1,23 @@
-<p>storeproducts works!</p>
+<div class="storeProductContainer">
+    <ng-container *ngFor="let product of storeProducts$|async">
+        <div class="storeproductCard">
+            <div class="imgContainer">
+                <img>
+            </div>
+            <div class="details">
+                <p>Name:{{product.productname}}</p>
+                <p>Category:{{product.productcategory}}</p>
+                <p>Price:{{product.productprice}}</p>
+                <p>Discount:{{product.productdiscount}}%</p>
+                <p>Discount Off Price:{{product.productnewprice}}</p>
+                <p>Quantity:{{product.productquantity}}</p>
+            </div>
+            <div class="productoperations">
+                <button class="deletebtn">delete product</button>
+                <button class="updatebtn">update product</button>
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+

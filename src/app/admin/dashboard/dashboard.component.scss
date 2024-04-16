@@ -3,23 +3,36 @@
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 15px 0px 15px;
+    padding: 0px 100px 0px 15px;
     box-sizing: border-box;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
  
     button{
         border: none;
+        border-radius: 50%;
         padding: 5px;
         background-color: white;
         cursor: pointer;
         font-size: large;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+    .account{
+        position: relative;
+    }
+    .dropdown{
+        position: absolute;
+        width: 150px;
+        .logout{
+            border-radius: 0px;
+        }
     }
 }
 .operation{
     display: flex;
     width: 100%;
     align-items: center;
+    box-sizing: border-box;
     justify-content: space-evenly;
     padding: 15px;
     button{
@@ -33,6 +46,8 @@
 .opContainer{
     display: flex;
     width: 100%;
-    border: 1px solid green;
+    box-sizing: border-box;
+    background-color: #ba9df1;
     justify-content: center;
+    padding: 15px;
 }

@@ -1,16 +1,21 @@
 <div class="header">
     <h1>ShipKart</h1>
-    <button >Login</button>
-    <button>
-        <fa-icon [icon]="faCartShopping"></fa-icon> 
-        Cart</button>
-    <button >
-        <fa-icon [icon]="faStore"></fa-icon> a seller</button>
+    <div class="account">
+        <button (click)="opendropdown()">
+            <fa-icon [icon]="faUserLarge"></fa-icon>
+        </button>
+        <div *ngIf="dropdown" class="dropdown">
+            <button class="logout" (click)="logout()">Log Out</button>
+        </div>
+    </div>
+    
+    
 </div>
 <div class="operation">
     <button (click)="gotostoreproducts()">storeproducts</button>
     <button (click)="gotoaddproduct()">Add product</button>  
     <button (click)="gotoupdateproduct()">update product</button>
+   
 </div>
 <div class="opContainer">
     <router-outlet></router-outlet>
