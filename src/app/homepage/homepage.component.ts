@@ -27,5 +27,9 @@ export class HomepageComponent implements OnInit {
   openLoginForm(){
     this.router.navigate(['login'])
   }
+  openloginFormSeller(){
+    console.log("clcikk")
+    this.router.navigate(['adminlogin'])
+  }
 
 }

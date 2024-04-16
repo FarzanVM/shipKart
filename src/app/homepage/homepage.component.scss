@@ -27,13 +27,12 @@ body{
     }
 }
 .content{
+    min-height: 470px;
     width: 100%;
     box-sizing: border-box;
 }
 .footer{
     display: flex;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     background-color: rgb(49, 47, 47);
     color: rgb(213, 211, 211);

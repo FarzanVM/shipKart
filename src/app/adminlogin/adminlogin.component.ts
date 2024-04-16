@@ -1,23 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { Component,OnInit} from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import { UserService } from '../services/userservice/user.service';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AdminService } from '../services/adminservice/admin.service';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-adminlogin',
   standalone: true,
   imports: [CommonModule,ReactiveFormsModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  templateUrl: './adminlogin.component.html',
+  styleUrl: './adminlogin.component.scss'
 })
-export class LoginComponent implements OnInit {
- 
-  constructor(private userservice:UserService,private router:Router){
+export class AdminloginComponent implements OnInit{
+  constructor(private adminservice:AdminService,private router:Router){
 
   }
-
-  
   loginFormOpened:boolean=true;
   signupFormOpened:boolean=false;
   submitted:boolean=false;
@@ -33,7 +30,8 @@ export class LoginComponent implements OnInit {
 
    this.signupForm = new FormGroup({
     email:new FormControl('',[Validators.required,Validators.email]),
-    password:new FormControl('',Validators.required)
+    password:new FormControl('',Validators.required),
+    storename:new FormControl('',Validators.required)
    })
   }
 
@@ -56,12 +54,11 @@ export class LoginComponent implements OnInit {
       console.log("error")
     }
     else{
-      this.userservice.signup(this.signupForm.value).subscribe((data)=>{
-        console.log(data)
-        this.router.navigateByUrl('/allproduct')
+      this.adminservice.signup(this.signupForm.value).subscribe((data)=>{
+        console.log("ggg",data)
       },
     error=>{
-      console.log(error)
+      console.log("error",error)
     })
       console.log(this.signupForm.value)
     }
@@ -73,9 +70,9 @@ export class LoginComponent implements OnInit {
       console
     }
     else{
-      this.userservice.login(this.loginForm.value).subscribe((data)=>{
+      this.adminservice.login(this.loginForm.value).subscribe((data)=>{
         console.log(data)
-        this.router.navigateByUrl('/allproduct')
+        this.router.navigateByUrl('/admin')
       },
     error=>{
       console.log(error)

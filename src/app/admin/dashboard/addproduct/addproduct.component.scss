@@ -1,0 +1,18 @@
+.formContainer{
+    display: flex;
+    width:500px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: #d6c5f7;
+    form{
+        display: flex;
+        row-gap: 10px;
+        width: 100%;
+        flex-direction: column;
+        input,button{
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+    }
+}

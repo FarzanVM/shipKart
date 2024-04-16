@@ -1,21 +1,23 @@
-<div #mi  class="formContainer">
+
+<div  class="formContainer">
     <div *ngIf="loginFormOpened" class="loginForm">
         <form [formGroup]="loginForm" (ngSubmit)="login()">
             <input type="text" [ngClass]="{'invalid':submitted && this.loginForm.controls['email'].invalid}" formControlName="email" placeholder="Email" required>
             <input type="password" [ngClass]="{'invalid':submitted && this.loginForm.controls['password'].invalid}" formControlName="password" placeholder="Password">
-            <button>Login</button>
+            <button>Login to store</button>
             <p  class="errmsg" *ngIf="submitted && this.loginForm.dirty && this.loginForm.controls['email'].invalid">email not valid</p>
             <p class="errmsg" *ngIf="submitted && this.loginForm.dirty && this.loginForm.controls['password'].invalid">password cannot be empty</p>
             <p class="errmsg" *ngIf="submitted && !this.loginForm.dirty && this.loginForm.invalid">Fields cannot be empty</p>
         </form>
         <div class="signupmsg">
-            <p>New to shipKart?</p><a (click)="openSignupForm()">create account</a>
+            <p>New to shipKart?</p><a (click)="openSignupForm()">create seller account</a>
         </div>
     </div>
     <div  *ngIf="signupFormOpened"  class="signupForm">
         <form [formGroup]="signupForm" (ngSubmit)="createAccount()">
             <input type="text" [ngClass]="{'invalid':submitted && this.signupForm.controls['email'].invalid}" formControlName="email" placeholder="Email">
             <input type="password" [ngClass]="{'invalid':submitted && this.signupForm.controls['password'].invalid}" formControlName="password" placeholder="Password">
+            <input type="text" [ngClass]="{'invalid':submitted && this.signupForm.controls['storename'].invalid}" formControlName="storename" placeholder="storename">
             <button>create account</button>
             <p  class="errmsg" *ngIf="submitted && this.signupForm.dirty && this.signupForm.controls['email'].invalid">email not valid</p>
             <p class="errmsg" *ngIf="submitted && this.signupForm.dirty && this.signupForm.controls['password'].invalid">password cannot be empty</p>
