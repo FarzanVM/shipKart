@@ -17,4 +17,12 @@ export class ProductService {
   getStoreProducts(store:any){
     return this.http.post('http://localhost:3000/api/product/getstoreproducts',store);
   }
+
+  deleteProduct(productid:any){
+    return this.http.delete('http://localhost:3000/api/product/deleteproduct',productid)
+  }
+
+  updateProduct(product:any){
+    return this.http.put('http://localhost:3000/api/product/updateproduct',product)
+  }
 }

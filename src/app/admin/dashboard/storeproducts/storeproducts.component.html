@@ -13,8 +13,8 @@
                 <p>Quantity:{{product.productquantity}}</p>
             </div>
             <div class="productoperations">
-                <button class="deletebtn">delete product</button>
-                <button class="updatebtn">update product</button>
+                <button class="deletebtn" (click)="deleteProduct(product._id)">delete product</button>
+                <button class="updatebtn" (click)="updateProduct(product)">update product</button>
             </div>
         </div>
     </ng-container>
