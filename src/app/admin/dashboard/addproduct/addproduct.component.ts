@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProductService } from '../../../services/productservice/product.service';
+import { min } from 'rxjs';
 
 @Component({
   selector: 'app-addproduct',
@@ -21,7 +22,7 @@ export class AddproductComponent implements OnInit{
     productcategory:new FormControl('',Validators.required),
     productdesc:new FormControl('',Validators.required),
     productprice:new FormControl<number>(0,Validators.required),
-    productdiscount:new FormControl<number>(0,Validators.required),
+    productdiscount:new FormControl<number>(0,[Validators.required,Validators.max(100),Validators.min(0)]),
     productnewprice:new FormControl<number>(0,Validators.required),
     productquantity:new FormControl('',Validators.required),
     productimg:new FormControl('',Validators.required)
@@ -40,6 +41,9 @@ export class AddproductComponent implements OnInit{
       if(!this.productForm.invalid){
         this.invalidForm=false;
       }
+      else{
+        this.invalidForm=true;
+      }
     })
     
   }
@@ -51,7 +55,7 @@ export class AddproductComponent implements OnInit{
     reader.readAsDataURL(files[0])
    reader.onload=()=>{
       this.url = reader.result
-      this.productForm.patchValue({productimg:"product image heeheh"})
+      this.productForm.patchValue({productimg:this.url})
     } 
   }
 

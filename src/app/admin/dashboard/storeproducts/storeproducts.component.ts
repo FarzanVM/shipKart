@@ -36,7 +36,7 @@ export class StoreproductsComponent implements OnInit {
     const product = {
       id:_id
     }
-    this.productservice.deleteProduct(product).subscribe(res =>{
+    this.productservice.deleteProduct(_id).subscribe(res =>{
       console.log(res)
       this.ngOnInit()
     })

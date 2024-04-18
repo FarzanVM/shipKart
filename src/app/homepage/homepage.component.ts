@@ -8,6 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AllproductComponent } from './allproduct/allproduct.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { LoginComponent } from '../login/login.component';
+import { LoginsignupService } from '../services/sharedservice/loginsignup.service';
 
 @Component({
   selector: 'app-homepage',
@@ -24,7 +25,7 @@ export class HomepageComponent implements OnInit {
   faBoxOpen=faBoxOpen
   faheart=faHeart
 
-  constructor(private router:Router){}
+  constructor(private router:Router,private loginsignupservice:LoginsignupService){}
 
   ngOnInit(): void {
 
@@ -37,7 +38,9 @@ export class HomepageComponent implements OnInit {
     this.router.navigate(['adminlogin'])
   }
   gotosignup(){
+    this.loginsignupservice.setFormType('signup');
     this.router.navigate(['login'])
+
   }
 
 }

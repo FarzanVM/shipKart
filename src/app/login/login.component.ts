@@ -3,6 +3,7 @@ import { Component,OnInit} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { UserService } from '../services/userservice/user.service';
 import { Router } from '@angular/router';
+import { LoginsignupService } from '../services/sharedservice/loginsignup.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
  
-  constructor(private userservice:UserService,private router:Router){
+  constructor(private userservice:UserService,private router:Router,private loginsignupservice:LoginsignupService){
 
   }
 
@@ -35,6 +36,14 @@ export class LoginComponent implements OnInit {
     email:new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',Validators.required)
    })
+
+   this.loginsignupservice.getFormType().subscribe(type =>{
+    if(type=='signup'){
+      this.loginFormOpened=false;
+      this.signupFormOpened=true;
+    }
+   })
+  
   }
 
   openSignupForm(){

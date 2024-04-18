@@ -50,7 +50,7 @@ export class UpdateproductComponent implements OnInit{
     reader.readAsDataURL(files[0])
    reader.onload=()=>{
       this.url = reader.result
-      this.productForm.patchValue({productimg:"product image heeheh"})
+      this.productForm.patchValue({productimg:this.url})
     } 
   }
   updateProduct(){

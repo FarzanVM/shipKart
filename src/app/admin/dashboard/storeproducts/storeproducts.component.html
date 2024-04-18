@@ -2,7 +2,7 @@
     <ng-container *ngFor="let product of storeProducts$|async">
         <div class="storeproductCard">
             <div class="imgContainer">
-                <img>
+                <img src={{product.productimg}}>
             </div>
             <div class="details">
                 <p>Name:{{product.productname}}</p>
