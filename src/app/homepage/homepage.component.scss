@@ -17,13 +17,58 @@ body{
     padding: 0px 15px 0px 15px;
     box-sizing: border-box;
     background-color: white;
- 
+    .account{
+        position: relative;
+    }
+    .dropdown{
+        position: absolute;
+        border-radius: 5px;
+        display: none;
+        padding: 10px;
+        background-color: white;
+        width: 200px;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        z-index: 10;
+        .userAlert{
+            width: 100%;
+            padding: 10px 0px 10px 0px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid grey;
+            .signupalert{
+                color: blue;
+                font-weight: bold;
+            }
+        }
+        fa-icon{
+            margin-right: 10px;
+        }
+    }
+    .account:hover{
+        .dropdown{
+            display: block;
+        }
+       
+    }
     button{
         border: none;
         padding: 5px;
         background-color: white;
         cursor: pointer;
         font-size: large;
+        fa-icon{
+            color: rgb(72, 70, 70);
+        }
+        border: 1px solid green;
+        border-radius: 5px;
+    }
+    .loginbtn:hover{
+        background-color:rgb(57, 57, 180);
+        color:#F0F8FF;
+        fa-icon{
+            color: white;
+        }
     }
 }
 .content{

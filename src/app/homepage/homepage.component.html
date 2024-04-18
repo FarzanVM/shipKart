@@ -3,7 +3,20 @@
         <div class="header">
             <h1>ShipKart</h1>
             <app-searchbar></app-searchbar>
-            <button (click)="openLoginForm()">Login</button>
+            <div class="account">
+                <button class="loginbtn" (click)="openLoginForm()"><fa-icon [icon]="faUserCircle"></fa-icon>Login</button>
+                <div class="dropdown">
+                    <div class="userAlert">
+                        <span>New Customer?</span>
+                        <span class="signupalert" (click)="gotosignup()">Signup</span>
+                    </div>
+                    <p><fa-icon [icon]="facircleUser"></fa-icon>My profile</p>
+                    <p><fa-icon [icon]="faBoxOpen"></fa-icon>Orders</p>
+                    <p><fa-icon [icon]="faheart"></fa-icon>Wishlist</p>
+
+                </div>
+            </div>
+            
             <button>
                 <fa-icon [icon]="faCartShopping"></fa-icon> 
                 Cart</button>
