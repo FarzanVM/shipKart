@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular
 import { UserService } from '../services/userservice/user.service';
 import { Router } from '@angular/router';
 import { LoginsignupService } from '../services/sharedservice/loginsignup.service';
+import { AuthService } from '../services/sharedservice/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ import { LoginsignupService } from '../services/sharedservice/loginsignup.servic
 })
 export class LoginComponent implements OnInit {
  
-  constructor(private userservice:UserService,private router:Router,private loginsignupservice:LoginsignupService){
+  constructor(private userservice:UserService,private router:Router,private loginsignupservice:LoginsignupService,private authservice:AuthService){
 
   }
 
@@ -82,8 +83,11 @@ export class LoginComponent implements OnInit {
       console
     }
     else{
-      this.userservice.login(this.loginForm.value).subscribe((data)=>{
+      this.userservice.login(this.loginForm.value).subscribe((data:any)=>{
         console.log(data)
+        const token = data.token
+        localStorage.setItem('token',token)
+        this.authservice.authenticateUser();
         this.router.navigateByUrl('/allproduct')
       },
     error=>{

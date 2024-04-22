@@ -21,7 +21,7 @@ export class AddproductComponent implements OnInit{
     productname:new FormControl('',Validators.required),
     productcategory:new FormControl('',Validators.required),
     productdesc:new FormControl('',Validators.required),
-    productprice:new FormControl<number>(0,Validators.required),
+    productprice:new FormControl<number>(0,[Validators.required,Validators.min(0)]),
     productdiscount:new FormControl<number>(0,[Validators.required,Validators.max(100),Validators.min(0)]),
     productnewprice:new FormControl<number>(0,Validators.required),
     productquantity:new FormControl('',Validators.required),

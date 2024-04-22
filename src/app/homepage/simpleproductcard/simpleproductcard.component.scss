@@ -1,5 +1,6 @@
 .simpleCard{
     display: flex;
+    position: relative;
     flex-direction: column;
     row-gap: 5px;
     padding: 10px;
@@ -11,7 +12,7 @@
     .imgContainer{
         width: 100%;
         height:250px;
-        background-color: greenyellow;
+        object-fit: contain;
     }
     .rating {
         display: flex;
@@ -42,21 +43,31 @@
         display: block;
         p {
             margin: 5px 0px;
-            display: inline;
+            display: inline-block;
+           
         }
         .current-price {
-            margin: 5px 0px;
+            // margin: 5px 0px;
+            // display: block;
             font-size: 18px;
             font-weight: 600;
             fa-icon{
                 font-size: 20px;
             }
+            span{
+                margin-right: 13px;
+            }
+           
         }
         .original-price {
             font-size: 14px;
             font-weight: 600;
             color: #878787;
             text-decoration: line-through;
+            padding-left: 10px;
+            span{
+                margin-right: 10px;
+            }
         }
     
         .discount {
@@ -68,6 +79,19 @@
         .deliverymethod {
             font-size: 12px;
         }
+    }
+    fa-icon{
+        position: absolute;
+    }
+    .wishlisted{
+        color: #ff2e2e;
+    }
+    button{
+        border: none;
+        border-radius: 3px;
+        padding: 10px;
+        background-color: #ffbf00;
+        font-weight: bold;
     }
 }
 .simpleCard:hover{

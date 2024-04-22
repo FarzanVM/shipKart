@@ -4,6 +4,8 @@ import { BrochureComponent } from './homepage/brochure/brochure.component';
 import { AllproductComponent } from './homepage/allproduct/allproduct.component';
 import { LoginComponent } from './login/login.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { MycartComponent } from './homepage/mycart/mycart.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [{
     path:'',
@@ -25,6 +27,11 @@ export const routes: Routes = [{
             path:'adminlogin',
             component:AdminloginComponent
         },
+        {
+            path:'mycart',
+            component:MycartComponent,
+            canActivate:[authGuard]
+        }
        ]},
         {
             path:'admin',

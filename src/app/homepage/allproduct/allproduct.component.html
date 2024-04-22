@@ -41,7 +41,13 @@
             </div>
         </div>
         <!-- <app-product-card></app-product-card> -->
-        <app-simpleproductcard></app-simpleproductcard>
+        <div class="productsArray">
+            <ng-container *ngFor="let product of product$|async">
+                <app-simpleproductcard [product]="product"></app-simpleproductcard>
+            </ng-container>
+            
+        </div>
+        
     
     </div>
 </div>
