@@ -4,6 +4,7 @@ import { faHeart as faHeartFilled,faStar,faIndianRupee} from '@fortawesome/free-
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/sharedservice/auth.service';
 
 @Component({
   selector: 'app-simpleproductcard',
@@ -20,19 +21,13 @@ export class SimpleproductcardComponent {
   wishlisted:boolean=false;
   @Input() product:any;
 
-  constructor(private router:Router){}
+  constructor(private router:Router,private authservice:AuthService){}
 
   addtoWishlist(){
     this.wishlisted=!this.wishlisted;
   }
 
   addtoCart(){
-    const token = localStorage.getItem('token')
-    if(token){
-
-    }
-    else{
-      this.router.navigate(['login'])
-    }
+      this.router.navigate(['mycart'])
   }
 }

@@ -88,7 +88,9 @@ export class LoginComponent implements OnInit {
         const token = data.token
         localStorage.setItem('token',token)
         this.authservice.authenticateUser();
-        this.router.navigateByUrl('/allproduct')
+        const redirecturl = this.authservice.redirectUrl;
+        console.log("redirect url",redirecturl)
+        this.router.navigate([redirecturl]);
       },
     error=>{
       console.log(error)

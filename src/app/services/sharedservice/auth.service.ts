@@ -8,6 +8,7 @@ export class AuthService {
   // private isAuthenticated:boolean=false;
   // private token = new BehaviorSubject(localStorage.getItem('token'));
   private isAuthenticated=new BehaviorSubject(false);
+  public redirectUrl:string='';
 
   constructor() {
     const token = localStorage.getItem('token')
