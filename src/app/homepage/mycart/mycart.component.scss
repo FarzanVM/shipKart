@@ -1,0 +1,102 @@
+.container{
+    display: flex;
+    width: 100%;
+    column-gap: 10px;
+    .cartitemscontainer{
+        display: flex;
+        flex-direction: column;
+        .cartProductCard{
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid rgb(168, 166, 166);
+            width: 800px;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: white;
+            .details{
+                display: flex;
+                column-gap: 10px;
+                img{
+                    width: 200px;
+                    height: 150px;
+                    background-color: green;
+                }
+                .detailsContainer {
+                    display: flex;
+                    flex-direction: column;
+                    h3{
+                        margin: 0px;
+                    }
+                    .price-section{
+                        display: flex;
+                        align-items: center;
+                        column-gap: 10px;
+                        .current-price{
+                            font-size: 18px;
+                           font-weight: bold;
+                        }
+                        .original-price{
+                            font-size: 14px;
+                            color: rgb(165, 165, 165);
+                            text-decoration: line-through;
+                        }
+                        .discount{
+                            font-size: 14px;
+                            color: #388e3c;
+                            font-weight: 600;
+                        }
+                    }
+                }
+                .deliverydate{
+                    margin: 3px;
+                    font-size: 14px;
+                }
+                
+            }
+    
+        }
+    }
+    .cartPriceContainer{
+        display: flex;
+        width: auto;
+        position: relative;
+        .totalCartdetails{
+            min-width: 400px;
+            height: 300px;
+            top:0px;
+            position: sticky;
+            display: flex;
+            background-color: white;
+            flex-direction: column;
+            justify-content: center;
+            p{
+                margin:10px;
+            }
+            fa-icon{
+               font-size: 14px;
+            }
+            p:first-child{
+                font-weight: bolder;
+                color: rgb(176, 176, 176);
+                border-bottom:1px solid rgb(160, 157, 157);
+                padding-bottom: 10px;
+            }
+            p:nth-child(4){
+                border-bottom:1px solid rgb(160, 157, 157);
+                padding-bottom: 10px;
+            }
+            p:nth-child(5){
+                font-weight: bold;
+                border-bottom:1px solid rgb(160, 157, 157);
+                padding-bottom: 10px;
+            }
+            span{
+                float: right;
+            }
+            p:last-child{
+                font-weight: bold;
+                color: #388e3c;
+            }
+        }
+    }    
+}
