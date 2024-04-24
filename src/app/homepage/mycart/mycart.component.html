@@ -1,56 +1,25 @@
 <div class="container">
     <div class="cartitemscontainer">
-        <div class="cartProductCard">
-            <div class="details">
-                <img alt="product image">
-                <div class="detailsContainer">
-                    <div class="productDetails">
-                        <h3>Name of the Product</h3>
-                        <p>seller:</p>
+        <ng-container *ngFor="let product of cartItems$|async">
+            <div class="cartProductCard">
+                <div class="details">
+                    <img src={{product[0].productimg}} alt="product image" >
+                    <div class="detailsContainer">
+                        <div class="productDetails">
+                            <h3>{{product[0].productname}}</h3>
+                            <p>seller:{{product[0].storename}}</p>
+                        </div>
+                        <div class="price-section">
+                            <p class="original-price"><fa-icon [icon]="farupee"></fa-icon>{{product[0].productnewprice}}</p>
+                            <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>{{product[0].productprice}}</p>
+                            <p class="discount">{{product[0].productdiscount}}%</p>
+                        </div>
                     </div>
-                    <div class="price-section">
-                        <p class="original-price"><fa-icon [icon]="farupee"></fa-icon>50000</p>
-                        <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>34000</p>
-                        <p class="discount">50% off</p>
-                    </div>
+                    <p class="deliverydate">Delivery by</p>
                 </div>
-                <p class="deliverydate">Delivery by</p>
             </div>
-        </div>
-        <div class="cartProductCard">
-            <div class="details">
-                <img alt="product image">
-                <div class="detailsContainer">
-                    <div class="productDetails">
-                        <h3>Name of the Product</h3>
-                        <p>seller:</p>
-                    </div>
-                    <div class="price-section">
-                        <p class="original-price"><fa-icon [icon]="farupee"></fa-icon>50000</p>
-                        <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>34000</p>
-                        <p class="discount">50% off</p>
-                    </div>
-                </div>
-                <p class="deliverydate">Delivery by</p>
-            </div>
-        </div>
-        <div class="cartProductCard">
-            <div class="details">
-                <img alt="product image">
-                <div class="detailsContainer">
-                    <div class="productDetails">
-                        <h3>Name of the Product</h3>
-                        <p>seller:</p>
-                    </div>
-                    <div class="price-section">
-                        <p class="original-price"><fa-icon [icon]="farupee"></fa-icon>50000</p>
-                        <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>34000</p>
-                        <p class="discount">50% off</p>
-                    </div>
-                </div>
-                <p class="deliverydate">Delivery by</p>
-            </div>
-        </div>
+        </ng-container>
+        
     </div>
     <div class="cartPriceContainer">
         <div class="totalCartdetails">

@@ -4,12 +4,15 @@
     column-gap: 10px;
     .cartitemscontainer{
         display: flex;
+        width: 100%;
+
         flex-direction: column;
         .cartProductCard{
             display: flex;
+            box-sizing: border-box;
             flex-direction: column;
             border-bottom: 1px solid rgb(168, 166, 166);
-            width: 800px;
+            width: 100%;
             border-radius: 8px;
             padding: 10px;
             background-color: white;
@@ -19,7 +22,7 @@
                 img{
                     width: 200px;
                     height: 150px;
-                    background-color: green;
+                    object-fit: cover;
                 }
                 .detailsContainer {
                     display: flex;

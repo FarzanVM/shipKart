@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-allproduct',
   standalone: true,
-  imports: [ProductCardComponent,SimpleproductcardComponent,CommonModule],
+  imports: [ProductCardComponent,CommonModule,SimpleproductcardComponent],
   templateUrl: './allproduct.component.html',
   styleUrl: './allproduct.component.scss'
 })

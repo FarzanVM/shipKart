@@ -5,6 +5,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/sharedservice/auth.service';
+import { CartService } from '../../services/cartservice/cart.service';
 
 @Component({
   selector: 'app-simpleproductcard',
@@ -21,13 +22,24 @@ export class SimpleproductcardComponent {
   wishlisted:boolean=false;
   @Input() product:any;
 
-  constructor(private router:Router,private authservice:AuthService){}
+  constructor(private router:Router,private authservice:AuthService,private cartservice:CartService){}
 
   addtoWishlist(){
     this.wishlisted=!this.wishlisted;
   }
 
-  addtoCart(){
-      this.router.navigate(['mycart'])
+  addtoCart(productid:any){
+
+    const username = localStorage.getItem('username')
+    const cart={
+      product_id:productid,
+      username:username
+    }
+    console.log("cartitem",cart)
+      // this.router.navigate(['mycart'])
+      this.cartservice.addToCart(cart).subscribe(res=>{
+        console.log("response",res)
+      })
+      
   }
 }

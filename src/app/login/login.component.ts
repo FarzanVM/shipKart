@@ -86,7 +86,9 @@ export class LoginComponent implements OnInit {
       this.userservice.login(this.loginForm.value).subscribe((data:any)=>{
         console.log(data)
         const token = data.token
+        const username = data.username
         localStorage.setItem('token',token)
+        localStorage.setItem('username',username)
         this.authservice.authenticateUser();
         const redirecturl = this.authservice.redirectUrl;
         console.log("redirect url",redirecturl)
