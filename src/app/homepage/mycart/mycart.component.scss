@@ -22,7 +22,7 @@
                 img{
                     width: 200px;
                     height: 150px;
-                    object-fit: cover;
+                    object-fit: contain;
                 }
                 .detailsContainer {
                     display: flex;
@@ -55,6 +55,15 @@
                     font-size: 14px;
                 }
                 
+            }
+            .btnContainer{
+                display: flex;
+                column-gap: 3px;
+                button{
+                    flex:1;
+                    border:none;
+                    padding: 10px;
+                }
             }
     
         }

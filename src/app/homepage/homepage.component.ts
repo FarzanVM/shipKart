@@ -50,6 +50,7 @@ export class HomepageComponent implements OnInit {
   }
   logOut(){
     localStorage.removeItem('token');
+    localStorage.removeItem('username')
     this.authservice.deauthenticateuser();
     this.router.navigate(['/'])
   }

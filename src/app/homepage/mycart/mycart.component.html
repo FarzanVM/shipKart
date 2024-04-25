@@ -10,12 +10,16 @@
                             <p>seller:{{product[0].storename}}</p>
                         </div>
                         <div class="price-section">
-                            <p class="original-price"><fa-icon [icon]="farupee"></fa-icon>{{product[0].productnewprice}}</p>
-                            <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>{{product[0].productprice}}</p>
+                            <p class="original-price"><fa-icon [icon]="farupee"></fa-icon>{{product[0].productprice}}</p>
+                            <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>{{product[0].productnewprice}}</p>
                             <p class="discount">{{product[0].productdiscount}}%</p>
                         </div>
                     </div>
                     <p class="deliverydate">Delivery by</p>
+                </div>
+                <div class="btnContainer">
+                    <button (click)="removeFromCart(product[0]._id)">Remove item</button>
+                    <button>Buy Now</button>
                 </div>
             </div>
         </ng-container>
@@ -24,11 +28,11 @@
     <div class="cartPriceContainer">
         <div class="totalCartdetails">
             <p>Price Details </p>
-            <p>Price<span><fa-icon [icon]="farupee"></fa-icon>1000</span></p>
-            <p>Discount<span><fa-icon [icon]="farupee"></fa-icon>1233</span></p>
-            <p>Delivery Charges<span><fa-icon [icon]="farupee"></fa-icon>1213</span></p>
-            <p>Total Amount<span><fa-icon [icon]="farupee"></fa-icon>12323</span></p>
-            <p>You will save 80% on this order</p>
+            <p>Price<span><fa-icon [icon]="farupee"></fa-icon>{{price}}</span></p>
+            <p>Discount<span><fa-icon [icon]="farupee"></fa-icon>{{discount}}</span></p>
+            <p>Delivery Charges<span><fa-icon [icon]="farupee"></fa-icon>{{deliverycharges}}</span></p>
+            <p>Total Amount<span><fa-icon [icon]="farupee"></fa-icon>{{totalPrice}}</span></p>
+            <p>You will save {{savedPercent}}% on this order</p>
         </div>
     </div>
 </div>
