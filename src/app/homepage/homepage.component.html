@@ -12,14 +12,14 @@
                     </div>
                     <p><fa-icon [icon]="facircleUser"></fa-icon>My profile</p>
                     <p><fa-icon [icon]="faBoxOpen"></fa-icon>Orders</p>
-                    <p><fa-icon [icon]="faheart"></fa-icon>Wishlist</p>
+                    <p (click)="gotoWishList()"><fa-icon [icon]="faheart"></fa-icon>Wishlist</p>
                     <p *ngIf="(loggedIn$|async)" (click)="logOut()"><fa-icon [icon]="fapowerOff"></fa-icon>Logout</p>
 
                 </div>
             </div>
             
-            <button>
-                <fa-icon [icon]="faCartShopping"></fa-icon> 
+            <button (click)="gotoMyCart()">
+                <fa-icon [icon]="faCartShopping" ></fa-icon> 
                 Cart</button>
             <button (click)="openloginFormSeller()">
                 <fa-icon [icon]="faStore"></fa-icon> a seller</button>

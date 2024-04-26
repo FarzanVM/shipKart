@@ -1,0 +1,95 @@
+.wishlistContainer{
+    display: flex;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    .heading{
+        border-bottom: 1px solid rgb(192, 189, 189);
+        padding:0px 0px 10px 10px;
+    }
+    .wishlistCard{
+        display: flex;
+        box-sizing: border-box;
+        flex-direction: column;
+        border-bottom: 1px solid rgb(168, 166, 166);
+        width: 100%;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: white;
+        .details{
+            display: flex;
+            column-gap: 10px;
+            img{
+                width: 200px;
+                height: 150px;
+                object-fit: contain;
+            }
+            .detailsContainer {
+                display: flex;
+                flex-direction: column;
+                h3{
+                    margin: 0px;
+                }
+                .rating {
+                    display: flex;
+                    column-gap: 10px;
+                    align-items: center;
+    
+                    .totalrating {
+                        padding: 2px 4px 2px 6px;
+                        background-color: #388e3c;
+                        border-radius: 3px;
+                        font-size: 12px;
+                        font-weight: 600;
+                        color: #fff;
+    
+                        fa-icon {
+                            font-size: 12px;
+                        }
+                    }
+    
+                    .review {
+                        color: #878787;
+                        font-weight: 600;
+                        font-size: 14px;
+                    }
+    
+                }
+                .price-section{
+                    display: flex;
+                    align-items: center;
+                    column-gap: 10px;
+                    .current-price{
+                        font-size: 18px;
+                       font-weight: bold;
+                    }
+                    .original-price{
+                        font-size: 14px;
+                        color: rgb(165, 165, 165);
+                        text-decoration: line-through;
+                    }
+                    .discount{
+                        font-size: 14px;
+                        color: #388e3c;
+                        font-weight: 600;
+                    }
+                }
+            }
+            .deliverydate{
+                margin: 3px;
+                font-size: 14px;
+            }
+            
+        }
+        .btnContainer{
+            display: flex;
+            column-gap: 3px;
+            button{
+                flex:1;
+                border:none;
+                padding: 10px;
+            }
+        }
+
+    }
+}

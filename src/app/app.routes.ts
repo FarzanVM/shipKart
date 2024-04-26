@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { MycartComponent } from './homepage/mycart/mycart.component';
 import { authGuard } from './guards/auth.guard';
+import { WishlistComponent } from './homepage/wishlist/wishlist.component';
 
 export const routes: Routes = [{
     path:'',
@@ -26,6 +27,11 @@ export const routes: Routes = [{
         {
             path:'adminlogin',
             component:AdminloginComponent
+        },
+        {
+            path:'wishlist',
+            component:WishlistComponent,
+            canActivate:[authGuard]
         },
         {
             path:'mycart',

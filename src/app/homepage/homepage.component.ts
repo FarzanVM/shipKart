@@ -48,6 +48,14 @@ export class HomepageComponent implements OnInit {
     this.loginsignupservice.setFormType('signup');
     this.router.navigate(['login'])
   }
+
+  gotoWishList(){
+    this.router.navigate(['wishlist'])
+  }
+  gotoMyCart(){
+    this.router.navigate(['mycart'])
+  }
+
   logOut(){
     localStorage.removeItem('token');
     localStorage.removeItem('username')
