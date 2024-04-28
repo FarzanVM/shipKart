@@ -2,8 +2,9 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { SimpleproductcardComponent } from '../simpleproductcard/simpleproductcard.component';
 import { ProductService } from '../../services/productservice/product.service';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin, map, mergeMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { WishlistService } from '../../services/wishlistservice/wishlist.service';
 
 @Component({
   selector: 'app-allproduct',
@@ -16,16 +17,50 @@ export class AllproductComponent implements OnInit{
   
   startVal:any;
   endVal:any;
-  product$:Observable<any> | undefined;
-  constructor(private productservice:ProductService){}
+  product$: any;
+  wishlist$:any;
+  constructor(private productservice:ProductService,private wishlistservice:WishlistService){}
 
   ngOnInit(): void {
-    this.product$ =  this.productservice.getProducts()
-    this.product$.subscribe(res=>{
-      console.log("prodc",res)
-    })
-  }
+
+    const username = localStorage.getItem('username')
+    const user={
+      username:username
+    }
+    const wishlistedItems=new Map()
+
+    const product =  this.productservice.getProducts()
+    const wishlist = this.wishlistservice.getWishListItems(user)
+
+    forkJoin([product,wishlist]).subscribe(result =>{
+      this.product$=result[0]
+      this.wishlist$=result[1]
+      if(this.wishlist$.length){
+        this.wishlist$.forEach((element:any)=>{
+          wishlistedItems.set(element._id,0)
+        })
   
+        this.product$ = this.product$.map((product: any)=>{
+          let match=false
+          if(wishlistedItems.has(product._id)){
+            match=true
+          }
+          return {
+            ...product,
+            wishlisted:match
+          }    
+        })
+      }
+     
+    })
+
+  }
+  refresh($event:any){
+    if($event){
+      this.ngOnInit();
+    }
+  }
+
   selectRange(input:any){
     this.endVal=input.value;
     console.log("range value",input.value)

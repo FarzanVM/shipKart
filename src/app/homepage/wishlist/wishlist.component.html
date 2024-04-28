@@ -2,34 +2,41 @@
     <p class="heading">
         My WishList
     </p>
-    <div class="wishlistCard">
-        <div class="details">
-            <img src=""  alt="product image" >
-            <div class="detailsContainer">
-                <div class="productDetails">
-                    <h3>name</h3>
-                    <div class="rating">
-                        <div class="totalrating">
-                            4.3
-                            <fa-icon [icon]="faStar"></fa-icon>
-                        </div>
-                        <div class="review">
-                            54 Ratings & 4 Reviews
+    <div *ngIf="!(wishlistItems$|async)?.length">
+        <p>Wishlist is empty</p>
+    </div>
+    <ng-container *ngIf="(wishlistItems$|async)?.length>0">
+    <ng-container  *ngFor="let product of (wishlistItems$|async)">
+        <div class="wishlistCard">
+            <div class="details">
+                <img src={{product.productimg}}  alt="product image" >
+                <div class="detailsContainer">
+                    <div class="productDetails">
+                        <h3>{{product.productname}}</h3>
+                        <div class="rating">
+                            <div class="totalrating">
+                                4.3
+                                <fa-icon [icon]="faStar"></fa-icon>
+                            </div>
+                            <div class="review">
+                                54 Ratings & 4 Reviews
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="price-section">
-                    <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>current price</p>
-                    <p class="original-price"><fa-icon [icon]="farupee"></fa-icon>original price</p>
-                   
-                    <p class="discount">discount%</p>
+                    <div class="price-section">
+                        <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>{{product.productnewprice}}</p>
+                        <p class="original-price"><fa-icon [icon]="farupee"></fa-icon>{{product.productprice}}</p>
+                       
+                        <p class="discount">{{product.productdiscount}}%</p>
+                    </div>
                 </div>
             </div>
+            <div class="btnContainer">
+                <button (click)="removeFromWishList(product._id)" >Remove item</button>
+                <button>Buy Now</button>
+            </div>
         </div>
-        <div class="btnContainer">
-            <button >Remove item</button>
-            <button>Buy Now</button>
-        </div>
-    </div>
+    </ng-container>
+</ng-container>
 
 </div>

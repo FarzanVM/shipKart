@@ -9,7 +9,15 @@ export class WishlistService {
   constructor(private http:HttpClient) { }
 
 
-  addToWishList(model:any){
-    return this.http.post('http://localhost:3000/api/wishlist/addtowishlist',model)
+  getWishListItems(user:any){
+    return this.http.post('http://localhost:3000/api/wishlist/getwishlistitems',user)
+  }
+
+  addToWishList(product:any){
+    return this.http.post('http://localhost:3000/api/wishlist/addtowishlist',product)
+  }
+
+  removeFromWishList(id:any){
+    return this.http.delete('http://localhost:3000/api/wishlist/removefromwishlist/'+id)
   }
 }
