@@ -42,7 +42,11 @@
         </div>
         <!-- <app-product-card></app-product-card> -->
         <div class="productsArray">
-            <ng-container  *ngFor="let product of product$">
+            <div *ngIf="!loadedData">
+                it Takes some time
+            </div>
+            <ng-container  *ngFor="let product of (product$|async)">
+                
                 <app-simpleproductcard (refreshNeeded)="refresh($event)" [product]="product"></app-simpleproductcard>
             </ng-container>
             

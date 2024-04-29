@@ -21,7 +21,7 @@ export class SimpleproductcardComponent implements OnInit {
   faHeartFilled = faHeartFilled
   faStar = faStar;
   farupee = faIndianRupee
-  wishlisted: boolean = false;
+  
   @Input() product: any;
   @Output() refreshNeeded= new EventEmitter<boolean>;
 
@@ -29,11 +29,11 @@ export class SimpleproductcardComponent implements OnInit {
      private wishlistservice: WishlistService,private toastrservice:ToastrService) { }
 
   ngOnInit(): void {
-    console.log(this.product)
+    // console.log(this.product)
   }
 
   addtoWishlist(product_id: any) {
-    this.wishlisted = !this.wishlisted;
+
     const username = localStorage.getItem('username')
     const product = {
       product_id: product_id,
@@ -47,14 +47,12 @@ export class SimpleproductcardComponent implements OnInit {
       error => {
         this.toastrservice.error(error.error.message)
       })
-    // }
-    // else {
-    //   this.wishlistservice.removeFromWishList(product_id).subscribe(res => {
-    //     console.log(res)
-    //   })
-    // }
-
-
+  }
+  removeFromWishList(product_id:any){
+    this.wishlistservice.removeFromWishList(product_id).subscribe((res:any)=>{
+      this.toastrservice.success(res.message)
+     this.refreshNeeded.emit(true)
+    })
   }
 
   addtoCart(productid: any) {
