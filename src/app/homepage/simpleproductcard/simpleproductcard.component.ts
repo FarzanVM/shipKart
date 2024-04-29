@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/sharedservice/auth.service';
 import { CartService } from '../../services/cartservice/cart.service';
 import { WishlistService } from '../../services/wishlistservice/wishlist.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-simpleproductcard',
@@ -24,7 +25,8 @@ export class SimpleproductcardComponent implements OnInit {
   @Input() product: any;
   @Output() refreshNeeded= new EventEmitter<boolean>;
 
-  constructor(private router: Router, private authservice: AuthService, private cartservice: CartService, private wishlistservice: WishlistService) { }
+  constructor(private router: Router, private authservice: AuthService, private cartservice: CartService,
+     private wishlistservice: WishlistService,private toastrservice:ToastrService) { }
 
   ngOnInit(): void {
     console.log(this.product)
@@ -37,12 +39,13 @@ export class SimpleproductcardComponent implements OnInit {
       product_id: product_id,
       username: username
     }
-    this.wishlistservice.addToWishList(product).subscribe(res => {
+    this.wishlistservice.addToWishList(product).subscribe((res:any)=> {
       console.log(res)
+      this.toastrservice.success(res.message)
       this.refreshNeeded.emit(true)
     },
       error => {
-        console.log(error.error.message)
+        this.toastrservice.error(error.error.message)
       })
     // }
     // else {
@@ -62,9 +65,13 @@ export class SimpleproductcardComponent implements OnInit {
       username: username
     }
     console.log("cartitem", cart)
-    this.cartservice.addToCart(cart).subscribe(res => {
+    this.cartservice.addToCart(cart).subscribe((res:any) => {
       console.log("response", res)
-    })
-
+      this.toastrservice.success(res.message)
+    },
+    (error)=>{
+      this.toastrservice.warning(error.error.message)
+    }
+    )
   }
 }

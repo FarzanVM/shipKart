@@ -5,6 +5,7 @@ import { UserService } from '../services/userservice/user.service';
 import { Router } from '@angular/router';
 import { LoginsignupService } from '../services/sharedservice/loginsignup.service';
 import { AuthService } from '../services/sharedservice/auth.service';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,9 @@ import { AuthService } from '../services/sharedservice/auth.service';
 })
 export class LoginComponent implements OnInit {
  
-  constructor(private userservice:UserService,private router:Router,private loginsignupservice:LoginsignupService,private authservice:AuthService){
+  constructor(private userservice:UserService,private router:Router,private loginsignupservice:LoginsignupService,private authservice:AuthService,
+    private toastrservice:ToastrService
+  ){
 
   }
 
@@ -66,7 +69,7 @@ export class LoginComponent implements OnInit {
       console.log("error")
     }
     else{
-      this.userservice.signup(this.signupForm.value).subscribe((data)=>{
+      this.userservice.signup(this.signupForm.value).subscribe((data:any)=>{
         console.log(data)
         this.router.navigateByUrl('/allproduct')
       },
@@ -87,15 +90,17 @@ export class LoginComponent implements OnInit {
         console.log(data)
         const token = data.token
         const username = data.username
+
         localStorage.setItem('token',token)
         localStorage.setItem('username',username)
+        
         this.authservice.authenticateUser();
         const redirecturl = this.authservice.redirectUrl;
-        console.log("redirect url",redirecturl)
+        this.toastrservice.success(data.message)
         this.router.navigate([redirecturl]);
       },
     error=>{
-      console.log(error)
+      this.toastrservice.error(error.error.message)
     })
       // console.log(this.loginForm.value)
     }
