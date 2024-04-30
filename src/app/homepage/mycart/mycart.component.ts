@@ -5,6 +5,8 @@ import { CartService } from '../../services/cartservice/cart.service';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { SimpleproductcardComponent } from '../simpleproductcard/simpleproductcard.component';
+import { OrderService } from '../../services/orderservice/order.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-mycart',
@@ -25,7 +27,7 @@ export class MycartComponent implements OnInit, OnDestroy {
   totalPrice: number = 0;
   savedPercent: number = 0;
 
-  constructor(private cartservice: CartService) { }
+  constructor(private cartservice: CartService,private orderservice:OrderService,private toastrservice:ToastrService) { }
 
   ngOnInit(): void {
 
@@ -61,6 +63,22 @@ export class MycartComponent implements OnInit, OnDestroy {
     })
   }
 
+  orderItem(id:string,storename:string){
+    const username = localStorage.getItem('username')
+    const order = {
+      product_id:id,
+      username:username,
+      storename:storename
+    }
+
+    this.orderservice.addOrder(order).subscribe((res:any)=>{
+      this.toastrservice.success(res.message)
+    },
+  (error)=>{
+    this.toastrservice.warning(error.error.message)
+  })
+
+  }
 
   ngOnDestroy(): void {
     this.ngUnsubscribe.next()

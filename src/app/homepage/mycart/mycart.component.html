@@ -19,7 +19,7 @@
                 </div>
                 <div class="btnContainer">
                     <button (click)="removeFromCart(product[0]._id)">Remove item</button>
-                    <button>Buy Now</button>
+                    <button (click)="orderItem(product[0]._id,product[0].storename)">Buy Now</button>
                 </div>
             </div>
         </ng-container>

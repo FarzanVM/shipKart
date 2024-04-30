@@ -1,0 +1,93 @@
+.container{
+    display: flex;
+    width: 100%;
+    column-gap: 10px;
+    .orderitemscontainer{
+        display: flex;
+        width: 100%;
+
+        flex-direction: column;
+        .orderProductCard{
+            display: flex;
+            box-sizing: border-box;
+            // flex-direction: column;
+            column-gap: 20px;
+            border-bottom: 1px solid rgb(168, 166, 166);
+            width: 100%;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: white;
+            .details{
+                display: flex;
+                column-gap: 10px;
+                img{
+                    width: 100px;
+                    height: 100px;
+                    object-fit: contain;
+                    background-color: red;
+                }
+                .detailsContainer {
+                    display: flex;
+                    flex-direction: column;
+                    h3{
+                        margin: 0px;
+                    }
+                    .price-section{
+                        display: flex;
+                        align-items: center;
+                        column-gap: 10px;
+                        .current-price{
+                            font-size: 18px;
+                           font-weight: bold;
+                        }
+                    }
+                }
+                
+            }
+            .progressbar{
+                display: flex;
+                align-items: center;
+                border:1px solid blue;
+                .section{
+                    display: flex;
+                    width: 120px;
+                    box-sizing: border-box;
+                    flex-direction: column;
+                    .orderStatus{
+                        margin-left: -10px;
+                        font-size: 12px;
+                        color: #388e3c;
+                        font-weight: bold;
+                    }
+                    
+                    .dateconfirmed{
+                        font-size: 13px;
+                        margin-left: -10px;
+                        color: rgb(137, 132, 132);
+                        font-weight: bold;
+                    }
+                }
+                .status{
+                    display: flex;
+                    align-items: center;
+                }
+                .circle{
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background-color:#388e3c;
+
+                }
+                .bar{
+                    width: 105px;
+                    height: 0px;
+                    border: 2px solid rgb(200, 196, 196);
+                }
+                .success{
+                    color: #388e3c;
+               }
+            }
+    
+        }
+    }
+}

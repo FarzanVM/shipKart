@@ -55,6 +55,9 @@ export class HomepageComponent implements OnInit {
   gotoMyCart(){
     this.router.navigate(['mycart'])
   }
+  gotoMyOrders(){
+    this.router.navigate(['myorder'])
+  }
 
   logOut(){
     localStorage.removeItem('token');
