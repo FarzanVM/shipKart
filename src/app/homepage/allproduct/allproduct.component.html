@@ -28,7 +28,7 @@
     
     </div>
     <div class="productContainer">
-        <div>
+        <div class="headSection">
             <p>path</p>
             <p class="result-count">Showing result</p>
             <div class="sortBy-section">
@@ -41,10 +41,10 @@
             </div>
         </div>
         <!-- <app-product-card></app-product-card> -->
+        <div class="loader" *ngIf="!loadedData">
+        </div>
         <div class="productsArray">
-            <div *ngIf="!loadedData">
-                it Takes some time
-            </div>
+            
             <ng-container  *ngFor="let product of (product$|async)">
                 
                 <app-simpleproductcard (refreshNeeded)="refresh($event)" [product]="product"></app-simpleproductcard>

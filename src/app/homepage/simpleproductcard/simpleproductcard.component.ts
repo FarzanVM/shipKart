@@ -66,6 +66,8 @@ export class SimpleproductcardComponent implements OnInit {
     this.cartservice.addToCart(cart).subscribe((res:any) => {
       console.log("response", res)
       this.toastrservice.success(res.message)
+      this.refreshNeeded.emit(true)
+
     },
     (error)=>{
       this.toastrservice.warning(error.error.message)

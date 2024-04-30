@@ -4,9 +4,10 @@
             <h1>ShipKart</h1>
             <app-searchbar></app-searchbar>
             <div class="account">
-                <button class="loginbtn" (click)="openLoginForm()"><fa-icon [icon]="faUserCircle"></fa-icon>Login</button>
+                <button *ngIf="!(loggedIn$|async)" class="loginbtn" (click)="openLoginForm()"><fa-icon [icon]="faUserCircle"></fa-icon>Login</button>
+                <button *ngIf="(loggedIn$|async)" class="loginbtn" ><fa-icon [icon]="faUserCircle"></fa-icon>Welcome</button>
                 <div class="dropdown">
-                    <div class="userAlert">
+                    <div *ngIf="!(loggedIn$|async)"  class="userAlert">
                         <span>New Customer?</span>
                         <span class="signupalert" (click)="gotosignup()">Signup</span>
                     </div>

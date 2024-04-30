@@ -69,11 +69,12 @@
     background-color: white;
     padding-left: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    div{
-        border-bottom: 1px solid rgb(214, 214, 214);
-    }
+    border-bottom: 1px solid rgb(214, 214, 214);
+    // div{
+    //     border-bottom: 1px solid rgb(214, 214, 214);
+    // }
     .headSection{
-
+        border-bottom: 1px solid rgb(214, 214, 214);
     }
     .result-count{
         font-size: 16px;
@@ -109,3 +110,15 @@
         box-sizing: border-box;
     }
 }
+.loader{
+    border:10px solid #f3f3f3;
+    width:120px;
+    height:120px;
+    border-radius: 50%;
+    border-top: 10px solid #3498db;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
