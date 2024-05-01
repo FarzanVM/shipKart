@@ -16,7 +16,7 @@
             width: 100%;
             border-radius: 8px;
             padding: 10px;
-            background-color: white;
+            background-color: #fff;
             .details{
                 display: flex;
                 column-gap: 10px;
@@ -24,7 +24,6 @@
                     width: 100px;
                     height: 100px;
                     object-fit: contain;
-                    background-color: red;
                 }
                 .detailsContainer {
                     display: flex;

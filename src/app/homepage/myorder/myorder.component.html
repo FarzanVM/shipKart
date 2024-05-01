@@ -1,16 +1,16 @@
 <div class="container">
     <div class="orderitemscontainer">
-        <ng-container>
+        <ng-container *ngFor="let product of (orders$|async)">
             <div class="orderProductCard">
                 <div class="details">
-                    <img src="" alt="product image">
+                    <img src={{product.productimg}} alt="product image">
                     <div class="detailsContainer">
                         <div class="productDetails">
-                            <h3>name</h3>
-                            <p>seller:</p>
+                            <h3>{{product.productname}}</h3>
+                            <p>seller:{{product.storename}}</p>
                         </div>
                         <div class="price-section">
-                            <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>currentprice</p>
+                            <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>{{product.productnewprice}}</p>
                         </div>
                     </div>
                 </div>

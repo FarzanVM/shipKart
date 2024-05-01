@@ -68,7 +68,8 @@ export class MycartComponent implements OnInit, OnDestroy {
     const order = {
       product_id:id,
       username:username,
-      storename:storename
+      storename:storename,
+      orderstatus:"Order Confirmed"
     }
 
     this.orderservice.addOrder(order).subscribe((res:any)=>{
