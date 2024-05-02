@@ -3,6 +3,7 @@ import { ProductUpdateService } from '../../../services/sharedservice/product-up
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../../services/productservice/product.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-updateproduct',
@@ -16,7 +17,7 @@ export class UpdateproductComponent implements OnInit{
   productForm:FormGroup | any;
   url:string|any;
 
-  constructor(private productupdateservice:ProductUpdateService,private productservice:ProductService){}
+  constructor(private productupdateservice:ProductUpdateService,private productservice:ProductService,private toastrservice:ToastrService){}
 
   ngOnInit(): void {
     this.product = this.productupdateservice.product;
@@ -55,9 +56,12 @@ export class UpdateproductComponent implements OnInit{
   }
   updateProduct(){
     console.log("updated product",this.productForm.value)
-    this.productservice.updateProduct(this.productForm.value).subscribe(res=>{
-      console.log("updated",res)
-    })
+    this.productservice.updateProduct(this.productForm.value).subscribe((res:any)=>{
+      this.toastrservice.success(res.message)
+    },
+  (error)=>{
+    this.toastrservice.error(error.error.message)
+  })
   }
 
 }

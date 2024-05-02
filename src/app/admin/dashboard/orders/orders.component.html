@@ -1,0 +1,29 @@
+<div class="orderContainer">
+    <div class="ordercard">
+        <img src="" alt="orderproductimg">
+        <div>
+            <p>Name</p>
+            <p>Customer name</p>
+        </div>
+        <div class="orderStatusContainer">
+            <div class="orderstatus">
+                <button (click)="openStatus()">
+                    <span><fa-icon [icon]="faicons[currIndex]"></fa-icon> {{orderstatus}}</span>        
+                        <div class="icon" [ngClass]="{'rotate':opendropdown}">
+                            <fa-icon [icon]="facaretdown"></fa-icon>
+                        </div>
+                </button> 
+                <div *ngIf="opendropdown" class="statusDropDown">
+                    <ng-container *ngFor="let status of allstatus;index as i">
+                        <button *ngIf="status!=orderstatus && i>currIndex" (click)="setStatus(i)"><fa-icon [icon]="faicons[i]"></fa-icon>{{status}}</button>
+                    </ng-container>
+                    <!-- <button><fa-icon [icon]="fatruck"></fa-icon>Shipped</button>
+                    <button><fa-icon [icon]="fatruckrampbox"></fa-icon> Out For Delivery</button>
+                    <button><fa-icon [icon]="facheckdouble"></fa-icon>Delivered</button> -->
+                </div>
+            </div>
+        </div>
+       
+
+    </div>
+</div>

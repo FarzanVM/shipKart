@@ -31,6 +31,9 @@ export class DashboardComponent {
   gotoupdateproduct(){
     this.router.navigate(['admin','updateproduct']);
   }
+  gotoOrders(){
+    this.router.navigate(['admin','orders'])
+  }
 
   logout(){
     localStorage.removeItem('token')
