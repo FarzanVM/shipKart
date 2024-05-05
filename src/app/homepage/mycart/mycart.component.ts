@@ -26,6 +26,7 @@ export class MycartComponent implements OnInit, OnDestroy {
   deliverycharges: number = 0;
   totalPrice: number = 0;
   savedPercent: number = 0;
+ 
 
   constructor(private cartservice: CartService,private orderservice:OrderService,private toastrservice:ToastrService) { }
 
@@ -56,6 +57,7 @@ export class MycartComponent implements OnInit, OnDestroy {
       this.totalPrice = this.price + this.deliverycharges
     })
   }
+
 
   removeFromCart(product_id: any) {
     console.log("cartid", product_id)

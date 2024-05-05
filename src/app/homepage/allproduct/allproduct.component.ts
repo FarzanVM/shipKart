@@ -26,46 +26,9 @@ export class AllproductComponent implements OnInit {
   ngOnInit(): void {
 
     const username = localStorage.getItem('username')
-    const user = {
-      username: username
-    }
-    const wishlistedItems = new Map()
     
-    if (this.authservice.isAuthenticatedUser()) {
-      const product = this.productservice.getProducts()
-      this.wishlist$ = this.wishlistservice.getWishListItems(user)
-      forkJoin([product, this.wishlist$]).subscribe((result: any) => {
-        this.wishlist$ = result[1]
-        if (this.wishlist$.length) {
-          console.log(this.wishlist$)
-          this.wishlist$.forEach((element: any) => {
-            wishlistedItems.set(element._id, 0)
-          })
-          this.product$ = product.pipe(map((product: any) => {
-            product = product.map((p: any) => {
-              let match = false
-              if (wishlistedItems.has(p._id)) {
-                match = true
-              }
-              return {
-                ...p,
-                wishlisted: match
-              }
-
-            })
-            return product
-          }))
-        }
-        else{
-          this.product$=product
-        }
-        this.loadedData=true
-      })
-    }
-    else{
-      this.product$=this.productservice.getProducts()
-      this.loadedData=true
-    }
+    console.log("username",username)
+    this.product$ = this.productservice.getProducts(username)
 
   }
   refresh($event: any) {

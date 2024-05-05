@@ -18,31 +18,31 @@
                     <div class="section">
                         <p class="orderStatus">Order Confirmed</p>
                         <div class="status">
-                            <div class="circle"></div>
-                            <div class="bar"></div>
+                            <div class="circle" [ngClass]="{'circlesuccess':allstatus.indexOf(order.orderstatus)>=allstatus.indexOf('Order Confirmed')}"></div>
+                            <div class="bar" [ngClass]="{'barsuccess':allstatus.indexOf(order.orderstatus)>=allstatus.indexOf('Order Confirmed')}"></div>
                         </div>
                         <p class="dateconfirmed">Fri,25 Apr</p>
                     </div>
                     <div class="section">
                         <p class="orderStatus">Shipped</p>
                         <div class="status">
-                            <div class="circle"></div>
-                            <div class="bar"></div>
+                            <div class="circle" [ngClass]="{'circlesuccess':allstatus.indexOf(order.orderstatus)>=allstatus.indexOf('Shipped')}"></div>
+                            <div class="bar" [ngClass]="{'barsuccess':allstatus.indexOf(order.orderstatus)>=allstatus.indexOf('Shipped')}"></div>
                         </div>
                         <p class="dateconfirmed">Fri,25 Apr</p>
                     </div>
                     <div class="section">
                         <p class="orderStatus">Out For Delivery</p>
                         <div class="status">
-                            <div class="circle"></div>
-                            <div class="bar"></div>
+                            <div class="circle"  [ngClass]="{'circlesuccess':allstatus.indexOf(order.orderstatus)>=allstatus.indexOf('Out For Delivery')}"></div>
+                            <div class="bar" [ngClass]="{'barsuccess':allstatus.indexOf(order.orderstatus)>=allstatus.indexOf('Out For Delivery')}"></div>
                         </div>
                         <p class="dateconfirmed">Fri,25 Apr</p>
                     </div>
                     <div class="section">
                         <p class="orderStatus">Delivered</p>
                         <div class="status">
-                            <div class="circle"></div>
+                            <div class="circle" [ngClass]="{'circlesuccess':allstatus.indexOf(order.orderstatus)>=allstatus.indexOf('Delivered')}" ></div>
                         </div>
                         <p class="dateconfirmed">Fri,25 Apr</p>
                     </div>

@@ -1,7 +1,7 @@
 <html>
     <body>
         <div class="header">
-            <h1>ShipKart</h1>
+            <h1 (click)="gotoHomePage()">ShipKart</h1>
             <app-searchbar></app-searchbar>
             <div class="account">
                 <button *ngIf="!(loggedIn$|async)" class="loginbtn" (click)="openLoginForm()"><fa-icon [icon]="faUserCircle"></fa-icon>Login</button>

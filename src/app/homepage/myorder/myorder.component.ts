@@ -13,8 +13,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './myorder.component.scss'
 })
 export class MyorderComponent implements OnInit{
-  farupee=faIndianRupee
 
+  farupee=faIndianRupee
+  allstatus:String[]=["Order Confirmed","Shipped","Out For Delivery","Delivered"]
   orders$:Observable<any>|undefined;
   constructor(private orderservice:OrderService){}
 

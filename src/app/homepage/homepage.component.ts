@@ -44,6 +44,11 @@ export class HomepageComponent implements OnInit {
     console.log("clcikk")
     this.router.navigate(['adminlogin'])
   }
+
+  gotoHomePage(){
+    this.router.navigate([''])
+  }
+
   gotosignup(){
     this.loginsignupservice.setFormType('signup');
     this.router.navigate(['login'])

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from '../services/adminservice/admin.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-adminlogin',
@@ -12,7 +13,7 @@ import { AdminService } from '../services/adminservice/admin.service';
   styleUrl: './adminlogin.component.scss'
 })
 export class AdminloginComponent implements OnInit{
-  constructor(private adminservice:AdminService,private router:Router){
+  constructor(private adminservice:AdminService,private router:Router,private toastrservice:ToastrService){
 
   }
   loginFormOpened:boolean=true;
@@ -54,11 +55,13 @@ export class AdminloginComponent implements OnInit{
       console.log("error")
     }
     else{
-      this.adminservice.signup(this.signupForm.value).subscribe((data)=>{
-        console.log("ggg",data)
+      this.adminservice.signup(this.signupForm.value).subscribe((res:any)=>{
+        this.toastrservice.success(res.message)
+        this.signupForm.reset()
       },
     error=>{
-      console.log("error",error)
+      this.toastrservice.error(error.error.message)
+      this.signupForm.reset()
     })
       console.log(this.signupForm.value)
     }
@@ -70,16 +73,15 @@ export class AdminloginComponent implements OnInit{
       
     }
     else{
-      this.adminservice.login(this.loginForm.value).subscribe((data:any)=>{
-        console.log(data)
-        localStorage.setItem('token',data['token'])
-        localStorage.setItem('storename',data['storename'])
+      this.adminservice.login(this.loginForm.value).subscribe((res:any)=>{
+        this.toastrservice.success(res.message)
+        localStorage.setItem('token',res['token'])
+        localStorage.setItem('storename',res['storename'])
         const t=localStorage.getItem('token');
-        console.log(t)
         this.router.navigateByUrl('/admin')
       },
     error=>{
-      console.log(error)
+      this.toastrservice.error(error.error.message)
     })
       // console.log(this.loginForm.value)
     }

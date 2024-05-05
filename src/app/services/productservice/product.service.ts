@@ -11,9 +11,9 @@ export class ProductService {
   addProduct(product:any){
     return this.http.post('http://localhost:3000/api/product/addproduct',product)
   }
-  getProducts(){
+  getProducts(username:any){
 
-    return this.http.get('http://localhost:3000/api/product/getproducts')
+    return this.http.get('http://localhost:3000/api/product/getproducts/'+username)
   }
   getStoreProducts(store:any){
     return this.http.post('http://localhost:3000/api/product/getstoreproducts',store);

@@ -1,3 +1,4 @@
+
 .container{
     display: flex;
     width: 100%;
@@ -46,7 +47,6 @@
             .progressbar{
                 display: flex;
                 align-items: center;
-                border:1px solid blue;
                 .section{
                     display: flex;
                     width: 120px;
@@ -66,25 +66,31 @@
                         font-weight: bold;
                     }
                 }
+               
                 .status{
                     display: flex;
                     align-items: center;
-                }
-                .circle{
-                    width: 15px;
-                    height: 15px;
-                    border-radius: 50%;
-                    background-color:#388e3c;
+                    .circle{
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 50%;
+                        background-color:rgb(200, 196, 196);
+    
+                    }
+                   
+                    .bar{
+                        width: 105px;
+                        height: 0px;
+                        border: 2px solid rgb(200, 196, 196);
+                    }
+                    .circlesuccess{
+                        background-color: #388e3c ;
+                    }
+                    .barsuccess{
+                        border:2px solid #388e3c;
+                    }
+                }     
 
-                }
-                .bar{
-                    width: 105px;
-                    height: 0px;
-                    border: 2px solid rgb(200, 196, 196);
-                }
-                .success{
-                    color: #388e3c;
-               }
             }
     
         }

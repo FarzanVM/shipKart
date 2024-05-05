@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OfferComponent } from '../offer/offer.component';
 import { BestDealsComponent } from '../best-deals/best-deals.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-brochure',
@@ -10,5 +11,11 @@ import { BestDealsComponent } from '../best-deals/best-deals.component';
   styleUrl: './brochure.component.scss'
 })
 export class BrochureComponent {
+
+  constructor(private router:Router){}
+
+  gotoProduct(){
+    this.router.navigate(['/allproduct'])
+  }
 
 }

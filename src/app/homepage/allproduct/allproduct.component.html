@@ -41,7 +41,7 @@
             </div>
         </div>
         <!-- <app-product-card></app-product-card> -->
-        <div class="loader" *ngIf="!loadedData">
+        <div class="loader" *ngIf="!(product$|async)">
         </div>
         <div class="productsArray">
             

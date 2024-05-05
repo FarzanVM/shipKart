@@ -4,6 +4,7 @@ import { AfterViewInit, Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProductService } from '../../../services/productservice/product.service';
 import { min } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-addproduct',
@@ -14,7 +15,7 @@ import { min } from 'rxjs';
 })
 export class AddproductComponent implements OnInit{
  
-  constructor(private productservice:ProductService){}
+  constructor(private productservice:ProductService,private toastrservice:ToastrService){}
   url:any;
   invalidForm:boolean=true;
   productForm=new FormGroup({
@@ -28,12 +29,18 @@ export class AddproductComponent implements OnInit{
     productimg:new FormControl('',Validators.required)
   })
   ngOnInit(): void {
+
+    this.productForm.controls.productprice.valueChanges.subscribe(()=>{
+      this.productForm.patchValue({productnewprice:this.productForm.controls.productprice?.value})
+      this.productForm.patchValue({productdiscount:0})
+    })
+
     this.productForm.controls.productdiscount.valueChanges.subscribe(()=>{
-      console.log("changes")
+  
       const orgPrice= this.productForm.controls.productprice?.value;
       const discount= this.productForm.controls.productdiscount?.value;
       if(orgPrice!=null && discount!=null){
-        const discountprice:number= (orgPrice*discount)/100 
+        const discountprice:number= Math.round((orgPrice*discount)/100 )
         this.productForm.patchValue({productnewprice:orgPrice-discountprice})
       }
     })
@@ -65,10 +72,15 @@ export class AddproductComponent implements OnInit{
     const product = {...this.productForm.value,
       storename:storename
     }
-    console.log(product)
-    this.productservice.addProduct(product).subscribe(res=>{
-      console.log(res)
-    })
+    this.productservice.addProduct(product).subscribe((res:any)=>{
+      this.toastrservice.success(res.message)
+      this.productForm.reset()
+      this.url=""
+    },
+  (error)=>{
+    this.toastrservice.error(error.error.message)
+    this.productForm.reset()
+  })
   }
 
 }

@@ -4,6 +4,7 @@ import { faIndianRupee,faStar } from '@fortawesome/free-solid-svg-icons';
 import { WishlistService } from '../../services/wishlistservice/wishlist.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-wishlist',
@@ -18,7 +19,7 @@ export class WishlistComponent implements OnInit {
 
   wishlistItems$:Observable<any>|null|undefined;
 
-  constructor(private wishlistservice:WishlistService){}
+  constructor(private wishlistservice:WishlistService,private toastrservice:ToastrService){}
   ngOnInit(): void {
     const username=localStorage.getItem('username');
 
@@ -27,17 +28,16 @@ export class WishlistComponent implements OnInit {
     }
 
     this.wishlistItems$= this.wishlistservice.getWishListItems(user)
-    this.wishlistItems$.subscribe(res=>{
-      console.log(res)
-    })
-
   }
 
   removeFromWishList(product_id:any){
-    this.wishlistservice.removeFromWishList(product_id).subscribe(res=>{
-      console.log(res)
+    this.wishlistservice.removeFromWishList(product_id).subscribe((res:any)=>{
+      this.toastrservice.success(res.message)
       this.ngOnInit()
-    })
+    },
+  (error)=>{
+    this.toastrservice.error(error.error.message)
+  })
 
   }
 
