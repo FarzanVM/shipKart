@@ -1,0 +1,79 @@
+.profileContainer{
+    background-color: #fff;
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    column-gap: 10px;
+    .userImage{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgb(185, 183, 183);
+        border-radius: 5px;
+        width: 300px;
+        height: 500px;
+
+        img{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid rgb(78, 78, 78);
+        }
+    }
+    .userdetails{
+        flex: 1;
+        display: flex;
+        box-sizing: border-box;
+        // justify-content: center;
+        // flex-direction: column;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid rgb(185, 183, 183);
+       
+        form{
+            display: flex;
+            justify-content: center;
+            row-gap: 5px;
+            flex-direction: column;
+            width: 100%;
+            border: 1px solid red;
+            fa-icon{
+                display: block;
+                font-size: x-large;
+                align-self: flex-end;
+                color: #72A0C1;
+                cursor: pointer;
+            }
+            input{
+                padding: 10px;
+                border-radius: 5px;
+                outline: none;
+                border:1px solid rgb(224, 222, 222) ;
+            }
+            textarea{
+                min-height: 100px;
+                resize: vertical;
+                max-height: 200px;
+                border-radius: 5px;
+                outline: none;
+                border:1px solid rgb(224, 222, 222);
+               
+            }
+            button{
+                padding: 10px;
+                border-radius: 5px;
+                align-self: center;
+                border: none;
+                color: #fff;
+                background-color: #03C03C;
+                cursor: pointer;
+            }
+            .editable{
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            }
+        }
+    
+
+    }
+}

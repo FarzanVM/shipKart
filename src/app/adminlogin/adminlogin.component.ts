@@ -75,6 +75,7 @@ export class AdminloginComponent implements OnInit{
     else{
       this.adminservice.login(this.loginForm.value).subscribe((res:any)=>{
         this.toastrservice.success(res.message)
+        localStorage.removeItem('username');
         localStorage.setItem('token',res['token'])
         localStorage.setItem('storename',res['storename'])
         const t=localStorage.getItem('token');

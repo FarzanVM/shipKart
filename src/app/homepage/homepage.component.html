@@ -11,7 +11,7 @@
                         <span>New Customer?</span>
                         <span class="signupalert" (click)="gotosignup()">Signup</span>
                     </div>
-                    <p><fa-icon [icon]="facircleUser"></fa-icon>My profile</p>
+                    <p (click)="gotoProfile()"><fa-icon [icon]="facircleUser"></fa-icon>My profile</p>
                     <p (click)="gotoMyOrders()"><fa-icon [icon]="faBoxOpen"></fa-icon>Orders</p>
                     <p (click)="gotoWishList()"><fa-icon [icon]="faheart"></fa-icon>Wishlist</p>
                     <p *ngIf="(loggedIn$|async)" (click)="logOut()"><fa-icon [icon]="fapowerOff"></fa-icon>Logout</p>

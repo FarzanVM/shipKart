@@ -8,6 +8,7 @@ import { MycartComponent } from './homepage/mycart/mycart.component';
 import { authGuard } from './guards/auth.guard';
 import { WishlistComponent } from './homepage/wishlist/wishlist.component';
 import { MyorderComponent } from './homepage/myorder/myorder.component';
+import { ProfileComponent } from './homepage/profile/profile.component';
 
 export const routes: Routes = [{
     path:'',
@@ -42,6 +43,11 @@ export const routes: Routes = [{
         {
             path:'myorder',
             component:MyorderComponent,
+            canActivate:[authGuard]
+        },
+        {
+            path:'profile',
+            component:ProfileComponent,
             canActivate:[authGuard]
         }
        ]},

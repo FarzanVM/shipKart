@@ -1,0 +1,20 @@
+<div class="profileContainer">
+    <div class="userImage">
+        <img alt="user-image">
+    </div>
+    <div class="userdetails">
+       
+    <form [formGroup]="profileForm">
+        <fa-icon *ngIf="!readOnly" [icon]="farotateleft" (click)="goBack()"></fa-icon>
+        <fa-icon *ngIf="readOnly" [icon]="fapentosquare" (click)="editProfile()"></fa-icon>
+        <label for="name">Name</label>
+        <input type="text" id="name" [ngClass]="{'editable':!readOnly}"  formControlName="name" [readOnly]="readOnly">
+        <label for="phno">Contact no</label>
+        <input type="text" id="phno" [ngClass]="{'editable':!readOnly}" formControlName="contactno" [readOnly]="readOnly">
+        <label for="address">Address</label>
+        <textarea id="address" [ngClass]="{'editable':!readOnly}" formControlName="address" [readOnly]="readOnly"></textarea>
+        <button *ngIf="!readOnly" (click)="updateProfile()">Update Profile</button>
+    </form>
+    </div>
+
+</div>

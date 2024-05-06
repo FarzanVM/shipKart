@@ -18,4 +18,12 @@ export class UserService {
   signup(model:any){
     return this.http.post('http://localhost:3000/api/user/signup',model);
   }
+
+  getUser(username:String){
+    return this.http.get('http://localhost:3000/api/user/getuser/'+username);
+  }
+
+  updateUser(model:any){
+    return this.http.put('http://localhost:3000/api/user/updateuser',model);
+  }
 }

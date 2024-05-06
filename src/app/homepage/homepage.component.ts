@@ -54,6 +54,9 @@ export class HomepageComponent implements OnInit {
     this.router.navigate(['login'])
   }
 
+  gotoProfile(){
+    this.router.navigate(['profile'])
+  }
   gotoWishList(){
     this.router.navigate(['wishlist'])
   }
