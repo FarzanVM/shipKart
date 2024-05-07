@@ -6,17 +6,18 @@
     </div>
     <div class="paymentOptions">
         <div class="credit-card">
-        <p>Credit/Debit Cards<fa-icon [icon]="facreditcard"></fa-icon></p>
+            
+        <p><input type="radio" name="payment_method">Credit/Debit Cards<fa-icon [icon]="facreditcard"></fa-icon></p>
             <div class="cards">
-
+                <img src="assets\images\icon\creditcard.png">
             </div>
         </div>
         <div class="upi">
-        <p>UPI<fa-icon [icon]="fagooglepay"></fa-icon></p>
-
+        <p><input type="radio" name="payment_method">UPI<fa-icon [icon]="fagooglepay"></fa-icon></p>
+            <img src="assets\images\icon\gpay.png">
         </div>
-        <div class="others">
-            <p>Others<fa-icon [icon]="fabank"></fa-icon></p>
+        <div class="others"> 
+            <p><input type="radio" name="payment_method">Others<fa-icon [icon]="fabank"></fa-icon></p>
 
         </div>
     </div>

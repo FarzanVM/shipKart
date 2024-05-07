@@ -24,6 +24,20 @@
                 font-size: larger;
             }
             padding: 10px;
+            border-bottom: 1px solid lightgray;
+        }
+        p{
+            border-bottom: 1px solid lightgray;
+            width: max-content;
+        }
+        .cards{
+            width: 300px;
+            height: fit-content;
+            border: none;
+            img{
+                width: 100%;
+                object-fit: contain;
+            }
         }
     }
     .confirmBtn{

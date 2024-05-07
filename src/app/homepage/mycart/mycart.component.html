@@ -1,29 +1,30 @@
 <div class="container">
     <div class="cartitemscontainer">
-        <ng-container *ngFor="let product of cartItems$|async">
+        <ng-container *ngFor="let item of cartItems$|async">
             <div class="cartProductCard">
                 <div class="details">
-                    <img src={{product[0].productimg}} alt="product image" >
+                    <input type="checkbox" (change)="selectProduct(item.products._id,item.products.storename)">
+                    <img src={{item.products.productimg}} alt="product image" >
                     <div class="detailsContainer">
                         <div class="productDetails">
-                            <h3>{{product[0].productname}}</h3>
-                            <p>seller:{{product[0].storename}}</p>
+                            <h3>{{item.productsproductname}}</h3>
+                            <p>seller:{{item.products.storename}}</p>
                         </div>
                         <div class="price-section">
-                            <p class="original-price"><fa-icon [icon]="farupee"></fa-icon>{{product[0].productprice}}</p>
-                            <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>{{product[0].productnewprice}}</p>
-                            <p class="discount">{{product[0].productdiscount}}%</p>
+                            <p class="original-price"><fa-icon [icon]="farupee"></fa-icon>{{item.products.productprice}}</p>
+                            <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>{{item.products.productnewprice}}</p>
+                            <p class="discount">{{item.products.productdiscount}}%</p>
                         </div>
                     </div>
                     <p class="deliverydate">Delivery by</p>
                 </div>
                 <div class="btnContainer">
-                    <button (click)="removeFromCart(product[0]._id)">Remove item</button>
-                    <button (click)="orderItem(product[0]._id,product[0].storename)">Buy Now</button>
+                    <button (click)="removeFromCart(item.products._id)" class="deleteBtn"><fa-icon [icon]="fadelete"></fa-icon></button>
+                    <button  class="buyBtn">Buy Now</button>
                 </div>
             </div>
         </ng-container>
-        
+        <button *ngIf="selectedCartItems.length" class="checkoutbtn" (click)="orderItem()">Place Order ({{selectedCartItems.length}})</button>
     </div>
     <div class="cartPriceContainer">
         <div class="totalCartdetails">
