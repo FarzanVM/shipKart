@@ -1,0 +1,37 @@
+.container{
+    width: 100%;
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    row-gap: 10px;
+    
+    .customerdetails{
+        padding: 5px;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        border-radius: 5px;
+        width: fit-content;
+    }
+    .paymentOptions{
+        display: flex;
+        border-radius: 5px;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        div{
+            fa-icon{
+                margin-left: 10px;
+                font-size: larger;
+            }
+            padding: 10px;
+        }
+    }
+    .confirmBtn{
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #ffbf00;
+        width: fit-content;
+        font-weight: bold;
+        font-size: large;
+    }
+}

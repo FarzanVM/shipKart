@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { SimpleproductcardComponent } from '../simpleproductcard/simpleproductcard.component';
 import { OrderService } from '../../services/orderservice/order.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mycart',
@@ -28,7 +29,7 @@ export class MycartComponent implements OnInit, OnDestroy {
   savedPercent: number = 0;
  
 
-  constructor(private cartservice: CartService,private orderservice:OrderService,private toastrservice:ToastrService) { }
+  constructor(private cartservice: CartService,private orderservice:OrderService,private toastrservice:ToastrService,private router:Router) { }
 
   ngOnInit(): void {
 
@@ -66,20 +67,21 @@ export class MycartComponent implements OnInit, OnDestroy {
   }
 
   orderItem(id:string,storename:string){
-    const username = localStorage.getItem('username')
-    const order = {
-      product_id:id,
-      username:username,
-      storename:storename,
-      orderstatus:"Order Confirmed"
-    }
+    this.router.navigate(['checkout'])
+  //   const username = localStorage.getItem('username')
+  //   const order = {
+  //     product_id:id,
+  //     username:username,
+  //     storename:storename,
+  //     orderstatus:"Order Confirmed"
+  //   }
 
-    this.orderservice.addOrder(order).subscribe((res:any)=>{
-      this.toastrservice.success(res.message)
-    },
-  (error)=>{
-    this.toastrservice.warning(error.error.message)
-  })
+  //   this.orderservice.addOrder(order).subscribe((res:any)=>{
+  //     this.toastrservice.success(res.message)
+  //   },
+  // (error)=>{
+  //   this.toastrservice.warning(error.error.message)
+  // })
 
   }
 

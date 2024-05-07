@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="customerdetails">
+        <p>{{(user$|async)?.name}}</p>
+        <p>{{(user$|async)?.contactno}}</p>
+        <p>{{(user$|async)?.address}}</p>
+    </div>
+    <div class="paymentOptions">
+        <div class="credit-card">
+        <p>Credit/Debit Cards<fa-icon [icon]="facreditcard"></fa-icon></p>
+            <div class="cards">
+
+            </div>
+        </div>
+        <div class="upi">
+        <p>UPI<fa-icon [icon]="fagooglepay"></fa-icon></p>
+
+        </div>
+        <div class="others">
+            <p>Others<fa-icon [icon]="fabank"></fa-icon></p>
+
+        </div>
+    </div>
+    <button class="confirmBtn">
+        Pay 320000
+
+    </button>
+</div>
