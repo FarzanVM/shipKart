@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faIndianRupee, faStar, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faIndianRupee, faMinus, faPlus, faStar, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from '../../services/cartservice/cart.service';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
@@ -22,6 +22,8 @@ export class MycartComponent implements OnInit, OnDestroy {
   farupee = faIndianRupee
   faStar = faStar
   fadelete = faTrashCan;
+  faplus=faPlus;
+  faminus=faMinus
 
   cartItems$: Observable<any> | undefined;
   price: number = 0;
@@ -29,6 +31,7 @@ export class MycartComponent implements OnInit, OnDestroy {
   deliverycharges: number = 0;
   totalPrice: number = 0;
   savedPercent: number = 0;
+  quantity:number=1;
 
   selectedCartItems:Object[]=[]
  
@@ -89,15 +92,26 @@ export class MycartComponent implements OnInit, OnDestroy {
   }
 
   orderItem(){
-    // this.router.navigate(['checkout'])
+    this.router.navigate(['checkout'])
 
-    this.orderservice.addOrder(this.selectedCartItems).subscribe((res:any)=>{
-      this.toastrservice.success(res.message)
-    },
-  (error)=>{
-    this.toastrservice.warning(error.error.message)
-  })
+  //   this.orderservice.addOrder(this.selectedCartItems).subscribe((res:any)=>{
+  //     this.toastrservice.success(res.message)
+  //   },
+  // (error)=>{
+  //   this.toastrservice.warning(error.error.message)
+  // })
 
+  }
+
+  decrement(){
+    if(this.quantity>1){
+      this.quantity-=1
+    }
+  
+  }
+
+  increment(){
+    this.quantity+=1
   }
 
   ngOnDestroy(): void {

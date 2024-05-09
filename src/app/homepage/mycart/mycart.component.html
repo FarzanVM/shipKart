@@ -4,7 +4,16 @@
             <div class="cartProductCard">
                 <div class="details">
                     <input type="checkbox" (change)="selectProduct(item.products._id,item.products.storename)">
-                    <img src={{item.products.productimg}} alt="product image" >
+                    <div class="img-container">
+                        <img src={{item.products.productimg}} alt="product image" >
+                        <div class="quantityDiv">
+                            <button class="btn1" (click)="decrement()"><fa-icon [icon]="faminus"></fa-icon></button>
+                            <button class="btn2">{{quantity}}</button>
+                            <button class="btn1" (click)="increment()"><fa-icon [icon]="faplus"></fa-icon></button>
+                        </div>
+                    </div>
+                 
+                   
                     <div class="detailsContainer">
                         <div class="productDetails">
                             <h3>{{item.productsproductname}}</h3>
@@ -18,6 +27,7 @@
                     </div>
                     <p class="deliverydate">Delivery by</p>
                 </div>
+                
                 <div class="btnContainer">
                     <button (click)="removeFromCart(item.products._id)" class="deleteBtn"><fa-icon [icon]="fadelete"></fa-icon></button>
                     <button  class="buyBtn">Buy Now</button>
