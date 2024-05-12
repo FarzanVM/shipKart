@@ -1,51 +1,117 @@
 .container{
-    width: 100%;
+    // width: 100%;
     display: flex;
     background-color: #fff;
-    flex-direction: column;
+    flex-direction: row;
     padding: 10px;
+    justify-content: space-between;
     box-sizing: border-box;
-    row-gap: 10px;
-    
-    .customerdetails{
-        padding: 5px;
-        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-        border-radius: 5px;
-        width: fit-content;
-    }
-    .paymentOptions{
+    .section1{
         display: flex;
-        border-radius: 5px;
         flex-direction: column;
-        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-        div{
-            fa-icon{
+        row-gap: 10px;
+        .customerdetails{
+            padding: 5px;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            border-radius: 5px;
+            width: 600px;
+            p:first-child{
                 margin-left: 10px;
-                font-size: larger;
+                border-bottom: 1px solid lightgray;
+                font-weight: bold;
+                fa-icon{
+                    color:orangered
+                }
             }
+            p{
+                margin-left: 10px;
+            }
+        }
+        .paymentOptions{
+            display: flex;
+            border-radius: 5px;
+            padding: 5px;
+            flex-direction: column;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            width: 600px;
+            p{  
+                fa-icon{
+                    color:orangered
+                }
+                margin-left: 10px;
+                border-bottom: 1px solid lightgray;
+                font-weight: bold;
+            }
+            .credit-card,.upi,.others{
+                fa-icon{
+                    margin-left: 10px;
+                    font-size: larger;
+                }
+                // padding: 10px;
+                border-bottom: 1px solid lightgray;
+                p{
+                    border-bottom: 1px solid lightgray;
+                    width: max-content;
+                }
+                img{
+                    margin-left: 10px;
+                }
+                .cards{
+                    width: 300px;
+                    height: fit-content;
+                    border: none;
+                    img{
+                        width: 100%;
+                        object-fit: contain;
+                    }
+                }
+               
+            }
+           
+        }
+        .confirmBtn{
             padding: 10px;
-            border-bottom: 1px solid lightgray;
-        }
-        p{
-            border-bottom: 1px solid lightgray;
-            width: max-content;
-        }
-        .cards{
-            width: 300px;
-            height: fit-content;
-            border: none;
-            img{
-                width: 100%;
-                object-fit: contain;
-            }
+            border-radius: 5px;
+            background-color: #ffbf00;
+            width: fit-content;
+            font-weight: bold;
+            font-size: large;
         }
     }
-    .confirmBtn{
-        padding: 10px;
-        border-radius: 5px;
-        background-color: #ffbf00;
-        width: fit-content;
-        font-weight: bold;
-        font-size: large;
+    .orderedItems{
+        width: 500px;
+        height:fit-content;
+        padding-bottom: 10px;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        p{
+
+        }
+        table{
+            width: 100%;
+            tr{
+                // height: auto;
+                th{
+                    // border: 1px solid green;
+                }
+                td{
+                    height: 50px;
+                    text-align: center;
+                    img{
+                        width: 50px;
+                        height: 50px;
+                        float: left;
+                        background-color: red;
+                    }
+                }
+            }
+            .subtotal{
+                td{
+                    border-top:  1px solid lightgray;
+                    border-bottom: 1px solid lightgray;
+                }
+                
+            }
+
+        }
     }
 }

@@ -24,4 +24,12 @@ export class OrderService {
   getStoreOrders(model:any){
     return this.http.post('http://localhost:3000/api/order/getstoreorders',model)
   }
+
+  getCurrentOrders(model:any){
+    return this.http.post('http://localhost:3000/api/order/getcurrentorders',model)
+  }
+
+  updateBulkOrders(model:any){
+    return this.http.post('http://localhost:3000/api/order/updatebulkorders',model)
+  }
 }

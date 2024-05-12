@@ -3,10 +3,11 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGooglePay } from '@fortawesome/free-brands-svg-icons';
 import { faCreditCard } from '@fortawesome/free-regular-svg-icons';
-import { faBuildingColumns } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faBuildingColumns, faRupeeSign, faSackDollar, faTruck } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from '../../services/userservice/user.service';
 import { Observable} from 'rxjs';
 import { Event, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { OrderService } from '../../services/orderservice/order.service';
 
 @Component({
   selector: 'app-checkout',
@@ -19,29 +20,58 @@ export class CheckoutComponent implements OnInit{
   facreditcard=faCreditCard;
   fagooglepay=faGooglePay;
   fabank=faBuildingColumns;
-  user$:Observable<any>|undefined;
-  products4:Observable<any>|undefined
+  fatruck=faTruck;
+  fasackdollar=faSackDollar;
+  fabag=faBagShopping;
+  faruppesign=faRupeeSign;
 
+
+  user$:Observable<any>|undefined;
+  orders$:Observable<any>|undefined;
+  products:Observable<any>|undefined
+
+  subtotal:number=0;
+  shippingcharge:number=0;
+  total:number=0;
+  orderIds:any[]=[]
   @HostListener('window:beforeunload', ['$event'])
   preventBackRoute():Observable<boolean>|boolean {
     return false  
   }
 
-  constructor(private userservice:UserService,private router:Router){
+  constructor(private userservice:UserService,private router:Router,private orderservice:OrderService){
 
   }
 
   ngOnInit(): void {
 
-    console.log("checlout reached")
-
     const username=localStorage.getItem('username')
     if(username){
       this.user$ =  this.userservice.getUser(username)
     }
+    const user={
+      username:username
+    }
+    this.orders$ = this.orderservice.getCurrentOrders(user)
+    this.orders$.subscribe((item:any)=>{
+      console.log(item)
+      item?.forEach((element: any) => {
+        this.subtotal+=element.products.productnewprice
+        this.orderIds.push({_id:element._id})
+        
+      });
+      this.total=this.subtotal + this.shippingcharge;
+    })
   }
   goback(){
     this.router.navigate(['mycart'])
+  }
+
+  payOrder(){
+    console.log(this.orderIds)
+    this.orderservice.updateBulkOrders(this.orderIds).subscribe(res=>{
+      console.log(res)
+    })
   }
 
 }
