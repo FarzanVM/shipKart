@@ -8,6 +8,7 @@ import { UserService } from '../../services/userservice/user.service';
 import { Observable} from 'rxjs';
 import { Event, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { OrderService } from '../../services/orderservice/order.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-checkout',
@@ -34,12 +35,14 @@ export class CheckoutComponent implements OnInit{
   shippingcharge:number=0;
   total:number=0;
   orderIds:any[]=[]
+
+  ifOrdered:boolean=false;
   @HostListener('window:beforeunload', ['$event'])
   preventBackRoute():Observable<boolean>|boolean {
-    return false  
+    return this.ifOrdered  
   }
 
-  constructor(private userservice:UserService,private router:Router,private orderservice:OrderService){
+  constructor(private userservice:UserService,private router:Router,private orderservice:OrderService,private toastrservice:ToastrService){
 
   }
 
@@ -69,9 +72,14 @@ export class CheckoutComponent implements OnInit{
 
   payOrder(){
     console.log(this.orderIds)
-    this.orderservice.updateBulkOrders(this.orderIds).subscribe(res=>{
-      console.log(res)
-    })
+    this.orderservice.updateBulkOrders(this.orderIds).subscribe((res:any)=>{
+      this.toastrservice.success(res.message)
+      this.ifOrdered=true
+      this.router.navigate(['allproduct'])
+    },
+  (error)=>{
+    this.toastrservice.error(error.error.message)
+  })
   }
 
 }

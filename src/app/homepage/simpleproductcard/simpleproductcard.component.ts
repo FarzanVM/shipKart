@@ -62,9 +62,7 @@ export class SimpleproductcardComponent implements OnInit {
       product_id: productid,
       username: username
     }
-    console.log("cartitem", cart)
     this.cartservice.addToCart(cart).subscribe((res:any) => {
-      console.log("response", res)
       this.toastrservice.success(res.message)
       this.refreshNeeded.emit(true)
 
@@ -73,5 +71,10 @@ export class SimpleproductcardComponent implements OnInit {
       this.toastrservice.warning(error.error.message)
     }
     )
+  }
+
+  gotoProduct(productId:any){
+    localStorage.setItem('selectedProduct',productId)
+    this.router.navigate(['product'])
   }
 }

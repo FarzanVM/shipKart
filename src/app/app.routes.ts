@@ -11,6 +11,7 @@ import { MyorderComponent } from './homepage/myorder/myorder.component';
 import { ProfileComponent } from './homepage/profile/profile.component';
 import { CheckoutComponent } from './homepage/checkout/checkout.component';
 import { checkoutDeactivateGuard } from './guards/checkout-deactivate.guard';
+import { ProductPageComponent } from './homepage/product-page/product-page.component';
 
 export const routes: Routes = [{
     path:'',
@@ -57,6 +58,10 @@ export const routes: Routes = [{
             path:'profile',
             component:ProfileComponent,
             canActivate:[authGuard]
+        },
+        {
+            path:'product',
+            component:ProductPageComponent
         }
        ]},
         {
