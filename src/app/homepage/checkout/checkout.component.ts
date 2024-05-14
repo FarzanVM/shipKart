@@ -6,6 +6,8 @@ import { faCreditCard } from '@fortawesome/free-regular-svg-icons';
 import { faBuildingColumns } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from '../../services/userservice/user.service';
 import { Observable} from 'rxjs';
+import { NavigationStart, Router, RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-checkout',
@@ -19,8 +21,10 @@ export class CheckoutComponent implements OnInit{
   fagooglepay=faGooglePay;
   fabank=faBuildingColumns;
   user$:Observable<any>|undefined;
-  constructor(private userservice:UserService,private platformLocation:PlatformLocation, private locationStrategy: LocationStrategy){
-   
+  go:boolean=true;
+  
+  constructor(private userservice:UserService,private platformLocation:PlatformLocation,private router:Router){
+
   }
 
   ngOnInit(): void {
