@@ -1,3 +1,11 @@
 <div class="imgContainer">
-    
+    <ng-container *ngFor="let product of bestdeals$|async">
+        <div class="productBox">
+            <img src={{product.productimg}} alt="productImg">
+            <p></p>
+        
+           </div>
+    </ng-container>
+   
+
 </div>

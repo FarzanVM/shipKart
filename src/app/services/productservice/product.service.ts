@@ -27,6 +27,10 @@ export class ProductService {
     return this.http.get('http://localhost:3000/api/product/getsingleproduct/'+productId)
   }
 
+  getProductsByCategory(productCategory:any){
+    return this.http.get('http://localhost:3000/api/product/getproductsbycategory/'+productCategory)
+  }
+
   updateProduct(product:any){
     return this.http.put('http://localhost:3000/api/product/updateproduct',product)
   }

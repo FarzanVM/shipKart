@@ -38,5 +38,11 @@
     
     <div class="similarProductsContainer">
         <p>Similar Products</p>
+        <div>
+            <ng-container *ngFor="let product of similarProducts$|async">
+                <app-simpleproductcard [product]="product"></app-simpleproductcard>
+            </ng-container>
+        </div>
+       
     </div>
 </div>

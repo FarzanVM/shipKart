@@ -128,13 +128,20 @@
         }
     }
     .similarProductsContainer{
+        display: block;
         width: 100%;
         box-sizing: border-box;
         padding: 10px;
         background-color: #fff;
-        p{
+        p{  
+            display: block;
+            flex: 1;
             font-size: large;
             font-weight: bold;
+        }
+        div{
+            display: flex;
+            width: 100%;
         }
 
     }
