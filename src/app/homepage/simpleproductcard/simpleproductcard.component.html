@@ -1,8 +1,8 @@
 <div class="simpleCard">
-    <img class="imgContainer" src={{product.productimg}}>
+    <img class="imgContainer" src={{product.productimg}} (click)="gotoProduct(product._id)">
     <fa-icon *ngIf="!product.wishlisted?.length" [icon]="faHeart" (click)="addtoWishlist(product._id)"></fa-icon>
     <fa-icon *ngIf="product.wishlisted?.length" class="wishlisted" [icon]="faHeartFilled" (click)="removeFromWishList(product._id)"></fa-icon>
-    <p>{{product.productname}}</p>
+    <p class="name" (click)="gotoProduct(product._id)">{{product.productname}}</p>
     <div class="rating">
         <div class="totalrating">
             4.3

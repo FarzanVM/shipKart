@@ -1,28 +1,77 @@
 <div class="container">
-    <div class="customerdetails">
-        <p>{{(user$|async)?.name}}</p>
-        <p>{{(user$|async)?.contactno}}</p>
-        <p>{{(user$|async)?.address}}</p>
-    </div>
-    <div class="paymentOptions">
-        <div class="credit-card">
-            
-        <p><input type="radio" name="payment_method">Credit/Debit Cards<fa-icon [icon]="facreditcard"></fa-icon></p>
-            <div class="cards">
-                <img src="assets\images\icon\creditcard.png">
+    <div class="section1">
+        <div class="customerdetails">
+            <p><fa-icon [icon]="fatruck"></fa-icon>Shippings Address</p>
+            <p>{{(user$|async)?.name}}</p>
+            <p>{{(user$|async)?.contactno}}</p>
+            <p>{{(user$|async)?.address}}</p>
+        </div>
+        <div class="paymentOptions">
+            <p><fa-icon [icon]="fasackdollar"></fa-icon> Method</p>
+            <div class="credit-card">
+                
+            <p><input type="radio" name="payment_method">Credit/Debit Cards<fa-icon [icon]="facreditcard"></fa-icon></p>
+                <div class="cards">
+                    <img src="assets\images\icon\creditcard.png">
+                </div>
+            </div>
+            <div class="upi">
+            <p><input type="radio" name="payment_method">UPI<fa-icon [icon]="fagooglepay"></fa-icon></p>
+                <img src="assets\images\icon\gpay.png">
+            </div>
+            <div class="others"> 
+                <p><input type="radio" name="payment_method">Others<fa-icon [icon]="fabank"></fa-icon></p>
+    
             </div>
         </div>
-        <div class="upi">
-        <p><input type="radio" name="payment_method">UPI<fa-icon [icon]="fagooglepay"></fa-icon></p>
-            <img src="assets\images\icon\gpay.png">
-        </div>
-        <div class="others"> 
-            <p><input type="radio" name="payment_method">Others<fa-icon [icon]="fabank"></fa-icon></p>
-
-        </div>
+        <button class="confirmBtn" (click)="payOrder()">
+            Pay {{total}}
+        </button>
     </div>
-    <button class="confirmBtn">
-        Pay 320000
-
-    </button>
+    <div class="orderedItems">
+        <p><fa-icon [icon]="fabag"></fa-icon> Order Summary</p>
+        <table>
+            <tr>
+                <th>items description</th>
+                <th>quantity</th>
+                <th>savings</th>
+                <th>price</th>
+            </tr>
+            <ng-container *ngFor="let order of orders$|async">
+                <tr>
+                    <td>
+                        <img src={{order.products.productimg}} alt="itemimage">
+                        <p>  {{order.products.productname}}</p>
+                      
+                    </td>
+                    <td>
+                        {{order.quantity}}
+                    </td>
+                    <td>
+                       {{order.products.productdiscount}}%
+                    </td>
+                    <td>
+                        <fa-icon [icon]="faruppesign"></fa-icon>.{{order.products.productnewprice}}
+                    </td>
+                </tr>
+            </ng-container>    
+            <tr class="subtotal">
+                <td></td>
+                <td></td>
+                <td><p>Subtotal:</p>
+                <p>Shipping charges</p></td>
+                <td><p> <fa-icon [icon]="faruppesign"></fa-icon>.{{subtotal}}</p>
+                <p>Free</p></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>TOTAL</td>
+                <td> <fa-icon [icon]="faruppesign"></fa-icon>.{{total}}</td>
+            </tr>
+        </table>
+    </div>
+    
 </div>
+
+

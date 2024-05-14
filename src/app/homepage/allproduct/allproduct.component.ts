@@ -43,4 +43,5 @@ export class AllproductComponent implements OnInit {
     console.log("range value", input.value)
   }
 
+
 }

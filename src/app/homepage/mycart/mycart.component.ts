@@ -1,27 +1,25 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faIndianRupee, faStar, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faIndianRupee} from '@fortawesome/free-solid-svg-icons';
 import { CartService } from '../../services/cartservice/cart.service';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { SimpleproductcardComponent } from '../simpleproductcard/simpleproductcard.component';
 import { OrderService } from '../../services/orderservice/order.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { CartitemcardComponent } from '../cartitemcard/cartitemcard.component';
 
 @Component({
   selector: 'app-mycart',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule,CartitemcardComponent],
   templateUrl: './mycart.component.html',
   styleUrl: './mycart.component.scss'
 })
 export class MycartComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
 
-  farupee = faIndianRupee
-  faStar = faStar
-  fadelete = faTrashCan;
+  farupee=faIndianRupee;
 
   cartItems$: Observable<any> | undefined;
   price: number = 0;
@@ -29,6 +27,7 @@ export class MycartComponent implements OnInit, OnDestroy {
   deliverycharges: number = 0;
   totalPrice: number = 0;
   savedPercent: number = 0;
+  quantity:number=1;
 
   selectedCartItems:Object[]=[]
  
@@ -52,7 +51,7 @@ export class MycartComponent implements OnInit, OnDestroy {
     this.cartItems$ = this.cartservice.getCartItems(user)
 
     this.cartItems$.pipe(takeUntil(this.ngUnsubscribe)).subscribe(item => {
-      item.forEach((product: any) => {
+      item?.forEach((product: any) => {
 
         this.price += product.products.productnewprice
         const offprice = product.products.productprice * product.products.productdiscount / 100
@@ -66,13 +65,14 @@ export class MycartComponent implements OnInit, OnDestroy {
 
 
  
-  selectProduct(product_id:any,storename:any){
+  selectProduct(event:any){
     const username = localStorage.getItem('username')
     const order = {
-      product_id:product_id,
+      product_id:event.product_id,
+      quantity:event.quantity,
       username:username,
-      storename:storename,
-      orderstatus:"Order Confirmed"
+      storename:event.storename,
+      orderstatus:"in progress"
     }
     if(this.selectedCartItems.some((item:any)=>item.product_id===order.product_id)){
       this.selectedCartItems=this.selectedCartItems.filter((item:any)=>item.product_id!==order.product_id)
@@ -83,22 +83,20 @@ export class MycartComponent implements OnInit, OnDestroy {
     console.log(this.selectedCartItems)
   }
 
-  removeFromCart(product_id: any) {
-    this.cartservice.removeFromCart(product_id).subscribe(res => {
-    })
-  }
-
   orderItem(){
-    // this.router.navigate(['checkout'])
+   
 
     this.orderservice.addOrder(this.selectedCartItems).subscribe((res:any)=>{
       this.toastrservice.success(res.message)
+      this.router.navigate(['checkout'])
     },
   (error)=>{
     this.toastrservice.warning(error.error.message)
   })
 
   }
+
+
 
   ngOnDestroy(): void {
     this.ngUnsubscribe.next()

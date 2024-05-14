@@ -1,0 +1,42 @@
+<div class="productPageContainer">
+    <div class="productContainer">
+        <div class="imgContainer">
+            <div class="img">
+                <img src={{(product$|async)?.productimg}} alt="imagesrc">
+            </div>
+            
+            <div class="btnContainer">
+                <button class="btn1"><fa-icon [icon]="facart"></fa-icon> ADD TO CART</button>
+                <button class="btn2"><fa-icon [icon]="fabolt"></fa-icon> BUY NOW</button>
+            </div>
+        </div>
+        <div class="productdetails">
+            <p class="productname">{{(product$|async)?.productname}}</p>
+            <div class="rating">
+                <div class="totalrating">
+                    4.3
+                    <fa-icon [icon]="faStar"></fa-icon>
+                </div> 
+                <div class="review">
+                   54 Ratings & 4 Reviews 
+                </div>
+            </div>
+            <div class="price-section">
+                <p class="current-price"><span><fa-icon [icon]="farupee"></fa-icon></span>{{(product$|async)?.productnewprice}}</p>&nbsp;
+                <p class="original-price"><span><fa-icon [icon]="farupee"></fa-icon></span>{{(product$|async)?.productprice}}</p>&nbsp;
+                <span class="discount">{{(product$|async)?.productdiscount}}% off</span>
+                <div>
+                    <p class="deliverymethod ">free delivery</p>
+                </div>
+            </div>
+            <div class="productdescription">
+                {{(product$|async)?.productdesc}}
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="similarProductsContainer">
+        <p>Similar Products</p>
+    </div>
+</div>

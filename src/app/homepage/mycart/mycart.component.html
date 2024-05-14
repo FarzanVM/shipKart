@@ -1,28 +1,7 @@
 <div class="container">
     <div class="cartitemscontainer">
         <ng-container *ngFor="let item of cartItems$|async">
-            <div class="cartProductCard">
-                <div class="details">
-                    <input type="checkbox" (change)="selectProduct(item.products._id,item.products.storename)">
-                    <img src={{item.products.productimg}} alt="product image" >
-                    <div class="detailsContainer">
-                        <div class="productDetails">
-                            <h3>{{item.productsproductname}}</h3>
-                            <p>seller:{{item.products.storename}}</p>
-                        </div>
-                        <div class="price-section">
-                            <p class="original-price"><fa-icon [icon]="farupee"></fa-icon>{{item.products.productprice}}</p>
-                            <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>{{item.products.productnewprice}}</p>
-                            <p class="discount">{{item.products.productdiscount}}%</p>
-                        </div>
-                    </div>
-                    <p class="deliverydate">Delivery by</p>
-                </div>
-                <div class="btnContainer">
-                    <button (click)="removeFromCart(item.products._id)" class="deleteBtn"><fa-icon [icon]="fadelete"></fa-icon></button>
-                    <button  class="buyBtn">Buy Now</button>
-                </div>
-            </div>
+            <app-cartitemcard [item]="item" (selectedItem)="selectProduct($event)"></app-cartitemcard>
         </ng-container>
         <button *ngIf="selectedCartItems.length" class="checkoutbtn" (click)="orderItem()">Place Order ({{selectedCartItems.length}})</button>
     </div>
