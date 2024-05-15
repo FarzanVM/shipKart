@@ -1,11 +1,16 @@
-<div class="imgContainer">
+<div #container class="imgContainer">
     <ng-container *ngFor="let product of bestdeals$|async">
         <div class="productBox">
             <img src={{product.productimg}} alt="productImg">
-            <p></p>
+            <p> {{product.productname}}</p>
+            <p>{{product.productdiscount}}%</p>
         
            </div>
     </ng-container>
-   
-
+   <button class="leftbtn" (click)="moveLeft()">
+    <fa-icon [icon]="angleleft"></fa-icon>
+   </button>
+   <button class="rightbtn" (click)="moveRight()">
+    <fa-icon [icon]="angleright"></fa-icon>
+   </button>
 </div>

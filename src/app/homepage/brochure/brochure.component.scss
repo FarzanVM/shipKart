@@ -34,8 +34,9 @@
     }
     .bestdeals{
         display: flex;
+        position: relative;
         flex-direction: column;
-        width: 900px;
+        width: 90%;
         overflow: hidden;
         background-color: #fff;
         border-radius: 5px;

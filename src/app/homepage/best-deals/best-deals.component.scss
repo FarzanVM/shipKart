@@ -4,7 +4,7 @@
         width: 100%;
         padding: 10px;
         column-gap: 10px;
-        overflow-x: scroll;
+        overflow-x: hidden;
     .productBox{
         display: block;
         min-width: 200px;
@@ -16,5 +16,31 @@
             height:170px;
             object-fit: contain;
         }
+        p{
+            text-align: center;
+            font-weight: bold;
+        }
+        p:last-child{
+            color: green;
+            
+        }
+    }
+    button{
+        width: 50px;
+        height: 50px;
+        border: none;
+        background-color: #fff;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border-radius: 50%;
+        position: absolute;
+        top:50%;
+        cursor: pointer;
+        font-size: large;
+    }
+    .leftbtn{   
+        left: 0;
+    }
+    .rightbtn{
+        right:0;
     }
 }

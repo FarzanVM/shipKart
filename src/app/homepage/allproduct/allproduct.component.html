@@ -35,8 +35,8 @@
                 <p>Sort By</p>
                 <button>Relevance</button>
                 <button>Popularity</button>
-                <button>Price-low--High</button>
-                <button>Price-Hight--low</button>
+                <button (click)="getProductsBy('asc')">Price-low--High</button>
+                <button (click)="getProductsBy('desc')">Price-Hight--low</button>
                 <button>Newest</button>
             </div>
         </div>

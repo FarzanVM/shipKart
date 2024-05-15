@@ -93,6 +93,10 @@
             padding: 5px;
             font-size: 14px;
             cursor: pointer;
+            
+        }
+        button:hover{
+            border-bottom: 1px solid blue;
         }
         button:focus{
             color: blue;

@@ -43,5 +43,8 @@ export class AllproductComponent implements OnInit {
     console.log("range value", input.value)
   }
 
+  getProductsBy(order:string){
+    this.product$=this.productservice.getProductsBy('price',order)
+  }
 
 }

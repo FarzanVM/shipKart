@@ -31,6 +31,10 @@ export class ProductService {
     return this.http.get('http://localhost:3000/api/product/getproductsbycategory/'+productCategory)
   }
 
+  getProductsBy(sortby:string,orderby:string){
+    return this.http.get('http://localhost:3000/api/product/getproductsby?sortby='+sortby+'&orderby='+orderby)
+  }
+
   updateProduct(product:any){
     return this.http.put('http://localhost:3000/api/product/updateproduct',product)
   }
