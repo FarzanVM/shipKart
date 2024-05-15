@@ -32,5 +32,16 @@
             object-fit: contain;
         }
     }
+    .bestdeals{
+        display: flex;
+        flex-direction: column;
+        width: 900px;
+        overflow: hidden;
+        background-color: #fff;
+        border-radius: 5px;
+        p{
+            margin-left: 10px;
+        }
+    }
 
 }
