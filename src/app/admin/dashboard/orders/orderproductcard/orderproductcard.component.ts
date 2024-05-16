@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCaretDown, faCheck, faCheckDouble, faTruck, faTruckRampBox } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition, faCaretDown, faCheck, faCheckDouble, faTruck, faTruckRampBox } from '@fortawesome/free-solid-svg-icons';
 import { OrderService } from '../../../../services/orderservice/order.service';
 import { ToastrService } from 'ngx-toastr';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-orderproductcard',
@@ -21,7 +22,7 @@ export class OrderproductcardComponent implements OnInit {
   facheckdouble=faCheckDouble;
   opendropdown:boolean=false;
   allstatus:String[]=["Order Confirmed","Shipped","Out For Delivery","Delivered"]
-  faicons:any[]=[this.facheck,this.fatruck,this.fatruckrampbox,this.facheckdouble]
+  faicons:IconDefinition[]=[this.facheck,this.fatruck,this.fatruckrampbox,this.facheckdouble]
   orderstatus:String="Order Confirmed";
   currIndex:number=0;
 
@@ -33,6 +34,9 @@ export class OrderproductcardComponent implements OnInit {
     console.log(this.order)
     this.orderstatus=this.order?.orderstatus;
     this.currIndex=this.allstatus.indexOf(this.orderstatus)
+    if(this.currIndex<0){
+      this.currIndex=0;
+    }
   }
 
   openStatus(){
@@ -49,12 +53,19 @@ export class OrderproductcardComponent implements OnInit {
       _id:id,
       orderstatus:this.orderstatus
     }
-    this.orderservice.updateorder(orderId).subscribe((res:any)=>{
-      this.toastrservice.success(res.message);
-    },
-  (error)=>{
-    this.toastrservice.error(error.error.message);
-  })
+    const date = new Date()
+    const month=date.getMonth()
+    const year=date.getFullYear()
+    console.log(date.toDateString())
+    console.log(month)
+
+
+  //   this.orderservice.updateorder(orderId).subscribe((res:any)=>{
+  //     this.toastrservice.success(res.message);
+  //   },
+  // (error)=>{
+  //   this.toastrservice.error(error.error.message);
+  // })
   }
 
 }

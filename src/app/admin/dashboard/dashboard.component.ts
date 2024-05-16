@@ -20,6 +20,9 @@ export class DashboardComponent {
   opendropdown(){
     this.dropdown=!this.dropdown
   }
+  gotoHome(){
+    this.router.navigate(['admin'])
+  }
 
   gotoaddproduct(){
     this.router.navigate(['admin','addproduct']);

@@ -18,9 +18,12 @@ export class AllproductComponent implements OnInit {
 
   startVal: any;
   endVal: any;
+
+  totalresults:number=0;
   product$: Observable<any> | undefined | any;
   wishlist$: Observable<any> | undefined | any;
   loadedData:boolean=false;
+
   constructor(private productservice: ProductService, private wishlistservice: WishlistService, private authservice: AuthService) { }
 
   ngOnInit(): void {
@@ -29,6 +32,10 @@ export class AllproductComponent implements OnInit {
     
     console.log("username",username)
     this.product$ = this.productservice.getProducts(username)
+    this.product$.subscribe((res: any)=>{
+      this.totalresults=res.length
+      console.log(res)
+    })
 
   }
   refresh($event: any) {
