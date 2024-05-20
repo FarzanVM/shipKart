@@ -1,6 +1,9 @@
 <div class="header">
     <h1 (click)="gotoHome()">ShipKart</h1>
     <div class="account">
+        <button><fa-icon [icon]="fabasket"></fa-icon></button>
+        <button><fa-icon [icon]="faorder"></fa-icon></button>
+        <button><fa-icon [icon]="famessage"></fa-icon></button>
         <button (click)="opendropdown()">
             <fa-icon [icon]="faUserLarge"></fa-icon>
         </button>
@@ -8,14 +11,14 @@
             <button class="logout" (click)="logout()">Log Out</button>
         </div>
     </div>
-    
-    
+
+
 </div>
 <div class="operation">
     <button (click)="gotostoreproducts()">storeproducts</button>
     <button (click)="gotoaddproduct()">Add product</button>
     <button (click)="gotoOrders()">Orders</button>
-   
+
 </div>
 <div class="opContainer">
     <router-outlet></router-outlet>

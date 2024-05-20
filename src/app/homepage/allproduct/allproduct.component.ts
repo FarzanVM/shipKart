@@ -24,14 +24,18 @@ export class AllproductComponent implements OnInit {
   wishlist$: Observable<any> | undefined | any;
   loadedData:boolean=false;
 
-  constructor(private productservice: ProductService, private wishlistservice: WishlistService, private authservice: AuthService) { }
+  constructor(private productservice: ProductService) { }
 
   ngOnInit(): void {
+
+    const searchKey= localStorage.getItem('searchKey')
 
     const username = localStorage.getItem('username')
     
     console.log("username",username)
-    this.product$ = this.productservice.getProducts(username)
+    // this.product$ = this.productservice.getProducts(username)
+   
+    this.product$ = this.productservice.searchProduct(searchKey)
     this.product$.subscribe((res: any)=>{
       this.totalresults=res.length
       console.log(res)

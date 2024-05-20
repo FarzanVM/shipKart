@@ -14,7 +14,7 @@ export class OfferComponent implements OnInit {
 
   ngOnInit(): void {
     setInterval(()=>{
-      this.currIndex=(this.currIndex+1)%this.url.length
+      this.currIndex=(this.currIndex+1)%this.url?.length
 
     },2000)
   }

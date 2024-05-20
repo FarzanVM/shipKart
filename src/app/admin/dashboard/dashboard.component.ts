@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCartShopping, faStore,faUserLarge } from '@fortawesome/free-solid-svg-icons';
+import { faMessage } from '@fortawesome/free-regular-svg-icons';
+import { faBasketShopping, faCartShopping, faFileLines, faStore,faUserLarge } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,10 @@ import { faCartShopping, faStore,faUserLarge } from '@fortawesome/free-solid-svg
 })
 export class DashboardComponent {
   dropdown:boolean=false;
-  faUserLarge=faUserLarge
+  faUserLarge=faUserLarge;
+  fabasket = faBasketShopping;
+  faorder = faFileLines;
+  famessage=faMessage;
 
   constructor(private router:Router){}
 

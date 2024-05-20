@@ -1,19 +1,19 @@
 <div class="searchBar">
     <div class="searchcontainer">
-        <input type="search" placeholder="Search For..." [formControl]="userInput">
+        <input type="search" placeholder="Search For..." [formControl]="userInput" (keyup.enter)="search()">
         <div class="icon">
             <fa-icon [icon]="faSearch"></fa-icon>
         </div>
          
     </div>
-    <div *ngIf="searchResults.length>0" class="resultcontainer" >
+    <div *ngIf="searchResults?.length" class="resultcontainer" >
         <ng-container *ngFor="let result of searchResults">
             <div class="result">
-                <span class="matched">{{userInput.value}}</span><span class="unmatched">{{result}}</span>
+                <span class="matched">{{result.productname}}</span>
             </div>
         </ng-container>
     </div>
-    <div class="errormsg" *ngIf="userInput.dirty &&userInput.value.length>0 && searchResults.length==0">
+    <div class="errormsg" *ngIf="userInput.dirty &&userInput.value.length>0 && searchResults?.length==0">
         <h5>No result Found</h5>
     </div>
 </div>
