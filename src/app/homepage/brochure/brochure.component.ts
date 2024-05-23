@@ -14,8 +14,9 @@ export class BrochureComponent {
 
   constructor(private router:Router){}
 
-  gotoProduct(){
-    this.router.navigate(['/allproduct'])
+  gotoProduct(searchKey:string){
+    localStorage.setItem('searchKey',searchKey)
+    this.router.navigate(['/allproduct',searchKey])
   }
 
 }

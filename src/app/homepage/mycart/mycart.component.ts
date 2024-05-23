@@ -72,7 +72,25 @@ export class MycartComponent implements OnInit, OnDestroy {
       quantity:event.quantity,
       username:username,
       storename:event.storename,
-      orderstatus:"in progress"
+      orderstatus:{
+        inprogress:{
+          status:true,
+        },
+        confirmed:{
+          status:false,
+        },
+        shipped:{
+          status:false
+        },
+        outfordelivery:{
+          status:false
+        },
+        delivered:{
+          status:false
+        }
+
+      }
+    
     }
     if(this.selectedCartItems.some((item:any)=>item.product_id===order.product_id)){
       this.selectedCartItems=this.selectedCartItems.filter((item:any)=>item.product_id!==order.product_id)
@@ -88,7 +106,7 @@ export class MycartComponent implements OnInit, OnDestroy {
 
     this.orderservice.addOrder(this.selectedCartItems).subscribe((res:any)=>{
       this.toastrservice.success(res.message)
-      this.router.navigate(['checkout'])
+      // this.router.navigate(['checkout'])
     },
   (error)=>{
     this.toastrservice.warning(error.error.message)
