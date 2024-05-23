@@ -22,7 +22,7 @@ export const routes: Routes = [{
             component:BrochureComponent,
         },
             {
-            path:'allproduct',
+            path:'allproduct/:productname',
             component:AllproductComponent
         },
         {

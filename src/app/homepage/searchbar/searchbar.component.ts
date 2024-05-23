@@ -5,6 +5,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { ProductService } from '../../services/productservice/product.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-searchbar',
   standalone: true,
@@ -43,7 +44,7 @@ export class SearchbarComponent implements OnInit {
     if(this.searchResults.length){
       localStorage.setItem('searchKey',this.userInput.value)
       this.searchResults=[]
-      this.router.navigate(['allproduct'])
+      this.router.navigate(['allproduct',this.userInput.value])
     }
     
   }

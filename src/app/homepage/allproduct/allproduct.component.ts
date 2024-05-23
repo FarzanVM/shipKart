@@ -6,6 +6,7 @@ import { Observable, forkJoin, map, mergeMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { WishlistService } from '../../services/wishlistservice/wishlist.service';
 import { AuthService } from '../../services/sharedservice/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-allproduct',
@@ -24,23 +25,22 @@ export class AllproductComponent implements OnInit {
   wishlist$: Observable<any> | undefined | any;
   loadedData:boolean=false;
 
-  constructor(private productservice: ProductService) { }
+  constructor(private productservice: ProductService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params =>{
+      const searchKey= localStorage.getItem('searchKey')
 
-    const searchKey= localStorage.getItem('searchKey')
-
-    const username = localStorage.getItem('username')
-    
-    console.log("username",username)
-    // this.product$ = this.productservice.getProducts(username)
-   
-    this.product$ = this.productservice.searchProduct(searchKey)
-    this.product$.subscribe((res: any)=>{
-      this.totalresults=res.length
-      console.log(res)
+      const username = localStorage.getItem('username')
+      this.product$ = this.productservice.searchProduct(searchKey)
+      this.product$.subscribe((res: any)=>{
+        this.totalresults=res.length
+        console.log(res)
+      })
+      
     })
-
+    // this.product$ = this.productservice.getProducts(username)
+  
   }
   refresh($event: any) {
     console.log("event added")
@@ -55,7 +55,8 @@ export class AllproductComponent implements OnInit {
   }
 
   getProductsBy(order:string){
-    this.product$=this.productservice.getProductsBy('price',order)
+    const searchKey= localStorage.getItem('searchKey')
+    this.product$=this.productservice.getProductsBy(searchKey,'price',order)
   }
 
 }
