@@ -6,12 +6,12 @@ import { Observable, forkJoin, map, mergeMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { WishlistService } from '../../services/wishlistservice/wishlist.service';
 import { AuthService } from '../../services/sharedservice/auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-allproduct',
   standalone: true,
-  imports: [ProductCardComponent, CommonModule, SimpleproductcardComponent],
+  imports: [ProductCardComponent, CommonModule, SimpleproductcardComponent,RouterModule],
   templateUrl: './allproduct.component.html',
   styleUrl: './allproduct.component.scss'
 })
@@ -24,12 +24,14 @@ export class AllproductComponent implements OnInit {
   product$: Observable<any> | undefined | any;
   wishlist$: Observable<any> | undefined | any;
   loadedData:boolean=false;
+  currentlevel:string|null="";
 
   constructor(private productservice: ProductService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params =>{
       const searchKey= localStorage.getItem('searchKey')
+      this.currentlevel=searchKey;
 
       const username = localStorage.getItem('username')
       this.product$ = this.productservice.searchProduct(searchKey)
