@@ -5,6 +5,7 @@ import { IconDefinition, faCaretDown, faCheck, faCheckDouble, faTruck, faTruckRa
 import { OrderService } from '../../../../services/orderservice/order.service';
 import { ToastrService } from 'ngx-toastr';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-orderproductcard',
@@ -17,6 +18,7 @@ export class OrderproductcardComponent implements OnInit {
   
   facaretdown=faCaretDown;
   facheck=faCheck;
+  facirclecheck=faCircleCheck;
   fatruck=faTruck;
   fatruckrampbox=faTruckRampBox;
   facheckdouble=faCheckDouble;
@@ -25,6 +27,7 @@ export class OrderproductcardComponent implements OnInit {
   faicons:IconDefinition[]=[this.facheck,this.fatruck,this.fatruckrampbox,this.facheckdouble]
   orderstatus:String="Order Confirmed";
   currIndex:number=0;
+  Object=Object;
 
   @Input() order:any;
 

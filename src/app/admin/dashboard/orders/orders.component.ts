@@ -24,6 +24,9 @@ export class OrdersComponent implements OnInit {
     storename:storename
    }
     this.orders$ = this.orderservice.getStoreOrders(store)
+    this.orders$.subscribe(res=>{
+      console.log(res)
+    })
   }
 
 
