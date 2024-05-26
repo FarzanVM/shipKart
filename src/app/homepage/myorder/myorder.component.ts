@@ -15,7 +15,6 @@ import { CommonModule } from '@angular/common';
 export class MyorderComponent implements OnInit{
 
   farupee=faIndianRupee
-  allstatus:String[]=["Order Confirmed","Shipped","Out For Delivery","Delivered"]
   orders$:Observable<any>|undefined;
   constructor(private orderservice:OrderService){}
 
@@ -26,11 +25,7 @@ export class MyorderComponent implements OnInit{
       username:username
     }
 
-    this.orders$ =  this.orderservice.getorders(user);
-    this.orders$.subscribe(res=>{
-      console.log(res)
-    })
-    
+    this.orders$ =  this.orderservice.getorders(user);    
   }
 
 

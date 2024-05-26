@@ -39,6 +39,19 @@ export class CheckoutComponent implements OnInit{
   ifOrdered:boolean=false;
   @HostListener('window:beforeunload', ['$event'])
   preventBackRoute():Observable<boolean>|boolean {
+    if(!this.ifOrdered){
+      if(confirm("Do you want to go Back,you lose current Order")){
+       this.orderservice.deleteBulkOrders(this.orderIds).subscribe((res:any)=>{
+        this.toastrservice.success(res.message)
+        this.ifOrdered=true
+        this.router.navigate(['/'])
+       },
+      (error)=>{
+        this.toastrservice.error(error.error.message)
+      })
+
+      }
+    }
     return this.ifOrdered  
   }
 
@@ -60,7 +73,7 @@ export class CheckoutComponent implements OnInit{
       console.log(item)
       item?.forEach((element: any) => {
         this.subtotal+=element.products.productnewprice
-        this.orderIds.push({_id:element._id})
+        this.orderIds.push({_id:element._id,date:new Date().toDateString()})
         
       });
       this.total=this.subtotal + this.shippingcharge;
@@ -71,11 +84,11 @@ export class CheckoutComponent implements OnInit{
   }
 
   payOrder(){
-    console.log(this.orderIds)
+
     this.orderservice.updateBulkOrders(this.orderIds).subscribe((res:any)=>{
       this.toastrservice.success(res.message)
       this.ifOrdered=true
-      this.router.navigate(['allproduct'])
+      this.router.navigate(['/'])
     },
   (error)=>{
     this.toastrservice.error(error.error.message)

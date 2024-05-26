@@ -7,7 +7,7 @@
     <div class="orderStatusContainer">
         <div class="orderstatus">
             <button (click)="openStatus()">
-                <span><fa-icon [icon]="faicons[currIndex]"></fa-icon>Set Status</span>        
+                <span><fa-icon [icon]="faicons[currIndex]"></fa-icon>{{orderstatus}}</span>        
                     <div class="icon" [ngClass]="{'rotate':opendropdown}">
                         <fa-icon [icon]="facaretdown"></fa-icon>
                     </div>
@@ -17,7 +17,7 @@
                     <button *ngIf="status!=order.orderstatus && i>currIndex" (click)="setStatus(i)"><fa-icon [icon]="faicons[i]"></fa-icon>{{status}}</button>
                 </ng-container> -->
                 <ng-container *ngFor="let key of Object.keys(order.orderstatus)">
-                    <button [ngClass]="{'finished':order.orderstatus[key].status==true}" >{{key}} <fa-icon *ngIf="order.orderstatus[key].status==true"  [icon]="facirclecheck"></fa-icon></button>
+                    <button [ngClass]="{'finished':order.orderstatus[key].status==true}" (click)="setStatus(key)" >{{key}} <fa-icon *ngIf="order.orderstatus[key].status==true"  [icon]="facirclecheck"></fa-icon></button>
 
                 </ng-container>
             </div>

@@ -18,33 +18,37 @@
                     <div class="section">
                         <p class="orderStatus">Order Confirmed</p>
                         <div class="status">
-                            <div class="circle" [ngClass]="{'circlesuccess':allstatus.indexOf(order.orderstatus)>=allstatus.indexOf('Order Confirmed')}"></div>
-                            <div class="bar" [ngClass]="{'barsuccess':allstatus.indexOf(order.orderstatus)>=allstatus.indexOf('Order Confirmed')}"></div>
+                            <div class="circle" [ngClass]="{'circlesuccess':order.orderstatus.confirmed.status}"></div>
+                            <div class="bar" [ngClass]="{'barsuccess':order.orderstatus.confirmed.status}"></div>
                         </div>
-                        <p class="dateconfirmed">Fri,25 Apr</p>
+                        <p class="dateconfirmed" *ngIf="order.orderstatus.confirmed.status">{{order.orderstatus.confirmed.date|date:'longDate'}}</p>
+                        <p class="dateconfirmed" *ngIf="!order.orderstatus.confirmed.status">Not available</p>
                     </div>
                     <div class="section">
                         <p class="orderStatus">Shipped</p>
                         <div class="status">
-                            <div class="circle" [ngClass]="{'circlesuccess':allstatus.indexOf(order.orderstatus)>=allstatus.indexOf('Shipped')}"></div>
-                            <div class="bar" [ngClass]="{'barsuccess':allstatus.indexOf(order.orderstatus)>=allstatus.indexOf('Shipped')}"></div>
+                            <div class="circle" [ngClass]="{'circlesuccess':order.orderstatus.shipped.status}"></div>
+                            <div class="bar" [ngClass]="{'barsuccess':order.orderstatus.shipped.status}"></div>
                         </div>
-                        <p class="dateconfirmed">Fri,25 Apr</p>
+                        <p class="dateconfirmed" *ngIf="order.orderstatus.shipped.status">{{order.orderstatus.shipped.date|date:'longDate'}}</p>
+                        <p class="dateconfirmed" *ngIf="!order.orderstatus.shipped.status">Not available</p>
                     </div>
                     <div class="section">
                         <p class="orderStatus">Out For Delivery</p>
                         <div class="status">
-                            <div class="circle"  [ngClass]="{'circlesuccess':allstatus.indexOf(order.orderstatus)>=allstatus.indexOf('Out For Delivery')}"></div>
-                            <div class="bar" [ngClass]="{'barsuccess':allstatus.indexOf(order.orderstatus)>=allstatus.indexOf('Out For Delivery')}"></div>
+                            <div class="circle"  [ngClass]="{'circlesuccess':order.orderstatus.outfordelivery.status}"></div>
+                            <div class="bar" [ngClass]="{'barsuccess':order.orderstatus.outfordelivery.status}"></div>
                         </div>
-                        <p class="dateconfirmed">Fri,25 Apr</p>
+                        <p class="dateconfirmed" *ngIf="order.orderstatus.outfordelivery.status">{{order.orderstatus.outfordelivery.date|date:'longDate'}}</p>
+                        <p class="dateconfirmed" *ngIf="!order.orderstatus.outfordelivery.status">Not available</p>
                     </div>
                     <div class="section">
                         <p class="orderStatus">Delivered</p>
                         <div class="status">
-                            <div class="circle" [ngClass]="{'circlesuccess':allstatus.indexOf(order.orderstatus)>=allstatus.indexOf('Delivered')}" ></div>
+                            <div class="circle" [ngClass]="{'circlesuccess':order.orderstatus.delivered.status}" ></div>
                         </div>
-                        <p class="dateconfirmed">Fri,25 Apr</p>
+                        <p class="dateconfirmed" *ngIf="order.orderstatus.delivered.status">{{order.orderstatus.delivered.date|date:'longDate'}}</p>
+                        <p class="dateconfirmed" *ngIf="!order.orderstatus.delivered.status">Not available</p>
                     </div>
                 </div>
             </div>

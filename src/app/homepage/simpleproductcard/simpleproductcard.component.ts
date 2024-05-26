@@ -29,7 +29,7 @@ export class SimpleproductcardComponent implements OnInit {
      private wishlistservice: WishlistService,private toastrservice:ToastrService) { }
 
   ngOnInit(): void {
-    // console.log(this.product)
+    console.log(this.product)
   }
 
   addtoWishlist(product_id: any) {

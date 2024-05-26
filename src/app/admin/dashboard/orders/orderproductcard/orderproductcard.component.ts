@@ -25,7 +25,7 @@ export class OrderproductcardComponent implements OnInit {
   opendropdown:boolean=false;
   allstatus:String[]=["Order Confirmed","Shipped","Out For Delivery","Delivered"]
   faicons:IconDefinition[]=[this.facheck,this.fatruck,this.fatruckrampbox,this.facheckdouble]
-  orderstatus:String="Order Confirmed";
+  orderstatus:String="Set Status";
   currIndex:number=0;
   Object=Object;
 
@@ -35,7 +35,7 @@ export class OrderproductcardComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.order)
-    this.orderstatus=this.order?.orderstatus;
+    // this.orderstatus=this.order?.orderstatus;
     this.currIndex=this.allstatus.indexOf(this.orderstatus)
     if(this.currIndex<0){
       this.currIndex=0;
@@ -45,30 +45,27 @@ export class OrderproductcardComponent implements OnInit {
   openStatus(){
     this.opendropdown=!this.opendropdown;
   }
-  setStatus(index:number){
-    this.currIndex=index;
-    this.orderstatus = this.allstatus[index]
+  setStatus(key:string){
+    this.orderstatus = key
     this.opendropdown=false;
+  
   }
   confirm(id:any){
     console.log("id",id)
+    const date = new Date()
     const orderId={
       _id:id,
-      orderstatus:this.orderstatus
+      orderstatus:this.orderstatus,
+      date:date.toDateString()
     }
-    const date = new Date()
-    const month=date.getMonth()
-    const year=date.getFullYear()
     console.log(date.toDateString())
-    console.log(month)
 
-
-  //   this.orderservice.updateorder(orderId).subscribe((res:any)=>{
-  //     this.toastrservice.success(res.message);
-  //   },
-  // (error)=>{
-  //   this.toastrservice.error(error.error.message);
-  // })
+    this.orderservice.updateorder(orderId).subscribe((res:any)=>{
+      this.toastrservice.success(res.message);
+    },
+  (error)=>{
+    this.toastrservice.error(error.error.message);
+  })
   }
 
 }

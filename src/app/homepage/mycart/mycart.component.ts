@@ -106,7 +106,7 @@ export class MycartComponent implements OnInit, OnDestroy {
 
     this.orderservice.addOrder(this.selectedCartItems).subscribe((res:any)=>{
       this.toastrservice.success(res.message)
-      // this.router.navigate(['checkout'])
+      this.router.navigate(['checkout'])
     },
   (error)=>{
     this.toastrservice.warning(error.error.message)

@@ -2,5 +2,5 @@ import { ActivatedRouteSnapshot, CanDeactivateFn, RouterStateSnapshot } from '@a
 import { CheckoutComponent } from '../homepage/checkout/checkout.component';
 
 export const checkoutDeactivateGuard: CanDeactivateFn<any> = (component:CheckoutComponent, currentRoute:ActivatedRouteSnapshot, currentState:RouterStateSnapshot, nextState:RouterStateSnapshot) => {
-  return component.preventBackRoute()?true:confirm("Do you want to go back")
+  return component.preventBackRoute()?true:false
 };
