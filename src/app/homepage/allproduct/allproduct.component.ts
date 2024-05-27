@@ -34,7 +34,11 @@ export class AllproductComponent implements OnInit {
       this.currentlevel=searchKey;
 
       const username = localStorage.getItem('username')
-      this.product$ = this.productservice.searchProduct(searchKey)
+
+      const user={
+        username:username
+      }
+      this.product$ = this.productservice.getProducts(user,searchKey)
       this.product$.subscribe((res: any)=>{
         this.totalresults=res.length
         console.log(res)
@@ -58,7 +62,12 @@ export class AllproductComponent implements OnInit {
 
   getProductsBy(order:string){
     const searchKey= localStorage.getItem('searchKey')
-    this.product$=this.productservice.getProductsBy(searchKey,'price',order)
+    const username = localStorage.getItem('username')
+
+    const user={
+      username:username
+    }
+    this.product$=this.productservice.getProductsBy(searchKey,'price',order,user)
   }
 
 }

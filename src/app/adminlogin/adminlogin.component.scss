@@ -10,6 +10,8 @@
     width: 500px;
     height:auto;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    // background-image: url("/assets/images/backgrounds/shop.jpg");
+    // background-size: cover;
     .loginForm,.signupForm{
         width: 100%;
         display: flex;
@@ -57,7 +59,8 @@
         a{
             cursor: pointer;
             text-decoration: underline;
-            color: rgb(75, 75, 182);
+            // color: rgb(75, 75, 182);
+            color: black;
         }
     }
     .loginmsg{

@@ -11,9 +11,9 @@ export class ProductService {
   addProduct(product:any){
     return this.http.post('http://localhost:3000/api/product/addproduct',product)
   }
-  getProducts(username:any){
+  getProducts(user:any,keyword:any){
 
-    return this.http.get('http://localhost:3000/api/product/getproducts/'+username)
+    return this.http.post('http://localhost:3000/api/product/getproducts/'+keyword,user)
   }
   getStoreProducts(store:any){
     return this.http.post('http://localhost:3000/api/product/getstoreproducts',store);
@@ -31,8 +31,8 @@ export class ProductService {
     return this.http.get('http://localhost:3000/api/product/getproductsbycategory/'+productCategory)
   }
 
-  getProductsBy(item:any,sortby:string,orderby:string){
-    return this.http.get('http://localhost:3000/api/product/getproductsby?item='+item+'&sortby='+sortby+'&orderby='+orderby)
+  getProductsBy(item:any,sortby:string,orderby:string,user:any){
+    return this.http.post('http://localhost:3000/api/product/getproductsby?item='+item+'&sortby='+sortby+'&orderby='+orderby,user)
   }
 
   updateProduct(product:any){
