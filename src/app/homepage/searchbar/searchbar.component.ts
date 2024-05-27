@@ -35,7 +35,7 @@ export class SearchbarComponent implements OnInit {
       //   }
       // }).filter(item => item != null)
       if(data?.length){
-        this.productservice.searchProduct(data,user).subscribe((res:any)=>{
+        this.productservice.searchProduct(data).subscribe((res:any)=>{
           this.searchResults=res
         })
       }

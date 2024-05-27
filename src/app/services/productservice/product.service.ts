@@ -39,7 +39,7 @@ export class ProductService {
     return this.http.put('http://localhost:3000/api/product/updateproduct',product)
   }
 
-  searchProduct(keyword:any,user:any){
-    return this.http.get('http://localhost:3000/api/product/searchproducts/'+keyword,user);
+  searchProduct(keyword:any){
+    return this.http.get('http://localhost:3000/api/product/searchproducts/'+keyword);
   }
 }
