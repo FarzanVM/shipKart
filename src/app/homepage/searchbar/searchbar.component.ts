@@ -29,11 +29,6 @@ export class SearchbarComponent implements OnInit {
       username:username
     }
     this.userInput.valueChanges.subscribe((data: any) => {
-      // this.searchResults = this.mockdata.map(item => {
-      //   if (data.length != 0 && item.slice(0, data.length).toLowerCase() === data.toLowerCase()) {
-      //     return item.substr(data.length)
-      //   }
-      // }).filter(item => item != null)
       if(data?.length){
         this.productservice.searchProduct(data).subscribe((res:any)=>{
           this.searchResults=res

@@ -7,20 +7,10 @@ import { Injectable } from '@angular/core';
 export class ProductService {
 
   constructor(private http:HttpClient) { }
-   
-  addProduct(product:any){
-    return this.http.post('http://localhost:3000/api/product/addproduct',product)
-  }
+
+  //for User
   getProducts(user:any,keyword:any){
-
     return this.http.post('http://localhost:3000/api/product/getproducts/'+keyword,user)
-  }
-  getStoreProducts(store:any){
-    return this.http.post('http://localhost:3000/api/product/getstoreproducts',store);
-  }
-
-  deleteProduct(productId:any){
-    return this.http.delete('http://localhost:3000/api/product/deleteproduct/'+productId)
   }
 
   getSingleProduct(productId:any){
@@ -35,11 +25,29 @@ export class ProductService {
     return this.http.post('http://localhost:3000/api/product/getproductsby?item='+item+'&sortby='+sortby+'&orderby='+orderby,user)
   }
 
-  updateProduct(product:any){
-    return this.http.put('http://localhost:3000/api/product/updateproduct',product)
-  }
-
   searchProduct(keyword:any){
     return this.http.get('http://localhost:3000/api/product/searchproducts/'+keyword);
+  }
+
+  getBestDeals(){
+    return this.http.get('http://localhost:3000/api/product/getbestdeals')
+  }
+
+  //for Admin
+   
+  addProduct(product:any){
+    return this.http.post('http://localhost:3000/api/product/addproduct',product)
+  }
+
+  getStoreProducts(store:any){
+    return this.http.post('http://localhost:3000/api/product/getstoreproducts',store);
+  }
+
+  deleteProduct(productId:any){
+    return this.http.delete('http://localhost:3000/api/product/deleteproduct/'+productId)
+  }
+
+  updateProduct(product:any){
+    return this.http.put('http://localhost:3000/api/product/updateproduct',product)
   }
 }

@@ -15,6 +15,8 @@ export class CartService {
     return this._refreshNeeded$;
   }
 
+  //for User
+
   addToCart(cart:any){
     return this.http.post('http://localhost:3000/api/cart/addtocart',cart)
   }

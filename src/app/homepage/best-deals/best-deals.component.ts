@@ -27,8 +27,7 @@ export class BestDealsComponent implements OnInit,AfterViewInit {
   }
 
   ngOnInit(): void {
-    const username=localStorage.getItem('username')
-    // this.bestdeals$=this.productservice.getProducts(username);
+    this.bestdeals$=this.productservice.getBestDeals();
   }
 
   moveRight(){

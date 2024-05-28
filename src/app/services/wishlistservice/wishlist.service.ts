@@ -8,6 +8,7 @@ export class WishlistService {
 
   constructor(private http:HttpClient) { }
 
+  //for User
 
   getWishListItems(user:any){
     return this.http.post('http://localhost:3000/api/wishlist/getwishlistitems',user)

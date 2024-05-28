@@ -8,21 +8,15 @@ export class OrderService {
 
   constructor(private http:HttpClient) { }
 
+  //For User
+
   addOrder(model:any){
     return this.http.post('http://localhost:3000/api/order/addorder',model)
 
   }
 
-  updateorder(model:any){
-    return this.http.patch('http://localhost:3000/api/order/updateorder',model)
-  }
-
   getorders(model:any){
     return this.http.post('http://localhost:3000/api/order/getorders',model)
-  }
-
-  getStoreOrders(model:any){
-    return this.http.post('http://localhost:3000/api/order/getstoreorders',model)
   }
 
   getCurrentOrders(model:any){
@@ -35,5 +29,15 @@ export class OrderService {
 
   deleteBulkOrders(model:any){
     return this.http.post('http://localhost:3000/api/order/deletebulkorders',model)
+  }
+  
+  //for Admin
+
+  getStoreOrders(model:any){
+    return this.http.post('http://localhost:3000/api/order/getstoreorders',model)
+  }
+
+  updateorder(model:any){
+    return this.http.patch('http://localhost:3000/api/order/updateorder',model)
   }
 }
