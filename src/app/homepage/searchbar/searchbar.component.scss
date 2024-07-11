@@ -2,12 +2,13 @@
 .searchBar{
     position: relative;
     .searchcontainer{
+        width: 50vw;
         border-radius: 5px;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         display: flex;
         flex-direction: row;
         input{
-            width: 500px;
+            width:100%;
             padding: 10px;
             border-radius: 5px 0px 0px 5px;
             outline: none;
@@ -15,6 +16,7 @@
             background-color: rgb(231, 250, 255);
             
         }
+        
         .icon{
             background-color: rgb(231, 250, 255);
             display: flex;
