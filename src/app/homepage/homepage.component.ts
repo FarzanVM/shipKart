@@ -12,6 +12,7 @@ import { LoginsignupService } from '../services/sharedservice/loginsignup.servic
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/sharedservice/auth.service';
 import { Observable } from 'rxjs';
+import { UserService } from '../services/userservice/user.service';
 
 @Component({
   selector: 'app-homepage',
@@ -30,11 +31,16 @@ export class HomepageComponent implements OnInit {
   fapowerOff = faPowerOff
 
   loggedIn$:Observable<any> | undefined;
+  user$:Observable<any>|undefined;
 
-  constructor(private router:Router,private loginsignupservice:LoginsignupService,private authservice:AuthService){}
+  constructor(private router:Router,private loginsignupservice:LoginsignupService,private authservice:AuthService,private userservice:UserService){}
 
   ngOnInit(): void {
     this.loggedIn$ = this.authservice.watchStorage();
+    const username = localStorage.getItem('username')
+    if(username){
+      this.user$=this.userservice.getUser(username);
+    }
 
   }
   openLoginForm(){
