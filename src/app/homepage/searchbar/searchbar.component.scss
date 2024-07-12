@@ -16,6 +16,9 @@
             background-color: rgb(231, 250, 255);
             
         }
+        // @media (min-width: 453px) and (max-width: 992px){
+        //     font-size: ;
+        // }
         
         .icon{
             background-color: rgb(231, 250, 255);
@@ -64,5 +67,11 @@
         z-index: 10;
         margin-top: 2px;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+}
+@media (min-width: 453px) and (max-width: 768px) {
+    .searchBar{
+        border: 1px solid green;
+        top:60px;
     }
 }
