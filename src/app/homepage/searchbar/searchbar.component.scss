@@ -69,9 +69,11 @@
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     }
 }
-@media (min-width: 453px) and (max-width: 768px) {
-    .searchBar{
-        border: 1px solid green;
-        top:60px;
+@media (max-width: 453px){
+    .searchBar {
+        .searchcontainer{
+            width: calc(100vw - 60px); 
+        }
+
     }
 }

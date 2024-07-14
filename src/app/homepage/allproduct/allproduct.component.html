@@ -6,10 +6,12 @@
         <div class="price">
             <p class="subheading">Price</p>
             <div class="rangeContainer">
-                <input #range type="range" min="1" max="100000" class="rangeSlider" (input)="selectRange(range)">
-                <input #range type="range" min="1" max="100000" class="rangeSlider" (input)="selectRange(range)">
+                <div #progress [ngStyle]="{'right':'25%'}" class="progress"></div>
+                <input #range type="range" min="1" max="10000" value="2500" step="1" class="rangeSlider" (input)="selectRange(range)">
+                <input #range type="range" min="1" max="10000" value="8500" step="1" class="rangeSlider" (input)="selectRange(range)">
                 
             </div>
+           
             
             <div class="pricerange">
                 <div class="startrange">{{startVal}}</div>

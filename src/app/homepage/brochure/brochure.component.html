@@ -1,5 +1,7 @@
 <div class="container">
-    <div class="navbar">
+    <button class="leftbtn" (click)="moveLeft()"><fa-icon [icon]="angleleft"></fa-icon></button>
+    <button class="rightbtn" (click)="moveRight()"><fa-icon [icon]="angleright"></fa-icon></button>
+    <div class="navbar" #navbar>
         <div>
             <img src="assets/images/categories/grocery.png">
             <button (click)="gotoProduct('grocery')">Grocery</button>

@@ -1,13 +1,15 @@
 .formContainer{
     position: fixed;
-    top:30%;
-    left:30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 10px;
     display: flex;
     flex-direction: column;
     padding: 50px 10px 50px 10px ;
     border-radius: 10px;
     display: flex;
-    width: 500px;
+    width:500px;
     height:auto;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     .loginForm,.signupForm{
@@ -69,5 +71,11 @@
         background-color: #ffbf00;
         color: #212427;
        }
+    }
+}
+@media (max-width:500px){
+    .formContainer{
+        width: 100%;
+        margin: auto;
     }
 }

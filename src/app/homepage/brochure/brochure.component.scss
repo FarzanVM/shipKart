@@ -1,4 +1,5 @@
 .container{
+    position: relative;
     width: 100%;
     border: 1px solid green;
     display: flex;
@@ -6,7 +7,23 @@
     row-gap: 20px;
     justify-content: center;
     align-items: center;
+    .leftbtn,.rightbtn{
+        width: 40px;
+        height: 40px;
+        border: none;
+        background-color: #fff;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border-radius: 50%;
+        position: absolute;
+        top:50px;
+        cursor: pointer;
+        font-size: large;
+        display: none;
+        z-index: 10;
+    }
     .navbar{
+        position: relative;
+       
         display: flex;
         width: 100%;
         box-sizing: border-box;
@@ -32,6 +49,23 @@
             object-fit: contain;
         }
     }
+    @media (max-width:600px){
+        .container{
+            .leftbtn{   
+                left: 0;
+                display: block;
+            }
+            .rightbtn{
+                right:0;
+                display: block;
+            }
+        }
+        .navbar{
+            overflow-x: hidden;
+            
+        }
+       
+    }
     .bestdeals{
         display: flex;
         position: relative;
@@ -45,4 +79,16 @@
         }
     }
 
+}
+@media (max-width:600px){
+    .container{
+        .leftbtn{   
+            left: 0;
+            display: block;
+        }
+        .rightbtn{
+            right:0;
+            display: block;
+        }
+    }
 }

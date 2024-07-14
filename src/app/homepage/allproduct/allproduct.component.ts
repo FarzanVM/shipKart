@@ -25,10 +25,12 @@ export class AllproductComponent implements OnInit {
   wishlist$: Observable<any> | undefined | any;
   loadedData:boolean=false;
   currentlevel:string|null="";
+  @ViewChild('progress') progress:ElementRef|any;
 
   constructor(private productservice: ProductService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+  
     this.route.paramMap.subscribe(params =>{
       const searchKey= localStorage.getItem('searchKey')
       this.currentlevel=searchKey;

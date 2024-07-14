@@ -32,6 +32,17 @@ body{
             font-size: 2rem;
         }
     }
+    .account-options-container{
+        display: flex;
+        justify-content: space-between;
+    }
+    @media (max-width:453px){
+        .account-options-container{
+            position: absolute;
+            right: 0;
+            top:30px;
+        }
+    }
     .account{
         position: relative;
     }
@@ -70,6 +81,7 @@ body{
         border: none;
         padding: 5px;
         background-color: white;
+        margin-right: 10px;
         cursor: pointer;
         // font-size: large;
         // font-size: 1.5vw;
@@ -79,12 +91,12 @@ body{
         border: 1px solid green;
         border-radius: 5px;
     }
-    @media (min-width: 453px) and (max-width: 768px) {
+    @media (min-width: 453px) and (max-width: 992px) {
         button{
             font-size: 1rem;
         }
     }
-    @media (min-width:768px){
+    @media (min-width:992px){
         button{
             font-size: 1.2rem;
         }
@@ -95,6 +107,12 @@ body{
         fa-icon{
             color: white;
         }
+    }
+}
+@media (max-width: 453px){
+    .header{
+        flex-direction: column !important;
+        align-items:flex-start ;
     }
 }
 .content{
@@ -113,8 +131,24 @@ body{
         flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
+        flex-wrap: wrap;
         ul{
             list-style: none;
+            align-self: center;
+        }
+        @media (max-width:500px){
+           
+            ul{
+                // flex: 1;
+               font-size: 0.7rem;
+                
+            }
+        }
+    }
+    @media (max-width:500px){
+        .information{
+            flex-direction: column;
+            justify-content: center;
         }
     }
 }
