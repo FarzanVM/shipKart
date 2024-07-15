@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, viewChild, ViewChild } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { SimpleproductcardComponent } from '../simpleproductcard/simpleproductcard.component';
 import { ProductService } from '../../services/productservice/product.service';
@@ -15,10 +15,13 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
   templateUrl: './allproduct.component.html',
   styleUrl: './allproduct.component.scss'
 })
-export class AllproductComponent implements OnInit {
+export class AllproductComponent implements OnInit,AfterViewInit{
 
   startVal: any;
   endVal: any;
+
+  leftPos:string="0";
+  rightPos:string="0";
 
   totalresults:number=0;
   product$: Observable<any> | undefined | any;
@@ -26,11 +29,23 @@ export class AllproductComponent implements OnInit {
   loadedData:boolean=false;
   currentlevel:string|null="";
   @ViewChild('progress') progress:ElementRef|any;
+  @ViewChild('minrange') minrange:ElementRef|any;
+  @ViewChild('maxrange') maxrange:ElementRef|any;
 
   constructor(private productservice: ProductService,private route:ActivatedRoute) { }
 
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.startVal=this.minrange.nativeElement?.value;
+      this.endVal = this.maxrange.nativeElement?.value;
+       this.leftPos = (this.startVal/10000)*100+"%"
+         this.rightPos=100-(this.endVal/10000)*100+"%"
+      console.log("start",this.startVal,"end",this.endVal)
+    })
+   
+  }
   ngOnInit(): void {
-  
+
     this.route.paramMap.subscribe(params =>{
       const searchKey= localStorage.getItem('searchKey')
       this.currentlevel=searchKey;
@@ -56,11 +71,23 @@ export class AllproductComponent implements OnInit {
       this.ngOnInit();
     }
   }
-
-  selectRange(input: any) {
-    this.endVal = input.value;
-    console.log("range value", input.value)
+  selectMinRange(input:any){
+    this.startVal=input.value
+    if(this.endVal-this.startVal<1000){
+      input.value = this.endVal-1000
+      this.startVal=input.value
+    }
+    this.leftPos = (this.startVal/input.max)*100+"%"
   }
+  selectMaxRange(input: any) {
+    this.endVal = input.value;
+    if(this.endVal-this.startVal<1000){
+      input.value=parseInt(this.startVal)+1000
+      this.endVal=input.value
+    }
+    this.rightPos=100-(this.endVal/input.max)*100+"%"
+  }
+ 
 
   getProductsBy(order:string){
     const searchKey= localStorage.getItem('searchKey')
