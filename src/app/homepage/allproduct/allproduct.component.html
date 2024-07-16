@@ -1,10 +1,10 @@
 <div class="allproductContainer">
     <div class="filterOptions">
-        <div class="">
-            <p class="heading">Filters</p>
+        <div class="heading">
+            <p class="heading">FILTERS</p>
         </div>
         <div class="price">
-            <p class="subheading">Price</p>
+            <p class="subheading">PRICE</p>
             <div class="rangeContainer">
                 <div #progress [ngStyle]="{'left':leftPos,'right':rightPos}"  class="progress"></div>
                 <input #minrange type="range" min="1" max="10000" value="2500" step="1" class="rangeSlider" (input)="selectMinRange(minrange)">
@@ -12,31 +12,35 @@
                 
             </div>      
             <div class="pricerange">
-                <div class="startrange">{{startVal}}</div>
+                <div class="startrange"><fa-icon [icon]="farupee"></fa-icon>{{startVal}}</div>
                 <p>to</p>
-                <div class="endrange">{{endVal}}</div>
+                <div class="endrange"><fa-icon [icon]="farupee"></fa-icon>{{endVal}}</div>
             </div>         
         </div>
         <div>
-            <p class="subheading">Brand</p>
+            <p class="subheading">BRAND</p>
         </div>
         <div class="section" [ngClass]="{'opensection':opendiscount}">
-            <p class="subheading" (click)="openDiscount()">Discount <fa-icon [icon]="angledown"></fa-icon></p>    
+            <p class="subheading" (click)="openDiscount()">DISCOUNT <fa-icon [icon]="angledown" class="rotate"></fa-icon></p>    
             <input type="checkbox" id="above70">
-            <label for="above70">70% & above</label><br>
+            <label for="above70">70% or more</label><br>
+            <input type="checkbox" id="above60">
+            <label for="above60">60% or more</label><br>
             <input type="checkbox" id="above50">
-            <label for="above50">50% & above</label><br>
+            <label for="above50">50% or more</label><br>
+            <input type="checkbox" id="above40">
+            <label for="above40">40% or more</label><br>
             <input type="checkbox" id="above30">
-            <label for="above30">30% & above</label><br>
+            <label for="above30">30% or more</label><br>
         </div>
         <div class="section" [ngClass]="{'opensection':openrating}">
-            <p class="subheading" (click)="openRating()">Customer rating <fa-icon [icon]="angledown"></fa-icon></p>
+            <p class="subheading" (click)="openRating()">CUSTOMER RATING<fa-icon [icon]="angledown" class="rotate"></fa-icon></p>
             <input type="checkbox" id="4star">
-            <label for="4star">4* & above</label><br>
+            <label for="4star">4<fa-icon [icon]="fastar"></fa-icon> & above</label><br>
             <input type="checkbox" id="3star">
-            <label for="3star">3* & above</label><br>
+            <label for="3star">3<fa-icon [icon]="fastar"></fa-icon> & above</label><br>
             <input type="checkbox" id="2star">
-            <label for="2star">2* & above</label><br>
+            <label for="2star">2<fa-icon [icon]="fastar"></fa-icon> & above</label><br>
 
         </div>
         

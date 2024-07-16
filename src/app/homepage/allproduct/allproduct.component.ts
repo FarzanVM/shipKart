@@ -8,7 +8,7 @@ import { WishlistService } from '../../services/wishlistservice/wishlist.service
 import { AuthService } from '../../services/sharedservice/auth.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faIndianRupeeSign, faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-allproduct',
@@ -29,12 +29,15 @@ export class AllproductComponent implements OnInit,AfterViewInit{
   rightPos:string="0";
 
   angledown=faAngleDown;
+  fastar = faStar;
+  farupee=faIndianRupeeSign;
 
   totalresults:number=0;
   product$: Observable<any> | undefined | any;
   wishlist$: Observable<any> | undefined | any;
   loadedData:boolean=false;
   currentlevel:string|null="";
+
   @ViewChild('progress') progress:ElementRef|any;
   @ViewChild('minrange') minrange:ElementRef|any;
   @ViewChild('maxrange') maxrange:ElementRef|any;
