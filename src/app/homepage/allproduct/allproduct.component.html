@@ -10,21 +10,34 @@
                 <input #minrange type="range" min="1" max="10000" value="2500" step="1" class="rangeSlider" (input)="selectMinRange(minrange)">
                 <input #maxrange type="range" min="1" max="10000" value="8500" step="1" class="rangeSlider" (input)="selectMaxRange(maxrange)">
                 
-            </div>
-           
-            
+            </div>      
             <div class="pricerange">
                 <div class="startrange">{{startVal}}</div>
                 <p>to</p>
                 <div class="endrange">{{endVal}}</div>
-            </div>
-           
+            </div>         
         </div>
         <div>
             <p class="subheading">Brand</p>
         </div>
-        <div>
-            <p class="subheading">Customer rating</p>
+        <div class="section" [ngClass]="{'opensection':opendiscount}">
+            <p class="subheading" (click)="openDiscount()">Discount <fa-icon [icon]="angledown"></fa-icon></p>    
+            <input type="checkbox" id="above70">
+            <label for="above70">70% & above</label><br>
+            <input type="checkbox" id="above50">
+            <label for="above50">50% & above</label><br>
+            <input type="checkbox" id="above30">
+            <label for="above30">30% & above</label><br>
+        </div>
+        <div class="section" [ngClass]="{'opensection':openrating}">
+            <p class="subheading" (click)="openRating()">Customer rating <fa-icon [icon]="angledown"></fa-icon></p>
+            <input type="checkbox" id="4star">
+            <label for="4star">4* & above</label><br>
+            <input type="checkbox" id="3star">
+            <label for="3star">3* & above</label><br>
+            <input type="checkbox" id="2star">
+            <label for="2star">2* & above</label><br>
+
         </div>
         
     

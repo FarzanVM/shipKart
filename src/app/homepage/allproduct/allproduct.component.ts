@@ -7,11 +7,13 @@ import { CommonModule } from '@angular/common';
 import { WishlistService } from '../../services/wishlistservice/wishlist.service';
 import { AuthService } from '../../services/sharedservice/auth.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-allproduct',
   standalone: true,
-  imports: [ProductCardComponent, CommonModule, SimpleproductcardComponent,RouterModule],
+  imports: [ProductCardComponent, CommonModule, SimpleproductcardComponent,RouterModule,FontAwesomeModule],
   templateUrl: './allproduct.component.html',
   styleUrl: './allproduct.component.scss'
 })
@@ -20,8 +22,13 @@ export class AllproductComponent implements OnInit,AfterViewInit{
   startVal: any;
   endVal: any;
 
+  opendiscount=false;
+  openrating=false;
+
   leftPos:string="0";
   rightPos:string="0";
+
+  angledown=faAngleDown;
 
   totalresults:number=0;
   product$: Observable<any> | undefined | any;
@@ -87,8 +94,6 @@ export class AllproductComponent implements OnInit,AfterViewInit{
     }
     this.rightPos=100-(this.endVal/input.max)*100+"%"
   }
- 
-
   getProductsBy(order:string){
     const searchKey= localStorage.getItem('searchKey')
     const username = localStorage.getItem('username')
@@ -97,6 +102,13 @@ export class AllproductComponent implements OnInit,AfterViewInit{
       username:username
     }
     this.product$=this.productservice.getProductsBy(searchKey,'price',order,user)
+  }
+
+  openDiscount(){
+    this.opendiscount=!this.opendiscount;
+  }
+  openRating(){
+    this.openrating=!this.openrating;
   }
 
 }

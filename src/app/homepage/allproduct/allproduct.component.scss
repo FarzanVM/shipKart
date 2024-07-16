@@ -17,6 +17,7 @@
     .subheading{
         font-size: 14px;
         font-weight: 600;
+        cursor: pointer;
     }
     div{
         width: 100%;
@@ -88,6 +89,22 @@
                 padding: 5px;
             }
         }
+    }
+    .section{
+        display: block;
+        height: 40px;
+        overflow: hidden;
+        transition: height 0.1s linear;
+        fa-icon{
+            margin-right: 5px;
+            float: right;
+        }
+        input{
+            margin-bottom: 8px;
+        }
+    }
+    .opensection{
+        height: 120px;      
     }
 }
 .productContainer{
