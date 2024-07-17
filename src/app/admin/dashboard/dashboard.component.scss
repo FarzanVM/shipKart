@@ -34,26 +34,37 @@
         }
     }
 }
-.operation{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    box-sizing: border-box;
-    justify-content: space-evenly;
-    padding: 15px;
-    button{
-        border: none;
-        background-color: #ba9df1;
-        padding: 10px;
-        border-radius: 5px;
-        color: #171717;
-    }
-}
+
 .opContainer{
     display: flex;
     width: 100%;
     box-sizing: border-box;
-    background-color: #ba9df1;
-    justify-content: center;
-    padding: 15px;
+    // background-color: #ba9df1;
+    background-color: #FAF9F6;
+    // padding: 15px;
+    .operation{
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: 100vh;
+        align-items: center;
+        box-sizing: border-box;
+        border-radius: 8px;
+        background-color: white;
+        border: 1px solid red;
+        padding: 8px;
+        button{
+            width: 100%;
+            border: none;
+            background-color: #ba9df1;
+            padding: 10px;
+            border-radius: 5px;
+            color: #171717;
+            margin-bottom: 8px;
+        }
+    }
+    .content{
+        border: 1px solid green;
+        width: 100%;
+    }
 }

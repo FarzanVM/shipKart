@@ -42,6 +42,7 @@
             border: none;
             background-color: white;
             cursor: pointer;
+            font-size: clamp(12px,1.2vw,14px);
         }
         img{
             width:50px;
@@ -50,19 +51,8 @@
         }
     }
     @media (max-width:600px){
-        .container{
-            .leftbtn{   
-                left: 0;
-                display: block;
-            }
-            .rightbtn{
-                right:0;
-                display: block;
-            }
-        }
         .navbar{
-            overflow-x: hidden;
-            
+            overflow-x: hidden;    
         }
        
     }

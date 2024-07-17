@@ -19,6 +19,7 @@ export class SearchbarComponent implements OnInit {
   searchResults: any[]= [];
 
   userInput: any = new FormControl('')
+  noresult:boolean=true;
 
   constructor(private productservice:ProductService,private router:Router){}
 
@@ -43,9 +44,18 @@ export class SearchbarComponent implements OnInit {
     if(this.searchResults.length){
       localStorage.setItem('searchKey',this.userInput.value)
       this.searchResults=[]
+      this.noresult=false
       this.router.navigate(['allproduct',this.userInput.value])
     }
     
+  }
+
+  searchProduct(product:string){
+    localStorage.setItem('searchKey',product)
+    this.searchResults=[]
+    this.userInput.value=product
+    this.noresult=false
+    this.router.navigate(['allproduct',product])
   }
 
 }

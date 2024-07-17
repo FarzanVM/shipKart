@@ -14,12 +14,15 @@
 
 
 </div>
-<div class="operation">
-    <button (click)="gotostoreproducts()">storeproducts</button>
-    <button (click)="gotoaddproduct()">Add product</button>
-    <button (click)="gotoOrders()">Orders</button>
-
-</div>
 <div class="opContainer">
-    <router-outlet></router-outlet>
+    <div class="operation">
+        <button>overview</button>
+        <button (click)="gotostoreproducts()">storeproducts</button>
+        <button (click)="gotoaddproduct()">Add product</button>
+        <button (click)="gotoOrders()">Orders</button>   
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+    
 </div>

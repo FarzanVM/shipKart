@@ -19,18 +19,7 @@ body{
     background-color: white;
     h1{
         cursor: pointer;
-        // font-size: 3vw;
-    }
-   
-    @media (min-width: 453px) and (max-width: 992px) {
-        h1{
-            font-size: 1.3rem;
-        }
-    }
-    @media (min-width:992px){
-        h1{
-            font-size: 2rem;
-        }
+        font-size:clamp(25px,3vw,32px);
     }
     .account-options-container{
         display: flex;
@@ -40,7 +29,7 @@ body{
         .account-options-container{
             position: absolute;
             right: 0;
-            top:30px;
+            margin: 17px;
         }
     }
     .account{
@@ -83,24 +72,14 @@ body{
         background-color: white;
         margin-right: 10px;
         cursor: pointer;
-        // font-size: large;
-        // font-size: 1.5vw;
+        font-size: clamp(12px,1.5vw,16px);
         fa-icon{
             color: rgb(72, 70, 70);
         }
         border: 1px solid green;
         border-radius: 5px;
     }
-    @media (min-width: 453px) and (max-width: 992px) {
-        button{
-            font-size: 1rem;
-        }
-    }
-    @media (min-width:992px){
-        button{
-            font-size: 1.2rem;
-        }
-    }
+
     .loginbtn:hover{
         background-color:rgb(57, 57, 180);
         color:#F0F8FF;
@@ -141,6 +120,7 @@ body{
             ul{
                 // flex: 1;
                font-size: 0.7rem;
+               align-self: flex-start;
                 
             }
         }
