@@ -5,12 +5,17 @@ import { AddproductComponent } from './dashboard/addproduct/addproduct.component
 import { UpdateproductComponent } from './dashboard/updateproduct/updateproduct.component';
 import { StoreproductsComponent } from './dashboard/storeproducts/storeproducts.component';
 import { OrdersComponent } from './dashboard/orders/orders.component';
+import { OverviewComponent } from './dashboard/overview/overview.component';
 
 const routes: Routes = [
   {
     path:'',
     component:DashboardComponent,
     children:[{
+      path:'',
+      component:OverviewComponent
+    },  
+      {
       path:'addproduct',
       component:AddproductComponent
     },

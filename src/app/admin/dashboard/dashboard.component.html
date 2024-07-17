@@ -16,10 +16,11 @@
 </div>
 <div class="opContainer">
     <div class="operation">
-        <button>overview</button>
-        <button (click)="gotostoreproducts()">storeproducts</button>
-        <button (click)="gotoaddproduct()">Add product</button>
-        <button (click)="gotoOrders()">Orders</button>   
+        <button><fa-icon [icon]="faoverview"></fa-icon>overview</button>
+        <button (click)="gotostoreproducts()"><fa-icon [icon]="faproduct"></fa-icon>storeproducts</button>
+        <button (click)="gotoaddproduct()"><fa-icon [icon]="faadd"></fa-icon>Add product</button>
+        <button (click)="gotoOrders()"><fa-icon [icon]="fabasket"></fa-icon>Orders</button> 
+        <div class="end"></div>  
     </div>
     <div class="content">
         <router-outlet></router-outlet>
