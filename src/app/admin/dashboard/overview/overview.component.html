@@ -14,26 +14,39 @@
 </section>
 <section class="section2">
     <div class="chartbox">
-
-    </div>
-    <div class="top-products">
-        <h3>Top Products</h3>
-        <div class="productchart">
-            <img >
-            <div class="details">
-                <p>name</p>
-                <div class="percentage">100%</div>
-                <p class="total">total</p>
-                <div class="graph-bar">
-                    <div class="progress">
-                        
-                    </div>
-                </div>
-               
-            </div>
-            
+        <h3>Customers</h3>
+        <div class="circle">
 
         </div>
     </div>
+    <div class="top-products">
+        <h3>Top Products</h3>
+        <ng-container *ngFor="let product of fakeproducts">
+            <div class="productchart">
+                <img >
+                <div class="details">
+                    <p>{{product.name}}</p>
+                    <div class="percentage">{{calculate(product.selled,product.total)}}%</div>
+                    <p class="total">{{product.selled}}/{{product.total}}</p>
+                    <div class="graph-bar">
+                        <div class="progress" [ngStyle]="{'right':calculateforGraph(product.selled,product.total)}">         
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </ng-container>
+       
+    </div>
 
+</section>
+<section>
+    <div class="contentbox">
+        <p>Total Products</p>
+        <h3>324</h3>
+    </div>
+    <div class="contentbox">
+        <p>New Orders</p>
+        <h3>15</h3>
+    </div>
 </section>

@@ -16,8 +16,8 @@
 </div>
 <div class="opContainer">
     <div class="operation">
-        <button><fa-icon [icon]="faoverview"></fa-icon>overview</button>
-        <button (click)="gotostoreproducts()"><fa-icon [icon]="faproduct"></fa-icon>storeproducts</button>
+        <button><fa-icon [icon]="faoverview" (click)="goToOverview()"></fa-icon>Overview</button>
+        <button (click)="gotostoreproducts()"><fa-icon [icon]="faproduct"></fa-icon>Storeproducts</button>
         <button (click)="gotoaddproduct()"><fa-icon [icon]="faadd"></fa-icon>Add product</button>
         <button (click)="gotoOrders()"><fa-icon [icon]="fabasket"></fa-icon>Orders</button> 
         <div class="end"></div>  

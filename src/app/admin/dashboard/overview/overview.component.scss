@@ -1,9 +1,10 @@
 section{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 30px;
+    // outline: auto;
     .contentbox{
-        width: 200px;
+        width: 300px;
         padding:10px;
         border-radius: 10px;
         height:70px;
@@ -12,13 +13,31 @@ section{
         p{  
             font-size: 14px;
             margin:5px 0px;
+            color: #404968;
         }
     }
+    .chartbox{
+        width: 380px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        padding: 10px;
+        .circle{
+            margin: auto;
+            width: 180px;
+            height: 180px;
+            border-radius: 50% 50%;
+            // background-color: ;
+            border: 15px solid #404968;
+        }
+    }
+
     .top-products{
-        width: 500px;
+        width: 400px;
         border-radius: 10px;
         padding: 10px;
         background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         .productchart{
             width: 100%;
             display: flex;  
@@ -42,6 +61,8 @@ section{
                     width: max-content;
                     display: inline;
                     font-size: 13px;
+                    color: #404968;
+
                 }
                 p.total{
                     float: right;
@@ -68,7 +89,7 @@ section{
                         height: 6px;  
                         background-color:#318CE7 ;
                         left:0;
-                        right:10%;
+                        right:0;
                         width: auto;
                         border-radius: 5px;
                     
@@ -79,4 +100,8 @@ section{
            
         }
     }
+}
+.section2{
+    justify-content: space-between;
+    // padding-left: 180px;
 }

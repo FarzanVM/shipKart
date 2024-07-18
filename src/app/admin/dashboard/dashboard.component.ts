@@ -32,6 +32,10 @@ export class DashboardComponent {
     this.router.navigate(['admin'])
   }
 
+  goToOverview(){
+    
+  }
+
   gotoaddproduct(){
     this.router.navigate(['admin','addproduct']);
   }

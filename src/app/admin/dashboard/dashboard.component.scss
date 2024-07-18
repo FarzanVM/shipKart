@@ -40,7 +40,8 @@
     width: 100%;
     box-sizing: border-box;
     // background-color: #ba9df1;
-    background-color: #f5f5f5;
+    // background-color: #f5f5f5;
+    background-color: white;
     // padding: 15px;
     .operation{
         display: flex;
@@ -50,12 +51,13 @@
         height: 100vh;
         align-items: center;
         box-sizing: border-box;
-        border-radius: 8px;
+        // border-radius: 8px;
         background-color: white;
-        border: 1px solid red;
+        // border: 1px solid red;
         button{
             width: 100%;
             border: none;
+            font-weight: bold;
             // background-color: #ba9df1;
             background-color: #F8F8FF;
             padding: 10px;
@@ -78,7 +80,9 @@
         }
     }
     .content{
-        border: 1px solid green;
+        // border: 1px solid green;
+        background-color: #f5f5f5;
+        border-radius: 15px;
         width: 100%;
     }
 }
