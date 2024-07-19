@@ -5,11 +5,13 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ProductService } from '../../../services/productservice/product.service';
 import { min } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-addproduct',
   standalone: true,
-  imports: [CommonModule ,ReactiveFormsModule],
+  imports: [CommonModule ,ReactiveFormsModule,FontAwesomeModule],
   templateUrl: './addproduct.component.html',
   styleUrl: './addproduct.component.scss'
 })
@@ -18,6 +20,8 @@ export class AddproductComponent implements OnInit{
   constructor(private productservice:ProductService,private toastrservice:ToastrService){}
   url:any;
   invalidForm:boolean=true;
+  facaretright = faCaretRight;
+
   productForm=new FormGroup({
     productname:new FormControl('',Validators.required),
     productcategory:new FormControl('',Validators.required),
@@ -67,20 +71,21 @@ export class AddproductComponent implements OnInit{
   }
 
   addProduct(){
-    
+  
     let storename = localStorage.getItem('storename');
     const product = {...this.productForm.value,
       storename:storename
     }
-    this.productservice.addProduct(product).subscribe((res:any)=>{
-      this.toastrservice.success(res.message)
-      this.productForm.reset()
-      this.url=""
-    },
-  (error)=>{
-    this.toastrservice.error(error.error.message)
-    this.productForm.reset()
-  })
+    console.log("added",product)
+  //   this.productservice.addProduct(product).subscribe((res:any)=>{
+  //     this.toastrservice.success(res.message)
+  //     this.productForm.reset()
+  //     this.url=""
+  //   },
+  // (error)=>{
+  //   this.toastrservice.error(error.error.message)
+  //   this.productForm.reset()
+  // })
   }
 
 }
