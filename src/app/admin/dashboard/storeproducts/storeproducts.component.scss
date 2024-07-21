@@ -1,46 +1,156 @@
-.storeProductContainer{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    row-gap: 10px;
-    background-color: red;
-}
-.storeproductCard{
-    width: 100%;
-    display: flex;
-    box-sizing: border-box;
-    flex-direction: row;
+// .storeProductContainer{
+//     display: flex;
+//     width: 100%;
+//     flex-direction: column;
+//     row-gap: 10px;
+//     background-color: red;
+// }
+// .storeproductCard{
+//     width: 100%;
+//     display: flex;
+//     box-sizing: border-box;
+//     flex-direction: row;
+//     background-color: #fff;
+//     border-radius: 5px;
+//     padding: 10px;
+//     column-gap: 10px;
+//     .imgContainer{
+//         width: 250px;
+//         height: 200px;
+//         box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+//         img{
+//             width: 100%;
+//             height: 100%;
+//         }
+//     }
+//     .details{
+//         display: block;
+//     }
+// }
+// .productoperations{
+//     display: block;
+//     button{
+//         border: none;
+//         padding: 10px;
+//         border-radius: 5px;
+//         margin-left: 10px;
+//         color: white;
+//     }
+//     .deletebtn{
+//         background-color: #ff2e2e;
+
+//     }
+//     .updatebtn{
+//         background-color:#5c61ff ;
+//     }
+// }
+nav{
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding: 10px;
-    column-gap: 10px;
-    .imgContainer{
-        width: 250px;
-        height: 200px;
-        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-        img{
-            width: 100%;
-            height: 100%;
+    box-sizing: border-box;
+    height: max-content;
+    display: block;
+    // width: 100%;
+    margin: 10px;
+    p{
+        width: max-content;
+        display: inline;
+        color: #3b43d6;
+        cursor: pointer;
+        fa-icon{
+            margin: 0px 5px 0px 5px;
         }
     }
-    .details{
-        display: block;
-    }
 }
-.productoperations{
-    display: block;
-    button{
-        border: none;
-        padding: 10px;
-        border-radius: 5px;
-        margin-left: 10px;
-        color: white;
+section{
+    display:flex;
+    width: 100%;
+    padding: 10px;
+    column-gap: 10px;
+    // background-color: #fff;
+    box-sizing: border-box;
+    .storeproductcontainer{
+        display: flex;
+        column-gap: 15px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 10px;
+        flex-wrap: wrap;
+        width: 70%;
+        .storeproductcard{
+            display: block;
+            width: 220px;
+            height: max-content;
+            background-color: #fff;
+            box-sizing: border-box;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            img{
+                width: 100%;
+                height: 200px;
+                object-fit: contain;
+                border-radius: 10px;
+                border: none;
+                background-color: lightgray;
+            }
+            p{
+                margin: 0;
+                font-size: 14px;
+            }
+            p:nth-child(2){
+                margin-bottom: 5px;
+                font-weight: 600;
+            }
+            p:nth-child(3){
+                margin-bottom: 10px;
+            }
+           
+            p:nth-child(4){
+                display: inline-block;
+                font-size: 13px;
+            }
+            p:nth-child(5){
+                float: right;
+                font-size: 13px;
+            }
+        }
     }
-    .deletebtn{
-        background-color: #ff2e2e;
+    aside{
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        border-radius: 10px;
+        background-color: #fff;
+        padding: 20px;
+        box-sizing: border-box;
+        img{
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 10px;
+            background-color: lightgray;
+        }
+        h4{
+            margin: 5px;
+        }
+        .contentbox{
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            height: auto;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            p{
+                font-size: 14px;
+                margin:0px 0px 5px 0px
+            }
+        }
+    }
 
-    }
-    .updatebtn{
-        background-color:#5c61ff ;
-    }
 }

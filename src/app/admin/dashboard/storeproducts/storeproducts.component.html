@@ -1,4 +1,4 @@
-<h1 *ngIf="!(storeProducts$|async)">No StoreProduct have been added yet</h1>
+<!-- <h1 *ngIf="!(storeProducts$|async)">No StoreProduct have been added yet</h1>
 <div class="storeProductContainer">
     <ng-container *ngFor="let product of storeProducts$|async">
         <div class="storeproductCard">
@@ -19,6 +19,39 @@
             </div>
         </div>
     </ng-container>
-</div>
+</div> -->
+<nav>
+    <h3>Products</h3>
+    <p>Dashboard<fa-icon [icon]="facaretright"></fa-icon>products</p>
+</nav>
+<section>
+    <div class="storeproductcontainer">
+        <ng-container *ngFor="let product of storeProducts$|async">
+            <div class="storeproductcard">
+                <img src={{product.productimg}}>
+                <p>{{product.productname}}</p>
+                <p>{{product.productprice}}</p>
+                <p>{{product.productquantity}}</p>
+                <p>sold</p>
+            </div>
+        </ng-container>
+    </div>
+    <aside>
+        <img>
+        <h4>Description</h4>
+        <div class="contentbox">
+            <p>product name</p>
+            <div class="contentbox">name</div>
+            <p>Description</p>
+            <div class="contentbox">desciop</div>
+           
+        </div>
+        <h4>Category</h4>
+        <div class="contentbox">
+            <p>product category</p>
+            <div class="contentbox">elele</div>
+        </div>
+    </aside>
+</section>
 
 

@@ -4,15 +4,19 @@ import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ProductUpdateService } from '../../../services/sharedservice/product-update.service';
 import { Router } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-storeproducts',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FontAwesomeModule],
   templateUrl: './storeproducts.component.html',
   styleUrl: './storeproducts.component.scss'
 })
 export class StoreproductsComponent implements OnInit {
+
+  facaretright=faCaretRight;
 
   storeProducts$:Observable<any> | undefined;
 
