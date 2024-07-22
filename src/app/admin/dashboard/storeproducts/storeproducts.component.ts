@@ -19,6 +19,7 @@ export class StoreproductsComponent implements OnInit {
   facaretright=faCaretRight;
 
   storeProducts$:Observable<any> | undefined;
+  selectedProduct:any;
 
   constructor(private productservice:ProductService,private productupdateservice:ProductUpdateService,private router:Router){}
   ngOnInit(): void {
@@ -49,6 +50,12 @@ export class StoreproductsComponent implements OnInit {
   updateProduct(p:any){
     this.productupdateservice.product = p;
     this.router.navigate(['admin','updateproduct']);
+  }
+  selectProduct(product:any){
+    this.selectedProduct=product
+  }
+  scrollToElement($element:any){
+    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   }
 
 }

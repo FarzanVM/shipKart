@@ -27,30 +27,56 @@
 <section>
     <div class="storeproductcontainer">
         <ng-container *ngFor="let product of storeProducts$|async">
-            <div class="storeproductcard">
+            <div class="storeproductcard" tabindex="1"  (click)="selectProduct(product)">
                 <img src={{product.productimg}}>
                 <p>{{product.productname}}</p>
-                <p>{{product.productprice}}</p>
-                <p>{{product.productquantity}}</p>
-                <p>sold</p>
+                <p style="color:#404968">{{product.productprice}}</p>
+                <p style="color:#30374F;font-weight: bold;"><span style="color: #4A5578;font-weight: bold">Stock:</span>{{product.productquantity}}</p>
+                <p><span style="color: #4A5578;font-weight: bold">Sold:</span></p>
             </div>
         </ng-container>
     </div>
     <aside>
-        <img>
-        <h4>Description</h4>
-        <div class="contentbox">
-            <p>product name</p>
-            <div class="contentbox">name</div>
-            <p>Description</p>
-            <div class="contentbox">desciop</div>
-           
+        <div class="header">
+            <button (click)="scrollToElement(description)">Descriptions</button>
+            <!-- <button onclick="#inventory">Inventory</button> -->
+             <button (click)="scrollToElement(inventory)">inventory</button>
+             <button (click)="scrollToElement(pricing)">Pricing</button>
+            <!-- <button>Pricing</button> -->
         </div>
-        <h4>Category</h4>
-        <div class="contentbox">
-            <p>product category</p>
-            <div class="contentbox">elele</div>
+       
+        <div class="sectionContainer">
+            <img #description  src={{selectedProduct?.productimg}}>
+            <h4>Description</h4>
+            <div class="contentbox" >
+                <p>product name</p>
+                <div class="contentbox">{{selectedProduct?.productname}}</div>
+                <p>Description</p>
+                <div class="contentbox">{{selectedProduct?.productdesc}}</div>
+               
+            </div>
+            <h4>Category</h4>
+            <div class="contentbox">
+                <p>product category</p>
+                <div class="contentbox">{{selectedProduct?.productcategory}}</div>
+            </div>
+            <h4 #inventory>Inventory</h4>
+            <div class="contentbox" >
+                <p>In Stocks</p>
+                <div class="contentbox">{{selectedProduct?.productquantity}}</div>
+            </div>
+            <h4 #pricing>Pricing</h4>
+            <div class="contentbox" >
+                <p>Current Price</p>
+                <div class="contentbox">{{selectedProduct?.productnewprice}}</div>
+                <p>Base rate</p>
+                <div class="contentbox">{{selectedProduct?.productprice}}</div>
+                <p>Discount(%)</p>
+                <div class="contentbox">{{selectedProduct?.productdiscount}}</div>
+            </div>
+
         </div>
+       
     </aside>
 </section>
 
