@@ -23,11 +23,13 @@
 <nav>
     <h3>Products</h3>
     <p>Dashboard<fa-icon [icon]="facaretright"></fa-icon>products</p>
+    <button class="update"  (click)="updateProduct()" [disabled]="selectedProduct==undefined">Edit Product</button>
+    <button class="delete"  (click)="deleteProduct()" [disabled]="selectedProduct==undefined">Delete Product</button>
 </nav>
 <section>
     <div class="storeproductcontainer">
-        <ng-container *ngFor="let product of storeProducts$|async">
-            <div class="storeproductcard" tabindex="1"  (click)="selectProduct(product)">
+        <ng-container *ngFor="let product of storeProducts$|async;first as isFirst">
+            <div class="storeproductcard" tabindex="1" (click)="selectProduct(product)">
                 <img src={{product.productimg}}>
                 <p>{{product.productname}}</p>
                 <p style="color:#404968">{{product.productprice}}</p>
@@ -38,7 +40,7 @@
     </div>
     <aside>
         <div class="header">
-            <button (click)="scrollToElement(description)">Descriptions</button>
+            <button (click)="scrollToElement(description)" autofocus>Descriptions</button>
             <!-- <button onclick="#inventory">Inventory</button> -->
              <button (click)="scrollToElement(inventory)">inventory</button>
              <button (click)="scrollToElement(pricing)">Pricing</button>

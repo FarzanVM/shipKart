@@ -63,6 +63,27 @@ nav{
             margin: 0px 5px 0px 5px;
         }
     }
+    button{
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        float: right;
+        margin-right: 10px;
+        margin-top: -5px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    button:disabled{
+        background-color: #D1D1D6;
+    }
+    .update{
+        background-color: #0BA5EC;
+        color: #fff;
+    }
+    .delete{
+        background-color: #F63D68;
+        color: #fff;
+    }
 }
 section{
     display:flex;
@@ -142,10 +163,12 @@ section{
                 font-weight: bold;
                 color: #9AA4B2;
                 cursor: pointer;
+                outline: none;
             }
             button:focus{
                 color: #121926;
             }
+            
         }
         // img{
         //     width: 100%;

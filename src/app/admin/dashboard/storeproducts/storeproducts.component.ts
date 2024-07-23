@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/productservice/product.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
@@ -22,6 +22,7 @@ export class StoreproductsComponent implements OnInit {
   selectedProduct:any;
 
   constructor(private productservice:ProductService,private productupdateservice:ProductUpdateService,private router:Router){}
+
   ngOnInit(): void {
     const storename = localStorage.getItem('storename')
     console.log("storename",storename)
@@ -37,22 +38,22 @@ export class StoreproductsComponent implements OnInit {
     // })
   }
 
-  deleteProduct(_id:any){
+  deleteProduct(){
     const product = {
-      id:_id
+      id:this.selectedProduct._id
     }
-    this.productservice.deleteProduct(_id).subscribe(res =>{
+    this.productservice.deleteProduct(this.selectedProduct._id).subscribe(res =>{
       console.log(res)
       this.ngOnInit()
     })
     
   }
-  updateProduct(p:any){
-    this.productupdateservice.product = p;
+  updateProduct(){
+    this.productupdateservice.product = this.selectedProduct;
     this.router.navigate(['admin','updateproduct']);
   }
-  selectProduct(product:any){
-    this.selectedProduct=product
+  selectProduct(product:any){ 
+      this.selectedProduct=product
   }
   scrollToElement($element:any){
     $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
