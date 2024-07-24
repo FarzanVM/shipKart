@@ -5,89 +5,117 @@
     margin-left: 5px;
     transition:.3s ease-in-out;
 }
-.ordercard{
-    display: flex;
-    column-gap: 10px;
-    width: 600px;
-    border-radius: 5px;
-    background-color: #fff;
-    padding: 10px;
+table{
+    width: 100%;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    th{
+        padding: 10px;
+        border-bottom: 2px solid #EAECF5;
+        text-align: left;
+    }
+    th:first-child{
+        border-radius: 10px 0px 0px 0px;
+    }
+    th:last-child{
+        border-radius: 0px 10px 0px 0px;
+    }
+    tr,td{
+        background-color: #fff;
+        padding: 10px;
+    }
+    td{
+        border-bottom: 1px solid #EEF2F6;
+    }
+    tr:last-child{
+        td:first-child{
+            border-radius: 0px 0px 0px 10px;
+        }
+        td:last-child{
+            border-radius: 0px 0px 10px 0px;
+        }
+    }
+
     img{
-        width: 100px;
-        height: 100px;
-        border-radius: 5px;
-        object-fit: contain;
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        float: left;
     }
-    .orderStatusContainer{
-        position: relative;
+    p{
+        float: left;
+    }
+  
+}
+.orderStatusContainer{
+    position: relative;
+    box-sizing: border-box;
+    .orderstatus{
+        width: 150px;
+        border-radius: 5px;
         box-sizing: border-box;
-        .orderstatus{
-            width: 150px;
-            border-radius: 5px;
-            box-sizing: border-box;
-            color:#fff;
-            button{
-                width: 100%;
-                display: flex;
-                align-items: center;
-                color: #fff;
-                padding: 8px;
-                border: none;
-                border-radius: 5px;
-                background-color: #4c57e6;
-                cursor: pointer;
-            }
-           
-        }
-        .statusDropDown{
-            color:rgb(43, 42, 42);
-            background-color: #fff;
-            position: absolute;
+        color:#fff;
+        button{
             width: 100%;
-            left: 0;
-            z-index: 100;
-            box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            padding: 8px;
+            border: none;
             border-radius: 5px;
-            button{
-                padding: 10px;
-                width: 100%;
-                border-bottom: 1px solid rgb(185, 182, 182);
-                border-radius: 5px;
-                background-color: #fff;
-                color: black;
-                
-                fa-icon{
-                   margin-left: 60px;
-                   color:#32de84;
-                }
-            }
-            .finished{
-                background-color: #D4F4C7;
-            }
-           
-
-            // .shipped{
-            // background-color: #979797;
-            // color: #fff;
-            // }
-            // .fordelivery{
-            //     background-color: rgb(224, 163, 51);
-            // }
-            // .delivered{
-            //     background-color: #388e3c;
-            // }
+            background-color: #4c57e6;
+            cursor: pointer;
         }
-
+       
     }
-    .confirmbtn{
-        padding: 5px;
-        border: none;
+    .statusDropDown{
+        color:rgb(43, 42, 42);
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        z-index: 100;
+        box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
         border-radius: 5px;
-        background-color: #2ea44f;
-        color: #fff;
-        cursor: pointer;
-        box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        button{
+            padding: 10px;
+            width: 100%;
+            border-bottom: 1px solid rgb(185, 182, 182);
+            border-radius: 5px;
+            background-color: #fff;
+            color: black;
+            
+            fa-icon{
+               margin-left: 60px;
+               color:#32de84;
+            }
+        }
+        .finished{
+            background-color: #D4F4C7;
+        }
+       
+
+        // .shipped{
+        // background-color: #979797;
+        // color: #fff;
+        // }
+        // .fordelivery{
+        //     background-color: rgb(224, 163, 51);
+        // }
+        // .delivered{
+        //     background-color: #388e3c;
+        // }
     }
-    
-   
+
+}
+.confirmbtn{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2ea44f;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 5px;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }

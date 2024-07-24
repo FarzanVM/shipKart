@@ -1,6 +1,9 @@
 <h1 *ngIf="!(orders$|async)">No Orders as of Now</h1>
-<div class="orderContainer">
-    <ng-container *ngFor="let order of (orders$|async)">
-        <app-orderproductcard [order]="order"></app-orderproductcard>
-    </ng-container>  
-</div>
+<nav>
+    <h3>Orders</h3>
+    <p>Dashboard<fa-icon [icon]="facaretright"></fa-icon>Orders</p>
+</nav>
+<section>
+    <app-orderproductcard [orders]="(orders$|async)"></app-orderproductcard>
+</section>
+

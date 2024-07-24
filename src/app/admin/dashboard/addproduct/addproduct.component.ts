@@ -77,15 +77,15 @@ export class AddproductComponent implements OnInit{
       storename:storename
     }
     console.log("added",product)
-  //   this.productservice.addProduct(product).subscribe((res:any)=>{
-  //     this.toastrservice.success(res.message)
-  //     this.productForm.reset()
-  //     this.url=""
-  //   },
-  // (error)=>{
-  //   this.toastrservice.error(error.error.message)
-  //   this.productForm.reset()
-  // })
+    this.productservice.addProduct(product).subscribe((res:any)=>{
+      this.toastrservice.success(res.message)
+      this.productForm.reset()
+      this.url=""
+    },
+  (error)=>{
+    this.toastrservice.error(error.error.message)
+    this.productForm.reset()
+  })
   }
 
 }

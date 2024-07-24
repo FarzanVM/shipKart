@@ -29,12 +29,12 @@ export class OrderproductcardComponent implements OnInit {
   currIndex:number=0;
   Object=Object;
 
-  @Input() order:any;
+  @Input() orders:any;
 
   constructor(private orderservice:OrderService,private toastrservice:ToastrService){}
 
   ngOnInit(): void {
-    console.log(this.order)
+    console.log(this.orders)
     // this.orderstatus=this.order?.orderstatus;
     this.currIndex=this.allstatus.indexOf(this.orderstatus)
     if(this.currIndex<0){
