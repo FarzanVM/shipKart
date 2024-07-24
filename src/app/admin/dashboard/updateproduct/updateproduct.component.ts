@@ -4,11 +4,13 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../../services/productservice/product.service';
 import { ToastrService } from 'ngx-toastr';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-updateproduct',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule,FontAwesomeModule],
   templateUrl: './updateproduct.component.html',
   styleUrl: './updateproduct.component.scss'
 })
@@ -17,12 +19,14 @@ export class UpdateproductComponent implements OnInit{
   productForm:FormGroup | any;
   url:string|any;
 
+  facaretright = faCaretRight;
+
   constructor(private productupdateservice:ProductUpdateService,private productservice:ProductService,private toastrservice:ToastrService){}
 
   ngOnInit(): void {
     this.product = this.productupdateservice.product;
     console.log(this.product)
-
+    this.url =this.product.productimg
     this.productForm=new FormGroup({
       _id:new FormControl(this.product._id),
       productname:new FormControl(this.product.productname,Validators.required),

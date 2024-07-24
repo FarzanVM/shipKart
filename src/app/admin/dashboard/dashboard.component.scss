@@ -29,8 +29,9 @@
     .dropdown{
         position: absolute;
         width: 150px;
+        left: 80%;
         .logout{
-            border-radius: 0px;
+            border-radius: 5px;
         }
     }
 }
