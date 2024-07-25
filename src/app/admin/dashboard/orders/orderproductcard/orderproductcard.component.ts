@@ -27,14 +27,15 @@ export class OrderproductcardComponent implements OnInit {
   faicons:IconDefinition[]=[this.facheck,this.fatruck,this.fatruckrampbox,this.facheckdouble]
   orderstatus:String="Set Status";
   currIndex:number=0;
+  selectedOrder:number=0;
   Object=Object;
 
-  @Input() orders:any;
+  @Input() order:any;
 
   constructor(private orderservice:OrderService,private toastrservice:ToastrService){}
 
   ngOnInit(): void {
-    console.log(this.orders)
+    console.log(this.order)
     // this.orderstatus=this.order?.orderstatus;
     this.currIndex=this.allstatus.indexOf(this.orderstatus)
     if(this.currIndex<0){

@@ -1,5 +1,5 @@
 
-<table>
+<!-- <table>
     <tr>
         <th>Order</th>
         <th>Date</th>
@@ -8,9 +8,9 @@
         <th>Quantity</th>
         <th>Price</th>
         <th>Status</th>
-    </tr>
-    <ng-container *ngFor="let order of orders">
-        <tr>
+    </tr> -->
+    <!-- <ng-container *ngFor="let order of orders;index as i"> -->
+        <!-- <tr>
             <td>orderid</td>
             <td>{{order?.orderstatus?.confirmed?.date | date:'mediumDate'}}</td>
             <td>
@@ -44,6 +44,28 @@
                     <button class="confirmbtn" (click)="confirm(order._id)">Confirm</button>
                 </div>
             </td>
-        </tr>
-    </ng-container>
-</table>
+        </tr> -->
+    <!-- </ng-container> -->
+<!-- </table> -->
+<div class="orderStatusContainer">
+    <div class="orderstatus">
+        <button (click)="openStatus()">
+            <span><fa-icon [icon]="faicons[currIndex]"></fa-icon>{{orderstatus}}</span>
+            <div class="icon" [ngClass]="{'rotate':opendropdown}">
+                <fa-icon [icon]="facaretdown"></fa-icon>
+            </div>
+        </button>
+        <div *ngIf="opendropdown" class="statusDropDown">
+            <ng-container *ngFor="let key of Object.keys(order.orderstatus)">
+                <button [ngClass]="{'finished':order.orderstatus[key].status==true}"
+                    (click)="setStatus(key)">{{key}} <fa-icon
+                        *ngIf="order.orderstatus[key].status==true"
+                        [icon]="facirclecheck"></fa-icon></button>
+
+            </ng-container>
+        </div>
+    </div>
+</div>
+<div>
+    <button class="confirmbtn" (click)="confirm(order._id)">Confirm</button>
+</div>

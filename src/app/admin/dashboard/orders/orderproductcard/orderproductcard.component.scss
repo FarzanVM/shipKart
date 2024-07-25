@@ -5,49 +5,80 @@
     margin-left: 5px;
     transition:.3s ease-in-out;
 }
-table{
-    width: 100%;
-    border-radius: 10px;
-    box-sizing: border-box;
-    border-collapse: collapse;
-    th{
-        padding: 10px;
-        border-bottom: 2px solid #EAECF5;
-        text-align: left;
-    }
-    th:first-child{
-        border-radius: 10px 0px 0px 0px;
-    }
-    th:last-child{
-        border-radius: 0px 10px 0px 0px;
-    }
-    tr,td{
-        background-color: #fff;
-        padding: 10px;
-    }
-    td{
-        border-bottom: 1px solid #EEF2F6;
-    }
-    tr:last-child{
-        td:first-child{
-            border-radius: 0px 0px 0px 10px;
-        }
-        td:last-child{
-            border-radius: 0px 0px 10px 0px;
-        }
-    }
+// table{
+//     width: 100%;
+//     border-radius: 10px;
+//     box-sizing: border-box;
+//     border-collapse: collapse;
+//     th{
+//         padding: 10px;
+//         border-bottom: 2px solid #EAECF5;
+//         text-align: left;
+//     }
+//     th:first-child{
+//         border-radius: 10px 0px 0px 0px;
+//     }
+//     th:last-child{
+//         border-radius: 0px 10px 0px 0px;
+//     }
+//     tr,td{
+//         background-color: #fff;
+//         padding: 10px;
+//         font-size: 14px;
+//     }
+//     td{
+//         border-bottom: 1px solid #EEF2F6;
+//     }
+//     tr:last-child{
+//         td:first-child{
+//             border-radius: 0px 0px 0px 10px;
+//         }
+//         td:last-child{
+//             border-radius: 0px 0px 10px 0px;
+//         }
+//     }
 
-    img{
-        width: 70px;
-        height: 70px;
-        object-fit: cover;
-        float: left;
-    }
-    p{
-        float: left;
-    }
+//     img{
+//         width: 70px;
+//         height: 70px;
+//         object-fit: cover;
+//         float: left;
+//     }
+//     p{
+//         float: left;
+//     }
   
+// }
+tr{
+    width: 100%;
 }
+tr,td{
+    background-color: #fff;
+    padding: 10px;
+    font-size: 14px;
+}
+td{
+    border-bottom: 1px solid #EEF2F6;
+}
+tr:last-child{
+    td:first-child{
+        border-radius: 0px 0px 0px 10px;
+    }
+    td:last-child{
+        border-radius: 0px 0px 10px 0px;
+    }
+}
+
+img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    float: left;
+}
+p{
+    float: left;
+}
+
 .orderStatusContainer{
     position: relative;
     box-sizing: border-box;

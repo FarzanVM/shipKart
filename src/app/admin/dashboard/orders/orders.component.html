@@ -4,6 +4,69 @@
     <p>Dashboard<fa-icon [icon]="facaretright"></fa-icon>Orders</p>
 </nav>
 <section>
-    <app-orderproductcard [orders]="(orders$|async)"></app-orderproductcard>
+    <table>
+        <tr>
+            <th>Order</th>
+            <th>Date</th>
+            <th>Product</th>
+            <th>Customer</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Status</th>
+        </tr>
+        <ng-container *ngFor="let order of (orders$|async)">
+            <tr>
+                <td>orderid</td>
+                <td>{{order?.orderstatus?.confirmed?.date | date:'mediumDate'}}</td>
+                <td>
+                    <img src={{order.products.productimg}}> 
+                    <p>{{order.products.productname}}</p> 
+                </td>
+                <td>{{order.username}}</td>
+                <td>{{order.quantity}}</td>
+                <td>{{order.products.productnewprice}}</td>
+                <td><app-orderproductcard [order]="(order)"></app-orderproductcard></td>
+            </tr>
+            <!-- <app-orderproductcard [order]="(order)"></app-orderproductcard> -->
+        </ng-container>
+        <!-- <ng-container *ngFor="let order of orders;index as i">
+            <tr>
+                <td>orderid</td>
+                <td>{{order?.orderstatus?.confirmed?.date | date:'mediumDate'}}</td>
+                <td>
+                    <img src={{order.products.productimg}}> 
+                    <p>{{order.products.productname}}</p> 
+                </td>
+                <td>{{order.username}}</td>
+                <td>{{order.quantity}}</td>
+                <td>{{order.products.productnewprice}}</td>
+                <td>
+                    <div class="orderStatusContainer">
+                        <div class="orderstatus">
+                            <button (click)="openStatus(i)">
+                                <span><fa-icon [icon]="faicons[currIndex]"></fa-icon>{{orderstatus}}</span>
+                                <div class="icon" [ngClass]="{'rotate':i==selectedOrder && opendropdown}">
+                                    <fa-icon [icon]="facaretdown"></fa-icon>
+                                </div>
+                            </button>
+                            <div *ngIf="i==selectedOrder && opendropdown" class="statusDropDown">
+                                <ng-container *ngFor="let key of Object.keys(order.orderstatus)">
+                                    <button [ngClass]="{'finished':order.orderstatus[key].status==true}"
+                                        (click)="setStatus(key)">{{key}} <fa-icon
+                                            *ngIf="order.orderstatus[key].status==true"
+                                            [icon]="facirclecheck"></fa-icon></button>
+    
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="confirmbtn" (click)="confirm(order._id)">Confirm</button>
+                    </div>
+                </td>
+            </tr>
+        </ng-container> -->
+    </table>
+    <!-- <app-orderproductcard [orders]="(orders$|async)"></app-orderproductcard> -->
 </section>
 
