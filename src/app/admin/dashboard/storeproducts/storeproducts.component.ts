@@ -19,7 +19,10 @@ export class StoreproductsComponent implements OnInit {
   facaretright=faCaretRight;
 
   storeProducts$:Observable<any> | undefined;
+
   selectedProduct:any;
+  selectedIndex:number=0;
+  currentSection:string="desc"
 
   constructor(private productservice:ProductService,private productupdateservice:ProductUpdateService,private router:Router){}
 
@@ -31,13 +34,13 @@ export class StoreproductsComponent implements OnInit {
     }
     this.storeProducts$ = this.productservice.getStoreProducts(store);
     this.storeProducts$.subscribe(data =>{
-      console.log(data)
+      this.selectedProduct=data[0]
     })
     // this.productservice.getStoreProducts(store).subscribe(res=>{
     //   console.log("store products",res)
     // })
   }
-
+ 
   deleteProduct(){
     const product = {
       id:this.selectedProduct._id
@@ -52,10 +55,12 @@ export class StoreproductsComponent implements OnInit {
     this.productupdateservice.product = this.selectedProduct;
     this.router.navigate(['admin','updateproduct']);
   }
-  selectProduct(product:any){ 
+  selectProduct(product:any,index:number){ 
+    this.selectedIndex=index;
       this.selectedProduct=product
   }
-  scrollToElement($element:any){
+  scrollToElement($element:any,section:string){
+    this.currentSection=section;
     $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   }
 

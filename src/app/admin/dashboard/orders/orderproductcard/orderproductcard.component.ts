@@ -23,7 +23,7 @@ export class OrderproductcardComponent implements OnInit {
   fatruckrampbox=faTruckRampBox;
   facheckdouble=faCheckDouble;
   opendropdown:boolean=false;
-  allstatus:String[]=["Order Confirmed","Shipped","Out For Delivery","Delivered"]
+  allstatus:String[]=["confirmed","shipped","outfordelivery","delivered"]
   faicons:IconDefinition[]=[this.facheck,this.fatruck,this.fatruckrampbox,this.facheckdouble]
   orderstatus:String="Set Status";
   currIndex:number=0;
@@ -43,10 +43,18 @@ export class OrderproductcardComponent implements OnInit {
     }
   }
 
+  getIcon(status:string){
+    const index = this.allstatus.indexOf(status)
+    return this.faicons[index]
+
+  }
+
   openStatus(){
     this.opendropdown=!this.opendropdown;
   }
   setStatus(key:string){
+    this.currIndex= this.allstatus.indexOf(key)
+
     this.orderstatus = key
     this.opendropdown=false;
   

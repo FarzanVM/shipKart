@@ -28,8 +28,8 @@
 </nav>
 <section>
     <div class="storeproductcontainer">
-        <ng-container *ngFor="let product of storeProducts$|async;first as isFirst">
-            <div class="storeproductcard" tabindex="1" (click)="selectProduct(product)">
+        <ng-container *ngFor="let product of storeProducts$|async;index as i">
+            <div class="storeproductcard" [ngClass]="{'currentSelected':selectedIndex==i}"  tabindex="1" (click)="selectProduct(product,i)">
                 <img src={{product.productimg}}>
                 <p>{{product.productname}}</p>
                 <p style="color:#404968">{{product.productprice}}</p>
@@ -40,11 +40,9 @@
     </div>
     <aside>
         <div class="header">
-            <button (click)="scrollToElement(description)" autofocus>Descriptions</button>
-            <!-- <button onclick="#inventory">Inventory</button> -->
-             <button (click)="scrollToElement(inventory)">inventory</button>
-             <button (click)="scrollToElement(pricing)">Pricing</button>
-            <!-- <button>Pricing</button> -->
+            <button (click)="scrollToElement(description,'desc')" [ngClass]="{'current-section':currentSection==='desc'}">Descriptions</button>
+             <button (click)="scrollToElement(inventory,'inv')" [ngClass]="{'current-section':currentSection==='inv'}">inventory</button>
+             <button (click)="scrollToElement(pricing,'price')" [ngClass]="{'current-section':currentSection==='price'}">Pricing</button>
         </div>
        
         <div class="sectionContainer">
