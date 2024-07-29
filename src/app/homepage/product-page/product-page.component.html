@@ -11,6 +11,9 @@
             </div>
         </div>
         <div class="productdetails">
+            <p class="breadcrumb">
+                Home<fa-icon [icon]="fa_angleright"></fa-icon>{{(product$|async)?.productcategory}}<fa-icon [icon]="fa_angleright"></fa-icon>{{(product$|async)?.productname}}
+            </p>
             <p class="productname">{{(product$|async)?.productname}}</p>
             <div class="rating">
                 <div class="totalrating">
@@ -30,6 +33,7 @@
                 </div>
             </div>
             <div class="productdescription">
+                <p>Description</p>
                 {{(product$|async)?.productdesc}}
             </div>
         </div>

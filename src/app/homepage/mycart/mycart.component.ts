@@ -63,7 +63,19 @@ export class MycartComponent implements OnInit, OnDestroy {
     })
   }
 
+  updateProduct(event:any){
 
+    const newquantity = event.newquantity
+    const productid = event.product_id
+    console.log("new",event)
+
+    this.selectedCartItems.forEach((product:any)=>{
+      if(product.product_id === productid){
+        product.quantity = newquantity
+      }
+    })
+    console.log("Updated",this.selectedCartItems)
+  }
  
   selectProduct(event:any){
     const username = localStorage.getItem('username')
@@ -103,7 +115,6 @@ export class MycartComponent implements OnInit, OnDestroy {
   }
 
   orderItem(){
-   
 
     this.orderservice.addOrder(this.selectedCartItems).subscribe((res:any)=>{
       this.toastrservice.success(res.message)
@@ -114,8 +125,6 @@ export class MycartComponent implements OnInit, OnDestroy {
   })
 
   }
-
-
 
   ngOnDestroy(): void {
     this.ngUnsubscribe.next()

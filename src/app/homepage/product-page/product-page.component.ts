@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBolt, faBoltLightning, faCartShopping, faRupeeSign, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight, faBolt, faBoltLightning, faCartShopping, faRupeeSign, faStar } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { ProductService } from '../../services/productservice/product.service';
 import { CommonModule } from '@angular/common';
@@ -19,6 +19,7 @@ export class ProductPageComponent implements OnInit {
   farupee = faRupeeSign;
   facart=faCartShopping;
   fabolt=faBoltLightning;
+  fa_angleright = faAngleRight;
 
   product$:Observable<any> | undefined
 

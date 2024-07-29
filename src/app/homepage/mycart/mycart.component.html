@@ -1,7 +1,7 @@
 <div class="container">
     <div class="cartitemscontainer">
         <ng-container *ngFor="let item of cartItems$|async">
-            <app-cartitemcard [item]="item" (selectedItem)="selectProduct($event)"></app-cartitemcard>
+            <app-cartitemcard [item]="item" (selectedItem)="selectProduct($event)" (updateItem)="updateProduct($event)"></app-cartitemcard>
         </ng-container>
         <button *ngIf="selectedCartItems.length" class="checkoutbtn" (click)="orderItem()">Place Order ({{selectedCartItems.length}})</button>
     </div>
