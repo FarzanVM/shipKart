@@ -92,6 +92,7 @@ export class MycartComponent implements OnInit, OnDestroy {
       }
     
     }
+    console.log(order)
     if(this.selectedCartItems.some((item:any)=>item.product_id===order.product_id)){
       this.selectedCartItems=this.selectedCartItems.filter((item:any)=>item.product_id!==order.product_id)
     }

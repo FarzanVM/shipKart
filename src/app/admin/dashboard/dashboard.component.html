@@ -1,9 +1,12 @@
 <div class="header">
     <h1 (click)="gotoHome()">ShipKart</h1>
+    <div class="welcomemsg">
+        <h3>Welcome Back,Seller!</h3>
+        <p>Here's whats happening in your store today</p>
+    </div>
+    
     <div class="account">
-        <button><fa-icon [icon]="fabasket"></fa-icon></button>
-        <button><fa-icon [icon]="faorder"></fa-icon></button>
-        <button><fa-icon [icon]="famessage"></fa-icon></button>
+        <button><fa-icon [icon]="fabell"></fa-icon></button>
         <button (click)="opendropdown()">
             <fa-icon [icon]="faUserLarge"></fa-icon>
         </button>
