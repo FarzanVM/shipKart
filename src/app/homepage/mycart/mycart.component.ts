@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faIndianRupee} from '@fortawesome/free-solid-svg-icons';
+import { faIndianRupee, faMinus} from '@fortawesome/free-solid-svg-icons';
 import { CartService } from '../../services/cartservice/cart.service';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
@@ -20,6 +20,7 @@ export class MycartComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
 
   farupee=faIndianRupee;
+  faminus = faMinus;
 
   cartItems$: Observable<any> | undefined;
   price: number = 0;
@@ -50,17 +51,17 @@ export class MycartComponent implements OnInit, OnDestroy {
     }
     this.cartItems$ = this.cartservice.getCartItems(user)
 
-    this.cartItems$.pipe(takeUntil(this.ngUnsubscribe)).subscribe(item => {
-      item?.forEach((product: any) => {
+    // this.cartItems$.pipe(takeUntil(this.ngUnsubscribe)).subscribe(item => {
+    //   item?.forEach((product: any) => {
 
-        this.price += product.products.productnewprice
-        const offprice = product.products.productprice * product.products.productdiscount / 100
-        this.discount += offprice
+    //     this.price += product.products.productnewprice
+    //     const offprice = product.products.productprice * product.products.productdiscount / 100
+    //     this.discount += offprice
 
-      });
-      this.savedPercent = Math.round(this.discount / this.price * 100)
-      this.totalPrice = this.price + this.deliverycharges
-    })
+    //   });
+    //   this.savedPercent = Math.round(this.discount / this.price * 100)
+    //   this.totalPrice = this.price + this.deliverycharges
+    // })
   }
 
   updateProduct(event:any){
@@ -74,9 +75,24 @@ export class MycartComponent implements OnInit, OnDestroy {
         product.quantity = newquantity
       }
     })
+    this.calculateTotalPrice()
     console.log("Updated",this.selectedCartItems)
   }
- 
+  calculateTotalPrice(){
+    this.price = 0
+    this.totalPrice=0
+    this.discount=0
+    this.savedPercent=0
+    this.selectedCartItems.forEach((product:any)=>{
+      this.price+=product.baserate*product.quantity;
+      const offprice =(product.baserate -  product.price)*product.quantity;
+      this.discount+=offprice
+    })
+    this.savedPercent = Math.round(this.discount/this.price * 100)
+    this.totalPrice = this.price + this.deliverycharges - this.discount;
+    console.log("currentprice",this.price)
+  }
+
   selectProduct(event:any){
     const username = localStorage.getItem('username')
     const order = {
@@ -84,6 +100,9 @@ export class MycartComponent implements OnInit, OnDestroy {
       quantity:event.quantity,
       username:username,
       storename:event.storename,
+      price:event.price,
+      baserate:event.baserate,
+      discount:event.discount,
       orderstatus:{
         inprogress:{
           status:true,
@@ -112,6 +131,7 @@ export class MycartComponent implements OnInit, OnDestroy {
       this.selectedCartItems.push(order)
     }
     console.log(this.selectedCartItems)
+    this.calculateTotalPrice()
   }
 
   orderItem(){

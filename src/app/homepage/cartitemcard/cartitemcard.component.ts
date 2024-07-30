@@ -36,8 +36,11 @@ export class CartitemcardComponent implements OnInit ,AfterContentInit{
   ngAfterContentInit(): void {
     const product ={
       product_id:this.item.products._id,
-      quantity:this.item.products.productquantity,
+      quantity:this.quantity,
       storename:this.item.products.storename,
+      price:this.item.products.productnewprice,
+      baserate:this.item.products.productprice,
+      discount:this.item.products.productdiscount
     }
     setTimeout(()=>{
       this.selectedItem.emit(product)
@@ -57,12 +60,16 @@ export class CartitemcardComponent implements OnInit ,AfterContentInit{
     }
   }
   
-  selectProduct(product_id:any,storename:any){
+  selectProduct(item:any){
     const product ={
-      product_id:product_id,
+      product_id:item.products._id,
       quantity:this.quantity,
-      storename:storename,
+      storename:item.products.storename,
+      price:item.products.productnewprice,
+      baserate:this.item.products.productprice,
+      discount:item.products.productdiscount
     }
+    console.log("chosen",product)
     this.selectedItem.emit(product)
   }
 

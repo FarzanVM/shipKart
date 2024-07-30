@@ -1,6 +1,6 @@
 <div class="cartProductCard">
     <div class="details">
-        <input type="checkbox" (change)="selectProduct(item.products._id,item.products.storename)" [(ngModel)]="isChecked">
+        <input type="checkbox" (change)="selectProduct(item)" [(ngModel)]="isChecked">
         <div class="img-container">
             <img src={{item.products.productimg}} alt="product image" >
             <div class="quantityDiv">
