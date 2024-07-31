@@ -34,7 +34,7 @@
             <tr>
                 <th>items description</th>
                 <th>quantity</th>
-                <th>savings</th>
+                <!-- <th>savings</th> -->
                 <th>price</th>
             </tr>
             <ng-container *ngFor="let order of orders$|async">
@@ -47,16 +47,16 @@
                     <td>
                         {{order.quantity}}
                     </td>
+                    <!-- <td> -->
+                       <!-- {{order.products.productdiscount}}% -->
+                      
+                    <!-- </td> -->
                     <td>
-                       {{order.products.productdiscount}}%
-                    </td>
-                    <td>
-                        <fa-icon [icon]="faruppesign"></fa-icon>.{{order.products.productnewprice}}
+                        <fa-icon [icon]="faruppesign"></fa-icon>.{{order.price}}
                     </td>
                 </tr>
             </ng-container>    
             <tr class="subtotal">
-                <td></td>
                 <td></td>
                 <td><p>Subtotal:</p>
                 <p>Shipping charges</p></td>
@@ -64,7 +64,6 @@
                 <p>Free</p></td>
             </tr>
             <tr>
-                <td></td>
                 <td></td>
                 <td>TOTAL</td>
                 <td> <fa-icon [icon]="faruppesign"></fa-icon>.{{total}}</td>

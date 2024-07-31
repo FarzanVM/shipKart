@@ -31,6 +31,7 @@ export class MycartComponent implements OnInit, OnDestroy {
   quantity:number=1;
 
   selectedCartItems:Object[]=[]
+  checkoutItems:Object[]=[]
  
 
   constructor(private cartservice: CartService,private orderservice:OrderService,private toastrservice:ToastrService,private router:Router) { }
@@ -39,9 +40,9 @@ export class MycartComponent implements OnInit, OnDestroy {
 
     this.cartservice.refreshNeeded$.subscribe(() => {
       this.getCartItems();
+      this.selectedCartItems=[]
     })
     this.getCartItems();
-
   }
 
   private getCartItems() {
@@ -50,6 +51,7 @@ export class MycartComponent implements OnInit, OnDestroy {
       username: username
     }
     this.cartItems$ = this.cartservice.getCartItems(user)
+   
 
     // this.cartItems$.pipe(takeUntil(this.ngUnsubscribe)).subscribe(item => {
     //   item?.forEach((product: any) => {
@@ -94,34 +96,14 @@ export class MycartComponent implements OnInit, OnDestroy {
   }
 
   selectProduct(event:any){
-    const username = localStorage.getItem('username')
+   
     const order = {
       product_id:event.product_id,
       quantity:event.quantity,
-      username:username,
       storename:event.storename,
       price:event.price,
       baserate:event.baserate,
       discount:event.discount,
-      orderstatus:{
-        inprogress:{
-          status:true,
-        },
-        confirmed:{
-          status:false,
-        },
-        shipped:{
-          status:false
-        },
-        outfordelivery:{
-          status:false
-        },
-        delivered:{
-          status:false
-        }
-
-      }
-    
     }
     console.log(order)
     if(this.selectedCartItems.some((item:any)=>item.product_id===order.product_id)){
@@ -135,8 +117,37 @@ export class MycartComponent implements OnInit, OnDestroy {
   }
 
   orderItem(){
-
-    this.orderservice.addOrder(this.selectedCartItems).subscribe((res:any)=>{
+    const username = localStorage.getItem('username')
+      this.checkoutItems = this.selectedCartItems.map((product:any)=>{
+        const newOrder = {
+          product_id:product.product_id,
+          quantity:product.quantity,
+          storename:product.storename,
+          username:username,
+          price:product.price*product.quantity,
+          orderstatus:{
+            inprogress:{
+              status:true,
+            },
+            confirmed:{
+              status:false,
+            },
+            shipped:{
+              status:false
+            },
+            outfordelivery:{
+              status:false
+            },
+            delivered:{
+              status:false
+            }
+    
+          }
+        }
+        return newOrder
+      })
+      console.log("checkout items",this.checkoutItems)
+    this.orderservice.addOrder(this.checkoutItems).subscribe((res:any)=>{
       this.toastrservice.success(res.message)
       this.router.navigate(['checkout'])
     },

@@ -75,6 +75,7 @@ export class CartitemcardComponent implements OnInit ,AfterContentInit{
 
   removeFromCart(product_id: any) {
     this.cartservice.removeFromCart(product_id).subscribe(res => {
+      
     })
   }
 }

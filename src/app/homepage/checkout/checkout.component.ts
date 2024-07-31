@@ -72,7 +72,7 @@ export class CheckoutComponent implements OnInit{
     this.orders$.subscribe((item:any)=>{
       console.log(item)
       item?.forEach((element: any) => {
-        this.subtotal+=element.products.productnewprice
+        this.subtotal+=element.price
         this.orderIds.push({_id:element._id,date:new Date().toDateString()})
         
       });
