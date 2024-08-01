@@ -217,6 +217,17 @@
     border-top: 10px solid #3498db;
     animation: spin 2s linear infinite;
 }
+.notFound{
+    min-height: 500px;
+    text-align: center;
+    position: relative;
+   p{
+    color: #717BBC;
+    font-weight: bolder;
+   font-size: xx-large;
+   line-height: 500px;
+   }
+}
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

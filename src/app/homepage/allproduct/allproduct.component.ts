@@ -39,6 +39,8 @@ export class AllproductComponent implements OnInit,AfterViewInit{
   loadedData:boolean=false;
   currentlevel:string|null="";
 
+  notFound:boolean=true;
+
   @ViewChild('progress') progress:ElementRef|any;
   @ViewChild('minrange') minrange:ElementRef|any;
   @ViewChild('maxrange') maxrange:ElementRef|any;
@@ -49,11 +51,17 @@ export class AllproductComponent implements OnInit,AfterViewInit{
     setTimeout(()=>{
       this.startVal=this.minrange.nativeElement?.value;
       this.endVal = this.maxrange.nativeElement?.value;
-       this.leftPos = (this.startVal/10000)*100+"%"
-         this.rightPos=100-(this.endVal/10000)*100+"%"
+       this.leftPos = (this.startVal/100000)*100+"%"
+         this.rightPos=100-(this.endVal/100000)*100+"%"
       console.log("start",this.startVal,"end",this.endVal)
     })
    
+  }
+
+  findResultCount(){
+    this.product$.subscribe((res: any)=>{
+      this.totalresults=res.length
+    })
   }
   ngOnInit(): void {
 
@@ -67,14 +75,13 @@ export class AllproductComponent implements OnInit,AfterViewInit{
         username:username
       }
       this.product$ = this.productservice.getProducts(user,searchKey)
-      this.product$.subscribe((res: any)=>{
-        this.totalresults=res.length
-        console.log(res)
-      })
+      this.findResultCount()
       
     })
     // this.product$ = this.productservice.getProducts(username)
   
+ 
+
   }
   refresh($event: any) {
     console.log("event added")
@@ -98,20 +105,38 @@ export class AllproductComponent implements OnInit,AfterViewInit{
     }
     this.rightPos=100-(this.endVal/input.max)*100+"%"
   }
+
   getStartRange(){
-    console.log("Start range",this.startVal);
+    this.getProducts_By_PriceRange()
   }
   getEndRange(){
-    console.log("End range",this.endVal);
+    this.getProducts_By_PriceRange()
   }
+
   getProductsBy(order:string){
     const searchKey= localStorage.getItem('searchKey')
     const username = localStorage.getItem('username')
 
     const user={
-      username:username
+      username:username,
+      startrange:parseInt(this.startVal),
+      endrange:parseInt(this.endVal)
     }
     this.product$=this.productservice.getProductsBy(searchKey,'price',order,user)
+    this.findResultCount()
+  }
+
+  getProducts_By_PriceRange(){
+    const searchKey= localStorage.getItem('searchKey')
+    const username = localStorage.getItem('username')
+
+    const user={
+      username:username,
+      startrange:parseInt(this.startVal),
+      endrange:parseInt(this.endVal)
+    }
+    this.product$ = this.productservice.getProductsByPriceRange(user,searchKey)
+    this.findResultCount()
   }
 
   openDiscount(){
@@ -122,3 +147,7 @@ export class AllproductComponent implements OnInit,AfterViewInit{
   }
 
 }
+function findResultCount() {
+  throw new Error('Function not implemented.');
+}
+

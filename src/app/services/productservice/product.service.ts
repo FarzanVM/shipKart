@@ -25,6 +25,10 @@ export class ProductService {
     return this.http.post('http://localhost:3000/api/product/getproductsby?item='+item+'&sortby='+sortby+'&orderby='+orderby,user)
   }
 
+  getProductsByPriceRange(model:any,item:any){
+    return this.http.post('http://localhost:3000/api/product/getproductsbypricerange?item='+item,model)
+  }
+
   searchProduct(keyword:any){
     return this.http.get('http://localhost:3000/api/product/searchproducts/'+keyword);
   }
