@@ -7,8 +7,8 @@
             <p class="subheading">PRICE</p>
             <div class="rangeContainer">
                 <div #progress [ngStyle]="{'left':leftPos,'right':rightPos}"  class="progress"></div>
-                <input #minrange type="range" min="1" max="10000" value="2500" step="1" class="rangeSlider" (input)="selectMinRange(minrange)">
-                <input #maxrange type="range" min="1" max="10000" value="8500" step="1" class="rangeSlider" (input)="selectMaxRange(maxrange)">
+                <input #minrange type="range" min="1" max="10000" value="2500" step="1" class="rangeSlider" (mouseup)="getStartRange()" (input)="selectMinRange(minrange)">
+                <input #maxrange type="range" min="1" max="10000" value="8500" step="1" class="rangeSlider"(mouseup)="getEndRange()" (input)="selectMaxRange(maxrange)">
                 
             </div>      
             <div class="pricerange">
@@ -48,7 +48,7 @@
     </div>
     <div class="productContainer">
         <div class="headSection">
-            <p><a [routerLink]="['/']">Home</a>>>Allproducts>>{{currentlevel}}</p>
+            <p><a [routerLink]="['/']">Home</a><fa-icon [icon]="angleright"></fa-icon>{{currentlevel}}</p>
             <p class="result-count">Showing result:{{totalresults}}</p>
             <div class="sortBy-section">
                 <p>Sort By</p>

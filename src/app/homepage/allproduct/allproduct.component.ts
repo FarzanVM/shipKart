@@ -8,7 +8,7 @@ import { WishlistService } from '../../services/wishlistservice/wishlist.service
 import { AuthService } from '../../services/sharedservice/auth.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faAngleDown, faIndianRupeeSign, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faAngleRight, faIndianRupeeSign, faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-allproduct',
@@ -31,6 +31,7 @@ export class AllproductComponent implements OnInit,AfterViewInit{
   angledown=faAngleDown;
   fastar = faStar;
   farupee=faIndianRupeeSign;
+  angleright = faAngleRight;
 
   totalresults:number=0;
   product$: Observable<any> | undefined | any;
@@ -96,6 +97,12 @@ export class AllproductComponent implements OnInit,AfterViewInit{
       this.endVal=input.value
     }
     this.rightPos=100-(this.endVal/input.max)*100+"%"
+  }
+  getStartRange(){
+    console.log("Start range",this.startVal);
+  }
+  getEndRange(){
+    console.log("End range",this.endVal);
   }
   getProductsBy(order:string){
     const searchKey= localStorage.getItem('searchKey')
