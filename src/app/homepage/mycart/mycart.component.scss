@@ -4,6 +4,17 @@
     column-gap: 10px;
     button{ cursor: pointer;}
     .cartitemscontainer{
+        .notFound{
+            min-height: 500px;
+            text-align: center;
+            position: relative;
+           p{
+            color: #717BBC;
+            font-weight: bolder;
+           font-size: xx-large;
+           line-height: 500px;
+           }
+        }
         display: flex;
         width: 100%;
 

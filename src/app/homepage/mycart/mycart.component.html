@@ -1,5 +1,9 @@
 <div class="container">
+    
     <div class="cartitemscontainer">
+        <div class="notFound" *ngIf="!selectedCartItems.length"> 
+            <p>Nothing in Cart!!!</p>
+        </div>
         <ng-container *ngFor="let item of cartItems$|async">
             <app-cartitemcard [item]="item" (selectedItem)="selectProduct($event)" (updateItem)="updateProduct($event)"></app-cartitemcard>
         </ng-container>
