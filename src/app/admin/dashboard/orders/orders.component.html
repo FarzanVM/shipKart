@@ -4,6 +4,8 @@
     <p>Dashboard<fa-icon [icon]="facaretright"></fa-icon>Orders</p>
 </nav>
 <section>
+    <button [ngClass]="{'currentType':inprogress}" (click)="getcurrentOrders()">In progress</button>
+    <button [ngClass]="{'currentType':fullfilled}" (click)="getFullFilledOrders()">Fullfilled</button>
     <table>
         <tr>
             <th>Order</th>
@@ -25,7 +27,8 @@
                 <td>{{order.username}}</td>
                 <td>{{order.quantity}}</td>
                 <td>{{order.price}}</td>
-                <td><app-orderproductcard [order]="(order)"></app-orderproductcard></td>
+                <td *ngIf="inprogress"><app-orderproductcard [order]="(order)"></app-orderproductcard></td>
+                <td *ngIf="fullfilled" class="completed"><fa-icon [icon]="circlecheck"></fa-icon> Finished</td>
             </tr>
             <!-- <app-orderproductcard [order]="(order)"></app-orderproductcard> -->
         </ng-container>

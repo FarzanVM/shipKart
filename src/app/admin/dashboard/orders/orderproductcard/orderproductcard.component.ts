@@ -6,6 +6,7 @@ import { OrderService } from '../../../../services/orderservice/order.service';
 import { ToastrService } from 'ngx-toastr';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
+import { ProductService } from '../../../../services/productservice/product.service';
 
 @Component({
   selector: 'app-orderproductcard',
@@ -32,7 +33,7 @@ export class OrderproductcardComponent implements OnInit {
 
   @Input() order:any;
 
-  constructor(private orderservice:OrderService,private toastrservice:ToastrService){}
+  constructor(private orderservice:OrderService,private toastrservice:ToastrService,private productservice:ProductService){}
 
   ngOnInit(): void {
     console.log(this.order)
@@ -60,14 +61,26 @@ export class OrderproductcardComponent implements OnInit {
   
   }
   confirm(id:any){
-    console.log("id",id)
     const date = new Date()
     const orderId={
       _id:id,
       orderstatus:this.orderstatus,
       date:date.toDateString()
     }
-    console.log(date.toDateString())
+    if(this.orderstatus === "shipped"){
+      console.log("Shipped")
+      const product={
+        _id:this.order.product_id,
+        quantity:this.order.quantity
+      }
+      this.productservice.updateStock(product).subscribe((res:any) =>{
+        this.toastrservice.success(res.message)
+      },
+      (error) =>{
+        this.toastrservice.error(error.error.message);
+      })
+    }
+   
 
     this.orderservice.updateorder(orderId).subscribe((res:any)=>{
       this.toastrservice.success(res.message);

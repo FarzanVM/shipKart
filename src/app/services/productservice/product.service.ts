@@ -54,4 +54,8 @@ export class ProductService {
   updateProduct(product:any){
     return this.http.put('http://localhost:3000/api/product/updateproduct',product)
   }
+
+  updateStock(product:any){
+    return this.http.put('http://localhost:3000/api/product/updatestock',product)
+  }
 }

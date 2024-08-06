@@ -40,4 +40,8 @@ export class OrderService {
   updateorder(model:any){
     return this.http.patch('http://localhost:3000/api/order/updateorder',model)
   }
+
+  getFullFilledOrders(store:any){
+    return this.http.post('http://localhost:3000/api/order/getfullfilledorders',store)
+  }
 }
