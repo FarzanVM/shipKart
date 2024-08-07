@@ -50,6 +50,7 @@ export class OrdersComponent implements OnInit {
   getcurrentOrders(){
     this.inprogress=true;
     this.fullfilled=false;
+    this.ngOnInit()
   }
 
 }
