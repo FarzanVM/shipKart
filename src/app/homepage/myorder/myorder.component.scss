@@ -1,4 +1,18 @@
-
+button{
+    padding: 8px;
+    border: none;
+    color: #9AA4B2;
+    cursor: pointer;
+}
+button:first-child{
+    border-radius: 5px 0px 0px 5px;
+}
+.selected{
+    border-radius: 5px !important;
+    font-weight: bold;
+    background-color: #fff;
+    color: #101323;
+}
 .container{
     display: flex;
     width: 100%;
@@ -92,7 +106,12 @@
                 }     
 
             }
-    
+            .completed{
+                fa-icon{
+                    color:#32de84;
+                }
+                
+            }
         }
     }
 }

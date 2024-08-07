@@ -19,6 +19,10 @@ export class OrderService {
     return this.http.post('http://localhost:3000/api/order/getorders',model)
   }
 
+  getPastOrders(model:any){
+    return this.http.post('http://localhost:3000/api/order/getpastorders',model)
+  }
+
   getCurrentOrders(model:any){
     return this.http.post('http://localhost:3000/api/order/getcurrentorders',model)
   }

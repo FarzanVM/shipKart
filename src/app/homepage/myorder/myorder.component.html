@@ -1,3 +1,5 @@
+<button [ngClass]="{'selected':inprogress}" (click)="getOngoingOrders()">On the Way</button>
+<button [ngClass]="{'selected':completed}" (click)="getCompletedOrders()">Delivered</button>
 <div class="container">
     <div class="orderitemscontainer">
         <ng-container *ngFor="let order of (orders$|async)">
@@ -51,6 +53,7 @@
                         <p class="dateconfirmed" *ngIf="!order.orderstatus.delivered.status">Not available</p>
                     </div>
                 </div>
+                <p *ngIf="order.orderstatus.delivered.status" class="completed"><fa-icon [icon]="facirclecheck"></fa-icon>This product has been delivered</p>
             </div>
         </ng-container>
 
