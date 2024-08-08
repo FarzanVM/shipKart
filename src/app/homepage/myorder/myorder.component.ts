@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faIndianRupee } from '@fortawesome/free-solid-svg-icons';
+import { faAnglesRight, faIndianRupee } from '@fortawesome/free-solid-svg-icons';
 import { OrderService } from '../../services/orderservice/order.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
@@ -17,6 +17,7 @@ export class MyorderComponent implements OnInit{
 
   farupee=faIndianRupee;
   facirclecheck = faCircleCheck;
+  faangleright = faAnglesRight;
 
   orders$:Observable<any>|undefined;
   inprogress:boolean=true;
@@ -29,17 +30,23 @@ export class MyorderComponent implements OnInit{
     const user={
       username:username
     }
-
-    this.orders$ =  this.orderservice.getorders(user);    
-    this.orders$.subscribe(res=>{
-      console.log("running orders",res)
-    })
+    this.getOngoingOrders();
+    // this.orders$ =  this.orderservice.getorders(user);    
+    // this.orders$.subscribe(res=>{
+    //   console.log("running orders",res)
+    // })
   }
 
   getOngoingOrders(){
     this.inprogress=true;
     this.completed=false
-    this.ngOnInit()
+    const username = localStorage.getItem('username')
+
+    const user={
+      username:username
+    }
+    this.orders$ =  this.orderservice.getorders(user);    
+    // this.ngOnInit()
   }
   getCompletedOrders(){
     this.inprogress=false;
