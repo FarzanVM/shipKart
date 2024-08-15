@@ -5,6 +5,7 @@ import { OrderService } from '../../services/orderservice/order.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-myorder',
@@ -22,7 +23,7 @@ export class MyorderComponent implements OnInit{
   orders$:Observable<any>|undefined;
   inprogress:boolean=true;
   completed:boolean = false;
-  constructor(private orderservice:OrderService){}
+  constructor(private orderservice:OrderService,private router:Router){}
 
   ngOnInit(): void {
     const username = localStorage.getItem('username')
@@ -59,5 +60,9 @@ export class MyorderComponent implements OnInit{
     this.orders$= this.orderservice.getPastOrders(user)
   }
 
+  gotoReview(productId:any){
+    localStorage.setItem('reviewproductId',productId)
+    this.router.navigate(['review'])
+  }
 
 }

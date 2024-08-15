@@ -6,6 +6,8 @@ import { UpdateproductComponent } from './dashboard/updateproduct/updateproduct.
 import { StoreproductsComponent } from './dashboard/storeproducts/storeproducts.component';
 import { OrdersComponent } from './dashboard/orders/orders.component';
 import { OverviewComponent } from './dashboard/overview/overview.component';
+import { ReviewComponent } from '../homepage/review/review.component';
+import { ProductReviewComponent } from './dashboard/product-review/product-review.component';
 
 const routes: Routes = [
   {
@@ -30,6 +32,10 @@ const routes: Routes = [
     {
       path:'orders',
       component:OrdersComponent
+    },
+    {
+      path:'reviews',
+      component:ProductReviewComponent
     }
   ]
   }

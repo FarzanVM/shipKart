@@ -72,17 +72,22 @@ nav{
         margin-top: -5px;
         font-weight: bold;
         cursor: pointer;
+        color: #fff;
     }
     button:disabled{
         background-color: #D1D1D6;
     }
     .update{
         background-color: #0BA5EC;
-        color: #fff;
+        
     }
     .delete{
         background-color: #F63D68;
-        color: #fff;
+
+    }
+    .review{
+        background-color: #66C61C;
+
     }
 }
 section{

@@ -23,6 +23,7 @@
 <nav>
     <h3>Products</h3>
     <p>Dashboard<fa-icon [icon]="facaretright"></fa-icon>products</p>
+    <button class="review" (click)="gotoReview()">Show Reviews</button>
     <button class="update"  (click)="updateProduct()" [disabled]="selectedProduct==undefined">Edit Product</button>
     <button class="delete"  (click)="deleteProduct()" [disabled]="selectedProduct==undefined">Delete Product</button>
 </nav>

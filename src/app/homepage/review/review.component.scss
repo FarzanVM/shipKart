@@ -1,0 +1,47 @@
+nav{
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+section{
+    background-color: #fff;
+ 
+    .contentBox{
+        padding: 10px;
+        fa-icon{
+            color: #B3B8DB;
+            cursor: pointer;
+           
+        }
+        .selected{
+            color:yellow
+        }
+        p{
+           color: red;
+        }
+        border-bottom: 1px solid #B3B8DB;
+        textarea{
+            resize: none;
+            box-sizing: border-box;
+            outline: none;
+            border: 1px solid #B3B8DB;
+            width: 100%;
+            padding: 8px;
+        }
+        .description{
+            height: 100px;
+        }
+        .invalid{
+            border: 1px solid #F63D68;
+        }
+        button{
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FF692E;
+            color: #fff;
+            font-weight: bold;
+        }
+    }
+
+}

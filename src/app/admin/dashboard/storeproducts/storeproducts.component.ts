@@ -64,4 +64,10 @@ export class StoreproductsComponent implements OnInit {
     $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   }
 
+  gotoReview(){
+    localStorage.setItem('reviewProductId',this.selectedProduct._id)
+    console.log(this.selectedProduct._id) 
+    this.router.navigate(['admin','reviews'])
+  }
+
 }
