@@ -5,17 +5,17 @@
             <app-searchbar></app-searchbar>
             <div class="account-options-container">
                 <div class="account">
-                    <button *ngIf="!(loggedIn$|async)" class="loginbtn" (click)="openLoginForm()"><fa-icon [icon]="faUserCircle"></fa-icon>Login</button>
-                    <button *ngIf="(loggedIn$|async)" class="loginbtn" ><fa-icon [icon]="faUserCircle"></fa-icon>{{(user$|async)?.name}}</button>
+                    <button *ngIf="!(loggedIn)" class="loginbtn" (click)="openLoginForm()"><fa-icon [icon]="faUserCircle"></fa-icon>Login</button>
+                    <button *ngIf="(loggedIn)" class="loginbtn" ><fa-icon [icon]="faUserCircle"></fa-icon>{{user?.name}}</button>
                     <div class="dropdown">
-                        <div *ngIf="!(loggedIn$|async)"  class="userAlert">
+                        <div *ngIf="!(loggedIn)"  class="userAlert">
                             <span>New Customer?</span>
                             <span class="signupalert" (click)="gotosignup()">Signup</span>
                         </div>
                         <p (click)="gotoProfile()"><fa-icon [icon]="facircleUser"></fa-icon>My profile</p>
                         <p (click)="gotoMyOrders()"><fa-icon [icon]="faBoxOpen"></fa-icon>Orders</p>
                         <p (click)="gotoWishList()"><fa-icon [icon]="faheart"></fa-icon>Wishlist</p>
-                        <p *ngIf="(loggedIn$|async)" (click)="logOut()"><fa-icon [icon]="fapowerOff"></fa-icon>Logout</p>
+                        <p *ngIf="(loggedIn)" (click)="logOut()"><fa-icon [icon]="fapowerOff"></fa-icon>Logout</p>
     
                     </div>
                 </div>

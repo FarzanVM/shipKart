@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DestroyRef, OnInit } from '@angular/core';
 import { OfferComponent } from './offer/offer.component';
 import { BestDealsComponent } from './best-deals/best-deals.component';
 import { Router, RouterOutlet } from '@angular/router';
@@ -11,7 +11,7 @@ import { LoginComponent } from '../login/login.component';
 import { LoginsignupService } from '../services/sharedservice/loginsignup.service';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/sharedservice/auth.service';
-import { Observable } from 'rxjs';
+import { exhaustMap, Observable, of, shareReplay, switchMap, take, tap } from 'rxjs';
 import { UserService } from '../services/userservice/user.service';
 
 @Component({
@@ -30,17 +30,31 @@ export class HomepageComponent implements OnInit {
   faheart=faHeart
   fapowerOff = faPowerOff
 
-  loggedIn$:Observable<any> | undefined;
-  user$:Observable<any>|undefined;
+  loggedIn:boolean=false;
+  user:any;
 
-  constructor(private router:Router,private loginsignupservice:LoginsignupService,private authservice:AuthService,private userservice:UserService){}
+  constructor(private destroyRef:DestroyRef, private router:Router,private loginsignupservice:LoginsignupService,private authservice:AuthService,private userservice:UserService){}
 
   ngOnInit(): void {
-    this.loggedIn$ = this.authservice.watchStorage();
-    const username = localStorage.getItem('username')
-    if(username){
-      this.user$=this.userservice.getUser(username);
-    }
+    // this.loggedIn$ = this.authservice.watchStorage();
+    const subscription = this.authservice.watchStorage().pipe(switchMap((value:boolean):Observable<any>=>{
+      console.log("incoming value")
+      if(value){
+        this.loggedIn=true
+        const username = localStorage.getItem('username')
+        if(username){
+          return this.userservice.getUser(username);
+        }
+      }
+        this.loggedIn=false
+        return of(undefined)
+      
+    })).subscribe(user=>{
+      this.user=user
+    })
+    this.destroyRef.onDestroy(()=>{
+      subscription.unsubscribe()
+    })
 
   }
   openLoginForm(){
