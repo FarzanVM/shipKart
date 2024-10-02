@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, DestroyRef, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { ProductService } from '../../services/productservice/product.service';
 import { Router } from '@angular/router';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-searchbar',
@@ -21,15 +22,14 @@ export class SearchbarComponent implements OnInit {
   userInput: any = new FormControl('')
   noresult:boolean=true;
 
-  constructor(private productservice:ProductService,private router:Router){}
+  constructor(private productservice:ProductService,private router:Router,private destroyRef:DestroyRef){}
 
   ngOnInit(): void {
-    console.log(this.searchResults)
     const username = localStorage.getItem('username')
     const user={
       username:username
     }
-    this.userInput.valueChanges.subscribe((data: any) => {
+    const subscription = this.userInput.valueChanges.pipe(debounceTime(500)).subscribe((data: any) => {
       if(data?.length){
         this.productservice.searchProduct(data).subscribe((res:any)=>{
           this.searchResults=res
@@ -38,6 +38,10 @@ export class SearchbarComponent implements OnInit {
      
     }
   )
+  this.destroyRef.onDestroy((()=>{
+    subscription.unsubscribe();
+  }))
+
   }
 
   search(){

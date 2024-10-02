@@ -13,6 +13,7 @@ import { CheckoutComponent } from './homepage/checkout/checkout.component';
 import { checkoutDeactivateGuard } from './guards/checkout-deactivate.guard';
 import { ProductPageComponent } from './homepage/product-page/product-page.component';
 import { ReviewComponent } from './homepage/review/review.component';
+import { isLoggedInGuard } from './guards/is-logged-in.guard';
 
 export const routes: Routes = [{
     path:'',
@@ -28,7 +29,8 @@ export const routes: Routes = [{
         },
         {
             path:'login',
-            component:LoginComponent
+            component:LoginComponent,
+            canActivate:[isLoggedInGuard]
         },
         {
             path:'adminlogin',

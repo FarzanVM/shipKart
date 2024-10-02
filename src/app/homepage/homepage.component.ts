@@ -1,6 +1,6 @@
 import { Component, DestroyRef, OnInit } from '@angular/core';
-import { OfferComponent } from './offer/offer.component';
-import { BestDealsComponent } from './best-deals/best-deals.component';
+import { OfferComponent } from './brochure/offer/offer.component';
+import { BestDealsComponent } from './brochure/best-deals/best-deals.component';
 import { Router, RouterOutlet } from '@angular/router';
 import { faCartShopping ,faStore,faUserCircle,faBoxOpen, faPowerOff} from '@fortawesome/free-solid-svg-icons';
 import { faCircleUser,faHeart } from '@fortawesome/free-regular-svg-icons';
@@ -61,7 +61,6 @@ export class HomepageComponent implements OnInit {
     this.router.navigate(['login'])
   }
   openloginFormSeller(){
-    console.log("clcikk")
     this.router.navigate(['adminlogin'])
   }
 
