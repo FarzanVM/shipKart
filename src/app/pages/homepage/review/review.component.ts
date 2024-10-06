@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { ReviewService } from '../../services/reviewservice/review.service';
+
 import { ToastrService } from 'ngx-toastr';
+import { ReviewService } from '../../../core/services/reviewservice/review.service';
 
 @Component({
   selector: 'app-review',

@@ -1,14 +1,12 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { SimpleproductcardComponent } from '../simpleproductcard/simpleproductcard.component';
-import { ProductService } from '../../services/productservice/product.service';
 import { Observable, forkJoin, map, mergeMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { WishlistService } from '../../services/wishlistservice/wishlist.service';
-import { AuthService } from '../../services/sharedservice/auth.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAngleDown, faAngleRight, faIndianRupeeSign, faStar } from '@fortawesome/free-solid-svg-icons';
+import { ProductService } from '../../../core/services/productservice/product.service';
 
 @Component({
   selector: 'app-allproduct',

@@ -4,11 +4,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGooglePay } from '@fortawesome/free-brands-svg-icons';
 import { faCreditCard } from '@fortawesome/free-regular-svg-icons';
 import { faBagShopping, faBuildingColumns, faRupeeSign, faSackDollar, faTruck } from '@fortawesome/free-solid-svg-icons';
-import { UserService } from '../../services/userservice/user.service';
+
 import { Observable} from 'rxjs';
 import { Event, NavigationEnd, NavigationStart, Router } from '@angular/router';
-import { OrderService } from '../../services/orderservice/order.service';
+
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from '../../../core/services/userservice/user.service';
+import { OrderService } from '../../../core/services/orderservice/order.service';
 
 @Component({
   selector: 'app-checkout',
@@ -46,7 +48,7 @@ export class CheckoutComponent implements OnInit{
         this.ifOrdered=true
         this.router.navigate(['/'])
        },
-      (error)=>{
+      (error:any)=>{
         this.toastrservice.error(error.error.message)
       })
 

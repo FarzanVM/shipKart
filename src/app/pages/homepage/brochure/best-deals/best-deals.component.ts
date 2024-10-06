@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnInit,ViewChild } from '@angular/core';
-import { ProductService } from '../../../services/productservice/product.service';
+
 import { Observable } from 'rxjs';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { ProductService } from '../../../../core/services/productservice/product.service';
 
 @Component({
   selector: 'app-best-deals',

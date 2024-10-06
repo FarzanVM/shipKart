@@ -1,23 +1,23 @@
 import { Component, DestroyRef, OnInit } from '@angular/core';
 import { OfferComponent } from './brochure/offer/offer.component';
-import { BestDealsComponent } from './brochure/best-deals/best-deals.component';
 import { Router, RouterOutlet } from '@angular/router';
 import { faCartShopping ,faStore,faUserCircle,faBoxOpen, faPowerOff} from '@fortawesome/free-solid-svg-icons';
 import { faCircleUser,faHeart } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AllproductComponent } from './allproduct/allproduct.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
-import { LoginComponent } from '../login/login.component';
-import { LoginsignupService } from '../services/sharedservice/loginsignup.service';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../services/sharedservice/auth.service';
-import { exhaustMap, Observable, of, shareReplay, switchMap, take, tap } from 'rxjs';
-import { UserService } from '../services/userservice/user.service';
+import { Observable, of,switchMap } from 'rxjs';
+
+import { UserLoginComponent } from '../userlogin/userlogin.component';
+import { LoginsignupService } from '../../core/services/sharedservice/loginsignup.service';
+import { AuthService } from '../../core/services/sharedservice/auth.service';
+import { UserService } from '../../core/services/userservice/user.service';
+import { BestDealsComponent } from './brochure/best-deals/best-deals.component';
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [OfferComponent,BestDealsComponent,RouterOutlet,FontAwesomeModule,SearchbarComponent,LoginComponent,CommonModule],
+  imports: [OfferComponent,BestDealsComponent,RouterOutlet,FontAwesomeModule,SearchbarComponent,UserLoginComponent,CommonModule],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss'
 })

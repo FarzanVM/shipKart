@@ -1,11 +1,13 @@
-import { AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ProductService } from '../../../services/productservice/product.service';
+import { Component, OnInit } from '@angular/core';
+
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { ProductUpdateService } from '../../../services/sharedservice/product-update.service';
+
 import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import { ProductService } from '../../../../core/services/productservice/product.service';
+import { ProductUpdateService } from '../../../../core/services/sharedservice/product-update.service';
 
 @Component({
   selector: 'app-storeproducts',

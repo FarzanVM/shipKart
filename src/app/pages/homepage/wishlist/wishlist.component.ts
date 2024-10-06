@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faIndianRupee,faStar } from '@fortawesome/free-solid-svg-icons';
-import { WishlistService } from '../../services/wishlistservice/wishlist.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import { WishlistService } from '../../../core/services/wishlistservice/wishlist.service';
 
 @Component({
   selector: 'app-wishlist',

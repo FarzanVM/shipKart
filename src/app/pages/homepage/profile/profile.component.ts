@@ -3,9 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
-import { UserService } from '../../services/userservice/user.service';
+
 import { ToastrService } from 'ngx-toastr';
 import { faRotateLeft } from '@fortawesome/free-solid-svg-icons';
+import { UserService } from '../../../core/services/userservice/user.service';
 
 @Component({
   selector: 'app-profile',

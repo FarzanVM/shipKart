@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCaretDown, faCaretRight, faCheck, faCheckDouble, faTruck, faTruckRampBox } from '@fortawesome/free-solid-svg-icons';
+import { faCaretRight,} from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
-import { OrderService } from '../../../services/orderservice/order.service';
-import { OrderproductcardComponent } from './orderproductcard/orderproductcard.component';
+
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
+import { OrderService } from '../../../../core/services/orderservice/order.service';
+import { OrderproductcardComponent } from './orderproductcard/orderproductcard.component';
 
 @Component({
   selector: 'app-orders',

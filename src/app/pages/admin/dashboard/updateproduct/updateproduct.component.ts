@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductUpdateService } from '../../../services/sharedservice/product-update.service';
+
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ProductService } from '../../../services/productservice/product.service';
+
 import { ToastrService } from 'ngx-toastr';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import { ProductUpdateService } from '../../../../core/services/sharedservice/product-update.service';
+import { ProductService } from '../../../../core/services/productservice/product.service';
 
 @Component({
   selector: 'app-updateproduct',

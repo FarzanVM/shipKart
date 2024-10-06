@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ReviewService } from '../../../services/reviewservice/review.service';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCaretRight, faStar } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
+import { ReviewService } from '../../../../core/services/reviewservice/review.service';
 
 @Component({
   selector: 'app-product-review',

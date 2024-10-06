@@ -1,12 +1,12 @@
 
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ProductService } from '../../../services/productservice/product.service';
-import { min } from 'rxjs';
+
 import { ToastrService } from 'ngx-toastr';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import { ProductService } from '../../../../core/services/productservice/product.service';
 
 @Component({
   selector: 'app-addproduct',

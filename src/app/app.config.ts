@@ -3,10 +3,11 @@ import { provideRouter } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient } from '@angular/common/http';
 
 import { routes } from './app.routes';
-import { HeaderInterceptor } from './interceptors/header-interceptor';
+
 import { provideToastr } from 'ngx-toastr';
 
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { HeaderInterceptor } from './core/interceptors/header-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),provideHttpClient(),

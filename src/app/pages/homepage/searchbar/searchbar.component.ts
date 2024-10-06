@@ -3,9 +3,9 @@ import { Component, DestroyRef, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { ProductService } from '../../services/productservice/product.service';
 import { Router } from '@angular/router';
 import { debounceTime } from 'rxjs';
+import { ProductService } from '../../../core/services/productservice/product.service';
 
 @Component({
   selector: 'app-searchbar',

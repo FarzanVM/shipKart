@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAngleRight, faBolt, faBoltLightning, faCartShopping, faRupeeSign, faStar } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
-import { ProductService } from '../../services/productservice/product.service';
 import { CommonModule } from '@angular/common';
 import { SimpleproductcardComponent } from '../simpleproductcard/simpleproductcard.component';
-import { CartService } from '../../services/cartservice/cart.service';
 import { ToastrService } from 'ngx-toastr';
-import { OrderService } from '../../services/orderservice/order.service';
 import { Router } from '@angular/router';
+import { ProductService } from '../../../core/services/productservice/product.service';
+import { CartService } from '../../../core/services/cartservice/cart.service';
+import { OrderService } from '../../../core/services/orderservice/order.service';
 
 @Component({
   selector: 'app-product-page',

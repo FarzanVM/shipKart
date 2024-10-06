@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAnglesRight, faIndianRupee } from '@fortawesome/free-solid-svg-icons';
-import { OrderService } from '../../services/orderservice/order.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { Router } from '@angular/router';
+import { OrderService } from '../../../core/services/orderservice/order.service';
 
 @Component({
   selector: 'app-myorder',

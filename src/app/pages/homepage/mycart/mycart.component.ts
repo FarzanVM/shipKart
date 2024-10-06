@@ -1,12 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faIndianRupee, faMinus} from '@fortawesome/free-solid-svg-icons';
-import { CartService } from '../../services/cartservice/cart.service';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { OrderService } from '../../services/orderservice/order.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { CartService } from '../../../core/services/cartservice/cart.service';
+import { OrderService } from '../../../core/services/orderservice/order.service';
 import { CartitemcardComponent } from '../cartitemcard/cartitemcard.component';
 
 @Component({

@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconDefinition, faCaretDown, faCheck, faCheckDouble, faTruck, faTruckRampBox } from '@fortawesome/free-solid-svg-icons';
-import { OrderService } from '../../../../services/orderservice/order.service';
 import { ToastrService } from 'ngx-toastr';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
-import { ProductService } from '../../../../services/productservice/product.service';
+import { OrderService } from '../../../../../core/services/orderservice/order.service';
+import { ProductService } from '../../../../../core/services/productservice/product.service';
+
 
 @Component({
   selector: 'app-orderproductcard',

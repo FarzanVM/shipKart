@@ -1,9 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { OfferComponent } from './offer/offer.component';
-import { BestDealsComponent } from './best-deals/best-deals.component';
 import { Router } from '@angular/router';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BestDealsComponent } from './best-deals/best-deals.component';
 
 @Component({
   selector: 'app-brochure',

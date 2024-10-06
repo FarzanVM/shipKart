@@ -4,10 +4,10 @@ import { faHeart as faHeartFilled, faStar, faIndianRupee } from '@fortawesome/fr
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/sharedservice/auth.service';
-import { CartService } from '../../services/cartservice/cart.service';
-import { WishlistService } from '../../services/wishlistservice/wishlist.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../../core/services/sharedservice/auth.service';
+import { CartService } from '../../../core/services/cartservice/cart.service';
+import { WishlistService } from '../../../core/services/wishlistservice/wishlist.service';
 
 @Component({
   selector: 'app-simpleproductcard',

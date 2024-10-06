@@ -1,9 +1,10 @@
 import { AfterContentInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faIndianRupee, faMinus, faPlus, faStar, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import { CartService } from '../../services/cartservice/cart.service';
+
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CartService } from '../../../core/services/cartservice/cart.service';
 
 @Component({
   selector: 'app-cartitemcard',
