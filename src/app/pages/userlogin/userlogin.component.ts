@@ -1,20 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { Component,OnInit} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import { UserService } from '../services/userservice/user.service';
+import { UserService } from '../../core/services/userservice/user.service';
 import { Router } from '@angular/router';
-import { LoginsignupService } from '../services/sharedservice/loginsignup.service';
-import { AuthService } from '../services/sharedservice/auth.service';
+import { LoginsignupService } from '../../core/services/sharedservice/loginsignup.service';
+import { AuthService } from '../../core/services/sharedservice/auth.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-userlogin',
   standalone: true,
   imports: [CommonModule,ReactiveFormsModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  templateUrl: './userlogin.component.html',
+  styleUrl: './userlogin.component.scss',
 })
-export class LoginComponent implements OnInit {
+export class UserLoginComponent implements OnInit {
  
   constructor(private userservice:UserService,private router:Router,private loginsignupservice:LoginsignupService,private authservice:AuthService,
     private toastrservice:ToastrService

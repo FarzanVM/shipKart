@@ -1,5 +1,5 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, viewChild, ViewChild } from '@angular/core';
-import { ProductCardComponent } from '../product-card/product-card.component';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+
 import { SimpleproductcardComponent } from '../simpleproductcard/simpleproductcard.component';
 import { ProductService } from '../../services/productservice/product.service';
 import { Observable, forkJoin, map, mergeMap } from 'rxjs';
@@ -13,7 +13,7 @@ import { faAngleDown, faAngleRight, faIndianRupeeSign, faStar } from '@fortaweso
 @Component({
   selector: 'app-allproduct',
   standalone: true,
-  imports: [ProductCardComponent, CommonModule, SimpleproductcardComponent,RouterModule,FontAwesomeModule],
+  imports: [CommonModule, SimpleproductcardComponent,RouterModule,FontAwesomeModule],
   templateUrl: './allproduct.component.html',
   styleUrl: './allproduct.component.scss'
 })

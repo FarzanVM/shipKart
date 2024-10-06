@@ -1,19 +1,34 @@
 import { Routes } from '@angular/router';
-import { HomepageComponent } from './homepage/homepage.component';
-import { BrochureComponent } from './homepage/brochure/brochure.component';
-import { AllproductComponent } from './homepage/allproduct/allproduct.component';
-import { LoginComponent } from './login/login.component';
-import { AdminloginComponent } from './adminlogin/adminlogin.component';
-import { MycartComponent } from './homepage/mycart/mycart.component';
-import { authGuard } from './guards/auth.guard';
-import { WishlistComponent } from './homepage/wishlist/wishlist.component';
-import { MyorderComponent } from './homepage/myorder/myorder.component';
-import { ProfileComponent } from './homepage/profile/profile.component';
-import { CheckoutComponent } from './homepage/checkout/checkout.component';
-import { checkoutDeactivateGuard } from './guards/checkout-deactivate.guard';
-import { ProductPageComponent } from './homepage/product-page/product-page.component';
-import { ReviewComponent } from './homepage/review/review.component';
-import { isLoggedInGuard } from './guards/is-logged-in.guard';
+// import { HomepageComponent } from '../pages/homepage/homepage.component';
+// import { BrochureComponent } from './homepage/brochure/brochure.component';
+// import { AllproductComponent } from './homepage/allproduct/allproduct.component';
+// import { LoginComponent } from './login/login.component';
+// import { AdminloginComponent } from './adminlogin/adminlogin.component';
+// import { MycartComponent } from './homepage/mycart/mycart.component';
+// import { authGuard } from './guards/auth.guard';
+// import { WishlistComponent } from './homepage/wishlist/wishlist.component';
+// import { MyorderComponent } from './homepage/myorder/myorder.component';
+// import { ProfileComponent } from './homepage/profile/profile.component';
+// import { CheckoutComponent } from './homepage/checkout/checkout.component';
+// import { checkoutDeactivateGuard } from './guards/checkout-deactivate.guard';
+// import { ProductPageComponent } from './homepage/product-page/product-page.component';
+// import { ReviewComponent } from './homepage/review/review.component';
+// import { isLoggedInGuard } from './guards/is-logged-in.guard';
+import { UserLoginComponent } from './pages/userlogin/userlogin.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
+import { BrochureComponent } from './pages/homepage/brochure/brochure.component';
+import { AllproductComponent } from './pages/homepage/allproduct/allproduct.component';
+import { isLoggedInGuard } from './core/guards/is-logged-in.guard';
+import { AdminloginComponent } from './pages/adminlogin/adminlogin.component';
+import { WishlistComponent } from './pages/homepage/wishlist/wishlist.component';
+import { authGuard } from './core/guards/auth.guard';
+import { MycartComponent } from './pages/homepage/mycart/mycart.component';
+import { MyorderComponent } from './pages/homepage/myorder/myorder.component';
+import { ReviewComponent } from './pages/homepage/review/review.component';
+import { CheckoutComponent } from './pages/homepage/checkout/checkout.component';
+import { checkoutDeactivateGuard } from './core/guards/checkout-deactivate.guard';
+import { ProfileComponent } from './pages/homepage/profile/profile.component';
+import { ProductPageComponent } from './pages/homepage/product-page/product-page.component';
 
 export const routes: Routes = [{
     path:'',
@@ -29,7 +44,7 @@ export const routes: Routes = [{
         },
         {
             path:'login',
-            component:LoginComponent,
+            component:UserLoginComponent,
             canActivate:[isLoggedInGuard]
         },
         {
@@ -73,6 +88,6 @@ export const routes: Routes = [{
        ]},
         {
             path:'admin',
-            loadChildren:()=>import('./admin/admin.module').then(m=>m.AdminModule)
+            loadChildren:()=>import('./pages/admin/admin.module').then(m=>m.AdminModule)
         }
     ];

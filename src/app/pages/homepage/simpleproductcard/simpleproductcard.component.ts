@@ -29,18 +29,21 @@ export class SimpleproductcardComponent implements OnInit {
      private wishlistservice: WishlistService,private toastrservice:ToastrService) { }
 
   ngOnInit(): void {
-    console.log(this.product)
+  
   }
 
   addtoWishlist(product_id: any) {
 
     const username = localStorage.getItem('username')
+    if (!username){
+      this.router.navigate(['login'])
+      return 
+    }
     const product = {
       product_id: product_id,
       username: username
     }
     this.wishlistservice.addToWishList(product).subscribe((res:any)=> {
-      console.log(res)
       this.toastrservice.success(res.message)
       this.refreshNeeded.emit(true)
     },
@@ -58,6 +61,10 @@ export class SimpleproductcardComponent implements OnInit {
   addtoCart(productid: any) {
 
     const username = localStorage.getItem('username')
+    if (!username){
+      this.router.navigate(['login'])
+      return 
+    }
     const cart = {
       product_id: productid,
       username: username
