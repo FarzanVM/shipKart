@@ -73,6 +73,9 @@ export class AllproductComponent implements OnInit,AfterViewInit{
         username:username
       }
       this.product$ = this.productservice.getProducts(user,searchKey)
+      this.product$.subscribe((res:any)=>{
+        console.log(res)
+      })
       this.findResultCount()
       
     })
