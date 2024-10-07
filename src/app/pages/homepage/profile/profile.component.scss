@@ -13,37 +13,43 @@
         border-radius: 5px;
         width: 300px;
         height: 500px;
+        background-color: #e8e9ee;
 
         img{
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             border: 1px solid rgb(78, 78, 78);
+            background-color: #fff;
         }
     }
     .userdetails{
         flex: 1;
         display: flex;
         box-sizing: border-box;
-        // justify-content: center;
-        // flex-direction: column;
         padding: 10px;
         border-radius: 5px;
         border: 1px solid rgb(185, 183, 183);
        
         form{
+            p{
+                color: #636a89;
+                font-weight: bold;
+            }
             display: flex;
             justify-content: center;
             row-gap: 5px;
             flex-direction: column;
             width: 100%;
-            border: 1px solid red;
             fa-icon{
                 display: block;
                 font-size: x-large;
                 align-self: flex-end;
                 color: #72A0C1;
                 cursor: pointer;
+            }
+            label{
+                color:#6e7697;
             }
             input{
                 padding: 10px;

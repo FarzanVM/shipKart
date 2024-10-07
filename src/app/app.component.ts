@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -15,7 +15,11 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './app.component.scss',
   providers:[]
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy{
+  
   title = 'shipkart';
+  ngOnDestroy(): void {
+    localStorage.clear()
+  }
 
 }

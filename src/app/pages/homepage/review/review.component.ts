@@ -50,7 +50,6 @@ export class ReviewComponent implements OnInit{
   submitReview(){
     if(this.reviewForm.invalid){
       this.reviewForm.markAllAsTouched();
-      console.log("Something error")
     }
     else{
       console.log(this.reviewForm.value)
@@ -67,5 +66,8 @@ export class ReviewComponent implements OnInit{
     })
 
     }
+    this.reviewForm.reset()
+    this.hoverrate=-1;
+    this.selectedRate=-1;
   }
 }

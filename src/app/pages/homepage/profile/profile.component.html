@@ -5,6 +5,7 @@
     <div class="userdetails">
        
     <form [formGroup]="profileForm">
+        <p>Personal Information</p>
         <fa-icon *ngIf="!readOnly" [icon]="farotateleft" (click)="goBack()"></fa-icon>
         <fa-icon *ngIf="readOnly" [icon]="fapentosquare" (click)="editProfile()"></fa-icon>
         <label for="name">Name</label>

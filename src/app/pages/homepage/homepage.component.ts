@@ -36,9 +36,7 @@ export class HomepageComponent implements OnInit {
   constructor(private destroyRef:DestroyRef, private router:Router,private loginsignupservice:LoginsignupService,private authservice:AuthService,private userservice:UserService){}
 
   ngOnInit(): void {
-    // this.loggedIn$ = this.authservice.watchStorage();
     const subscription = this.authservice.watchStorage().pipe(switchMap((value:boolean):Observable<any>=>{
-      console.log("incoming value")
       if(value){
         this.loggedIn=true
         const username = localStorage.getItem('username')
