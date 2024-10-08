@@ -16,28 +16,28 @@ export class ProductService {
     return this.http.post<Product>(environment.api+ APIConstant.product.getProducts+keyword,user)
   }
 
-  getSingleProduct(productId:any){
-    return this.http.get<Product>(environment.api+'product/getsingleproduct/'+productId)
+  getSingleProduct(productId:string){
+    return this.http.get<Product>(environment.api+APIConstant.product.getSingleProduct+productId)
   }
 
-  getProductsByCategory(productCategory:any){
-    return this.http.get<Product>(environment.api+'product/getproductsbycategory/'+productCategory)
+  getProductsByCategory(productCategory:string){
+    return this.http.get<Product>(environment.api+APIConstant.product.getProductsByCategory+productCategory)
   }
 
   getProductsBy(item:any,sortby:string,orderby:string,user:any){
-    return this.http.post<Product>(environment.api+'product/getproductsby?item='+item+'&sortby='+sortby+'&orderby='+orderby,user)
+    return this.http.post<Product>(environment.api+APIConstant.product.getProductsBy+item+'&sortby='+sortby+'&orderby='+orderby,user)
   }
 
   getProductsByPriceRange(model:any,item:any){
-    return this.http.post<Product>(environment.api+'product/getproductsbypricerange?item='+item,model)
+    return this.http.post<Product>(environment.api+APIConstant.product.getProductsByPriceRange+item,model)
   }
 
   searchProduct(keyword:any){
-    return this.http.get(environment.api+'product/searchproducts/'+keyword);
+    return this.http.get(environment.api+APIConstant.product.searchProduct+keyword);
   }
 
   getBestDeals(){
-    return this.http.get<Product>(environment.api+'product/getbestdeals')
+    return this.http.get<Product>(environment.api+APIConstant.product.bestDeals)
   }
 
   //for Admin
