@@ -123,7 +123,7 @@ export class AllproductComponent implements OnInit,AfterViewInit{
       startrange:parseInt(this.startVal),
       endrange:parseInt(this.endVal)
     }
-    this.product$=this.productservice.getProductsBy(searchKey,'price',order,user)
+    this.product$=this.productservice.sortProductsBy(searchKey,'price',order,user)
     this.findResultCount()
   }
 
