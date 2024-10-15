@@ -17,8 +17,8 @@
                 <p>seller:{{item.products.storename}}</p>
             </div>
             <div class="price-section">
-                <p class="original-price"><fa-icon [icon]="farupee"></fa-icon>{{item.products.productprice}}</p>
-                <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>{{item.products.productnewprice}}</p>
+                <p class="original-price">{{item.products.productprice|currency:'INR':'symbol':'0.0'}}</p>
+                <p class="current-price">{{item.products.productnewprice|currency:'INR':'symbol':'0.0'}}</p>
                 <p class="discount">{{item.products.productdiscount}}%</p>
             </div>
         </div>
@@ -29,4 +29,5 @@
         <button (click)="removeFromCart(item.products._id)" class="deleteBtn"><fa-icon [icon]="fadelete"></fa-icon></button>
         <button  class="buyBtn">Buy Now</button>
     </div>
+    
 </div>

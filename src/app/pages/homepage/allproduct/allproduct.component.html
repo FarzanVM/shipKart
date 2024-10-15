@@ -12,9 +12,9 @@
                 
             </div>      
             <div class="pricerange">
-                <div class="startrange"><fa-icon [icon]="farupee"></fa-icon>{{startVal}}</div>
+                <div class="startrange">{{startVal|currency:'INR':'symbol':'0.0'}}</div>
                 <p>to</p>
-                <div class="endrange"><fa-icon [icon]="farupee"></fa-icon>{{endVal}}</div>
+                <div class="endrange">{{endVal|currency:'INR':'symbol':'0.0'}}</div>
             </div>         
         </div>
         <div>

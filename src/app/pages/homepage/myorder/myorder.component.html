@@ -13,7 +13,7 @@
                             <p><span>seller:</span>{{order.storename}}</p>
                         </div>
                         <div class="price-section">
-                            <p class="current-price"><fa-icon [icon]="farupee"></fa-icon>{{order.price}}</p>
+                            <p class="current-price">{{order.price|currency:'INR':'symbol':'0.0'}}</p>
                         </div>
                     </div>
                 </div>

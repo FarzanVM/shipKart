@@ -28,7 +28,6 @@ export class AllproductComponent implements OnInit,AfterViewInit{
 
   angledown=faAngleDown;
   fastar = faStar;
-  farupee=faIndianRupeeSign;
   angleright = faAngleRight;
 
   totalresults:number=0;
@@ -148,7 +147,5 @@ export class AllproductComponent implements OnInit,AfterViewInit{
   }
 
 }
-function findResultCount() {
-  throw new Error('Function not implemented.');
-}
+
 

@@ -19,7 +19,6 @@ import { CartitemcardComponent } from '../cartitemcard/cartitemcard.component';
 export class MycartComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
 
-  farupee=faIndianRupee;
   faminus = faMinus;
 
   cartItems$: Observable<any> | undefined;

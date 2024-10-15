@@ -20,7 +20,6 @@ export class SimpleproductcardComponent implements OnInit {
   faHeart = faHeart;
   faHeartFilled = faHeartFilled
   faStar = faStar;
-  farupee = faIndianRupee
   
   @Input() product: any;
   @Output() refreshNeeded= new EventEmitter<boolean>;

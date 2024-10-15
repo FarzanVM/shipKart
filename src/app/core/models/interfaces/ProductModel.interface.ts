@@ -1,4 +1,5 @@
 export interface Product{
+    _id:string,
     productname:string;
     productcategory:string;
     productdesc:string;

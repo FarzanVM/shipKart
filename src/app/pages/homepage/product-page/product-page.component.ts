@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { ProductService } from '../../../core/services/productservice/product.service';
 import { CartService } from '../../../core/services/cartservice/cart.service';
 import { OrderService } from '../../../core/services/orderservice/order.service';
+import { Product } from '../../../core/models/interfaces/ProductModel.interface';
 
 @Component({
   selector: 'app-product-page',
@@ -35,7 +36,7 @@ export class ProductPageComponent implements OnInit {
 
   ngOnInit(): void {
     const productId:string = localStorage.getItem('selectedProduct') ?? "";
-    this.product$ = this.productservice.getSingleProduct(productId).pipe(exhaustMap((product:any)=>{
+    this.product$ = this.productservice.getSingleProduct(productId).pipe(exhaustMap((product:Product)=>{
       this.productcategory = product.productcategory
       this.product_id = product._id;
       const username = localStorage.getItem('username')

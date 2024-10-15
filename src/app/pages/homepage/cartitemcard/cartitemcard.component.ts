@@ -2,14 +2,14 @@ import { AfterContentInit, Component, EventEmitter, Input, OnInit, Output } from
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faIndianRupee, faMinus, faPlus, faStar, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
-import { CommonModule } from '@angular/common';
+import {  CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../../../core/services/cartservice/cart.service';
 
 @Component({
   selector: 'app-cartitemcard',
   standalone: true,
-  imports: [FormsModule,FontAwesomeModule],
+  imports: [FormsModule,FontAwesomeModule,CurrencyPipe],
   templateUrl: './cartitemcard.component.html',
   styleUrl: './cartitemcard.component.scss'
 })
@@ -19,7 +19,7 @@ export class CartitemcardComponent implements OnInit ,AfterContentInit{
   @Output() selectedItem=new EventEmitter<Object>();
   @Output() updateItem = new EventEmitter<Object>();
 
-  farupee = faIndianRupee
+
   faStar = faStar
   fadelete = faTrashCan;
   faplus=faPlus;
