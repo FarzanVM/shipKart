@@ -16,7 +16,7 @@ import { OrderService } from '../../../core/services/orderservice/order.service'
 })
 export class MyorderComponent implements OnInit{
 
-  farupee=faIndianRupee;
+
   facirclecheck = faCircleCheck;
   faangleright = faAnglesRight;
 

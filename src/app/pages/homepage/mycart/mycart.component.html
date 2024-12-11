@@ -5,17 +5,19 @@
             <p>Nothing in Cart!!!</p>
         </div>
         <ng-container *ngFor="let item of cartItems$|async">
-            <app-cartitemcard [item]="item" (selectedItem)="selectProduct($event)" (updateItem)="updateProduct($event)"></app-cartitemcard>
+            <app-cartitemcard [item]="item" (selectedItem)="selectProduct($event)" (updateItem)="updateProduct($event)">
+                <article>Hello World</article>
+            </app-cartitemcard>
         </ng-container>
         <button *ngIf="selectedCartItems.length" class="checkoutbtn" (click)="orderItem()">Place Order ({{selectedCartItems.length}})</button>
     </div>
     <div class="cartPriceContainer">
         <div class="totalCartdetails">
             <p>Price Details </p>
-            <p>Price<span><fa-icon [icon]="farupee"></fa-icon>{{price}}</span></p>
-            <p>Discount<span><fa-icon [icon]="faminus"></fa-icon><fa-icon [icon]="farupee"></fa-icon>{{discount}}</span></p>
-            <p>Delivery Charges<span><fa-icon [icon]="farupee"></fa-icon>{{deliverycharges}}</span></p>
-            <p>Total Amount<span><fa-icon [icon]="farupee"></fa-icon>{{totalPrice}}</span></p>
+            <p>Price<span>{{price|currency:'INR':'symbol':'0.0'}}</span></p>
+            <p>Discount<span><fa-icon [icon]="faminus"></fa-icon>{{discount|currency:'INR':'symbol':'0.0'}}</span></p>
+            <p>Delivery Charges<span>{{deliverycharges|currency:'INR':'symbol':'0.0'}}</span></p>
+            <p>Total Amount<span>{{totalPrice|currency:'INR':'symbol':'0.0'}}</span></p>
             <p>You will save {{savedPercent}}% on this order</p>
         </div>
     </div>

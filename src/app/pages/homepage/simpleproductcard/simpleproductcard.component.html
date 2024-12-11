@@ -13,8 +13,8 @@
         </div>
     </div>
     <div class="price-section">
-        <p class="current-price"><span><fa-icon [icon]="farupee"></fa-icon></span>{{product.productnewprice}}</p>&nbsp;
-        <p class="original-price"><span><fa-icon [icon]="farupee"></fa-icon></span>{{product.productprice}}</p>&nbsp;
+        <p class="current-price">{{product.productnewprice|currency:'INR':'symbol':'4.0'}}</p>&nbsp;
+        <p class="original-price">{{product.productprice|currency:'INR'}}</p>&nbsp;
         <span class="discount">{{product.productdiscount}}% off</span>
         <div>
             <p class="deliverymethod ">free delivery</p>

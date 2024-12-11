@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAngleRight, faBolt, faBoltLightning, faCartShopping, faRupeeSign, faStar } from '@fortawesome/free-solid-svg-icons';
-import { Observable } from 'rxjs';
+import { exhaustMap, Observable, of } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { SimpleproductcardComponent } from '../simpleproductcard/simpleproductcard.component';
 import { ToastrService } from 'ngx-toastr';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { ProductService } from '../../../core/services/productservice/product.service';
 import { CartService } from '../../../core/services/cartservice/cart.service';
 import { OrderService } from '../../../core/services/orderservice/order.service';
+import { Product } from '../../../core/models/interfaces/ProductModel.interface';
 
 @Component({
   selector: 'app-product-page',
@@ -27,42 +28,23 @@ export class ProductPageComponent implements OnInit {
 
   product$: Observable<any> | undefined
   product_id: any;
+  private newOrder:any;
 
   similarProducts$: Observable<any> | undefined;
+<<<<<<< HEAD
   productcategory: string = "";
+=======
+  productcategory!: string;
+>>>>>>> c25c265227dc94401865a16186585e675efe9743
   constructor(private router: Router, private productservice: ProductService, private cartservice: CartService, private toastrservice: ToastrService, private orderservice: OrderService) { }
 
   ngOnInit(): void {
-    const productId = localStorage.getItem('selectedProduct');
-    this.product$ = this.productservice.getSingleProduct(productId)
-    this.product$.subscribe((product: any) => {
+    const productId:string = localStorage.getItem('selectedProduct') ?? "";
+    this.product$ = this.productservice.getSingleProduct(productId).pipe(exhaustMap((product:Product)=>{
       this.productcategory = product.productcategory
       this.product_id = product._id;
-      console.log(this.productcategory)
-      this.similarProducts$ = this.productservice.getProductsByCategory(this.productcategory);
-      this.similarProducts$.subscribe(res => {
-        console.log(res)
-      })
-    })
-  }
-  addToCart() {
-    const username = localStorage.getItem('username')
-    const cart = {
-      product_id: this.product_id,
-      username: username
-    }
-    this.cartservice.addToCart(cart).subscribe((res: any) => {
-      this.toastrservice.success(res.message)
-    },
-      (error) => {
-        this.toastrservice.warning(error.error.message)
-      }
-    )
-  }
-  buyNow() {
-    const username = localStorage.getItem('username')
-    this.product$?.subscribe((product: any) => {
-      const newOrder = {
+      const username = localStorage.getItem('username')
+      this.newOrder={
         product_id: product._id,
         quantity: 1,
         storename: product.storename,
@@ -84,20 +66,36 @@ export class ProductPageComponent implements OnInit {
           delivered: {
             status: false
           }
-
+  
         }
       }
-      console.log(newOrder)
-      this.orderservice.addOrder([newOrder]).subscribe((res: any) => {
-        this.toastrservice.success(res.message)
-        this.router.navigate(['checkout'])
-      },
-        (error) => {
-          this.toastrservice.warning(error.error.message)
-        })
-
-    })
-
+      this.similarProducts$ = this.productservice.getProductsByCategory(this.productcategory);
+      return of(product)
+    }))
+  }
+  addToCart() {
+    const username = localStorage.getItem('username')
+    const cart = {
+      product_id: this.product_id,
+      username: username
+    }
+    this.cartservice.addToCart(cart).subscribe((res: any) => {
+      this.toastrservice.success(res.message)
+    },
+      (error) => {
+        this.toastrservice.warning(error.error.message)
+      }
+    )
+  }
+  buyNow() {
+    this.orderservice.addOrder([this.newOrder]).subscribe((res: any) => {
+      this.toastrservice.success(res.message)
+      this.router.navigate(['checkout'])
+    },
+      (error) => {
+        this.toastrservice.warning(error.error.message)
+      })
+   
   }
 
 }

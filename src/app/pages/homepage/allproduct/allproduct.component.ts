@@ -28,7 +28,6 @@ export class AllproductComponent implements OnInit,AfterViewInit{
 
   angledown=faAngleDown;
   fastar = faStar;
-  farupee=faIndianRupeeSign;
   angleright = faAngleRight;
 
   totalresults:number=0;
@@ -123,7 +122,7 @@ export class AllproductComponent implements OnInit,AfterViewInit{
       startrange:parseInt(this.startVal),
       endrange:parseInt(this.endVal)
     }
-    this.product$=this.productservice.getProductsBy(searchKey,'price',order,user)
+    this.product$=this.productservice.sortProductsBy(searchKey,'price',order,user)
     this.findResultCount()
   }
 
@@ -148,7 +147,5 @@ export class AllproductComponent implements OnInit,AfterViewInit{
   }
 
 }
-function findResultCount() {
-  throw new Error('Function not implemented.');
-}
+
 

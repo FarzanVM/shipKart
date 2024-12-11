@@ -24,8 +24,8 @@ export class ProductService {
     return this.http.get<Product>(environment.product_api+APIConstant.product.getProductsByCategory+productCategory)
   }
 
-  getProductsBy(item:any,sortby:string,orderby:string,user:any){
-    return this.http.post<Product>(environment.product_api+APIConstant.product.getProductsBy+item+'&sortby='+sortby+'&orderby='+orderby,user)
+  sortProductsBy(item:any,sortby:string,orderby:string,user:any){
+    return this.http.post<Product>(environment.api+APIConstant.product.getProductsBy+item+'&sortby='+sortby+'&orderby='+orderby,user)
   }
 
   getProductsByPriceRange(model:any,item:any){
