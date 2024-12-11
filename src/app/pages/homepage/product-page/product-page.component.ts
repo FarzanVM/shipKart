@@ -29,7 +29,7 @@ export class ProductPageComponent implements OnInit {
   product_id: any;
 
   similarProducts$: Observable<any> | undefined;
-  productcategory: String = "";
+  productcategory: string = "";
   constructor(private router: Router, private productservice: ProductService, private cartservice: CartService, private toastrservice: ToastrService, private orderservice: OrderService) { }
 
   ngOnInit(): void {

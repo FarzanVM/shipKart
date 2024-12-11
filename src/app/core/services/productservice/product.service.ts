@@ -13,52 +13,52 @@ export class ProductService {
 
   //for User
   getProducts(user:any,keyword:any){
-    return this.http.post<Product>(environment.api+ APIConstant.product.getProducts+keyword,user)
+    return this.http.post<Product>(environment.product_api+ APIConstant.product.getProducts+keyword,user)
   }
 
-  getSingleProduct(productId:string){
-    return this.http.get<Product>(environment.api+APIConstant.product.getSingleProduct+productId)
+  getSingleProduct(productId:string|null){
+    return this.http.get<Product>(environment.product_api+APIConstant.product.getSingleProduct+productId)
   }
 
   getProductsByCategory(productCategory:string){
-    return this.http.get<Product>(environment.api+APIConstant.product.getProductsByCategory+productCategory)
+    return this.http.get<Product>(environment.product_api+APIConstant.product.getProductsByCategory+productCategory)
   }
 
   getProductsBy(item:any,sortby:string,orderby:string,user:any){
-    return this.http.post<Product>(environment.api+APIConstant.product.getProductsBy+item+'&sortby='+sortby+'&orderby='+orderby,user)
+    return this.http.post<Product>(environment.product_api+APIConstant.product.getProductsBy+item+'&sortby='+sortby+'&orderby='+orderby,user)
   }
 
   getProductsByPriceRange(model:any,item:any){
-    return this.http.post<Product>(environment.api+APIConstant.product.getProductsByPriceRange+item,model)
+    return this.http.post<Product>(environment.product_api+APIConstant.product.getProductsByPriceRange+item,model)
   }
 
   searchProduct(keyword:any){
-    return this.http.get(environment.api+APIConstant.product.searchProduct+keyword);
+    return this.http.get(environment.product_api+APIConstant.product.searchProduct+keyword);
   }
 
   getBestDeals(){
-    return this.http.get<Product>(environment.api+APIConstant.product.bestDeals)
+    return this.http.get<Product>(environment.product_api+APIConstant.product.bestDeals)
   }
 
   //for Admin
    
   addProduct(product:any){
-    return this.http.post(environment.api+'product/addproduct',product)
+    return this.http.post(environment.product_api+APIConstant.product.addproduct,product)
   }
 
   getStoreProducts(store:any){
-    return this.http.post(environment.api+'product/getstoreproducts',store);
+    return this.http.post(environment.product_api+APIConstant.product.getStoreProducts,store);
   }
 
   deleteProduct(productId:any){
-    return this.http.delete(environment.api+'product/deleteproduct/'+productId)
+    return this.http.delete(environment.product_api+APIConstant.product.deleteProduct+productId)
   }
 
   updateProduct(product:any){
-    return this.http.put(environment.api+'product/updateproduct',product)
+    return this.http.put(environment.product_api+APIConstant.product.updateProduct,product)
   }
 
   updateStock(product:any){
-    return this.http.put(environment.api+'product/updatestock',product)
+    return this.http.put(environment.product_api+APIConstant.product.updateStock,product)
   }
 }
