@@ -9,10 +9,10 @@ export class AdminService {
   constructor(private http:HttpClient) { }
 
   signup(model:any){
-    return this.http.post('http://localhost:3000/api/admin/signup',model);
+    return this.http.post('http://localhost:5050/api/admin/signup',model);
   }
 
   login(model:any){
-    return this.http.post('http://localhost:3000/api/admin/login',model);
+    return this.http.post('http://localhost:5050/api/admin/login',model);
   }
 }
