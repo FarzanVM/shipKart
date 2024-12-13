@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../../environments/environment.development';
+import { APIConstant } from '../../constant/APIConstant';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +13,14 @@ export class WishlistService {
   //for User
 
   getWishListItems(user:any){
-    return this.http.post('http://localhost:3000/api/wishlist/getwishlistitems',user)
+    return this.http.post(environment.wishlist_api+APIConstant.wishlist.getWishListItems,user)
   }
 
   addToWishList(product:any){
-    return this.http.post('http://localhost:3000/api/wishlist/addtowishlist',product)
+    return this.http.post(environment.wishlist_api+APIConstant.wishlist.addToWishList,product)
   }
 
   removeFromWishList(id:any){
-    return this.http.delete('http://localhost:3000/api/wishlist/removefromwishlist/'+id)
+    return this.http.delete(environment.wishlist_api+APIConstant.wishlist.removeFromWishList+id)
   }
 }
