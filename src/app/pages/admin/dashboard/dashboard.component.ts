@@ -6,11 +6,11 @@ import { faMessage } from '@fortawesome/free-regular-svg-icons';
 import { faBasketShopping, faBell, faBoxOpen, faCartShopping, faFileLines, faPlus, faStore,faTableCells,faTableCellsLarge,faUserLarge } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-dashboard',
-  standalone: true,
-  imports: [CommonModule,FontAwesomeModule,RouterOutlet],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+    selector: 'app-dashboard',
+    standalone:true,
+    imports: [CommonModule, FontAwesomeModule, RouterOutlet],
+    templateUrl: './dashboard.component.html',
+    styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
   dropdown:boolean=false;

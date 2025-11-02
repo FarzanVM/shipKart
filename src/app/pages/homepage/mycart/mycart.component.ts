@@ -10,11 +10,11 @@ import { OrderService } from '../../../core/services/orderservice/order.service'
 import { CartitemcardComponent } from '../cartitemcard/cartitemcard.component';
 
 @Component({
-  selector: 'app-mycart',
-  standalone: true,
-  imports: [CommonModule, FontAwesomeModule,CartitemcardComponent],
-  templateUrl: './mycart.component.html',
-  styleUrl: './mycart.component.scss'
+    selector: 'app-mycart',
+    standalone:true,
+    imports: [CommonModule, FontAwesomeModule, CartitemcardComponent],
+    templateUrl: './mycart.component.html',
+    styleUrl: './mycart.component.scss'
 })
 export class MycartComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();

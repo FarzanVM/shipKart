@@ -7,11 +7,11 @@ import { CommonModule } from '@angular/common';
 import { ReviewService } from '../../../../core/services/reviewservice/review.service';
 
 @Component({
-  selector: 'app-product-review',
-  standalone: true,
-  imports: [FontAwesomeModule,CommonModule],
-  templateUrl: './product-review.component.html',
-  styleUrl: './product-review.component.scss'
+    selector: 'app-product-review',
+    standalone:true,
+    imports: [FontAwesomeModule, CommonModule],
+    templateUrl: './product-review.component.html',
+    styleUrl: './product-review.component.scss'
 })
 export class ProductReviewComponent implements OnInit{
 

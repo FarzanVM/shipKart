@@ -8,11 +8,11 @@ import { AuthService } from '../../core/services/sharedservice/auth.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-userlogin',
-  standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
-  templateUrl: './userlogin.component.html',
-  styleUrl: './userlogin.component.scss',
+    selector: 'app-userlogin',
+    standalone:true,
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './userlogin.component.html',
+    styleUrl: './userlogin.component.scss'
 })
 export class UserLoginComponent implements OnInit {
  

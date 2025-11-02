@@ -10,11 +10,11 @@ import { ProductUpdateService } from '../../../../core/services/sharedservice/pr
 import { ProductService } from '../../../../core/services/productservice/product.service';
 
 @Component({
-  selector: 'app-updateproduct',
-  standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,FontAwesomeModule],
-  templateUrl: './updateproduct.component.html',
-  styleUrl: './updateproduct.component.scss'
+    selector: 'app-updateproduct',
+    standalone:true,
+    imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule],
+    templateUrl: './updateproduct.component.html',
+    styleUrl: './updateproduct.component.scss'
 })
 export class UpdateproductComponent implements OnInit{
   product:any;

@@ -15,11 +15,11 @@ import { UserService } from '../../core/services/userservice/user.service';
 import { BestDealsComponent } from './brochure/best-deals/best-deals.component';
 
 @Component({
-  selector: 'app-homepage',
-  standalone: true,
-  imports: [RouterOutlet, FontAwesomeModule, SearchbarComponent, CommonModule],
-  templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.scss'
+    selector: 'app-homepage',
+    standalone:true,
+    imports: [RouterOutlet, FontAwesomeModule, SearchbarComponent, CommonModule],
+    templateUrl: './homepage.component.html',
+    styleUrl: './homepage.component.scss'
 })
 export class HomepageComponent implements OnInit {
   faCartShopping=faCartShopping

@@ -10,11 +10,11 @@ import { ProductService } from '../../../../core/services/productservice/product
 import { ProductUpdateService } from '../../../../core/services/sharedservice/product-update.service';
 
 @Component({
-  selector: 'app-storeproducts',
-  standalone: true,
-  imports: [CommonModule,FontAwesomeModule],
-  templateUrl: './storeproducts.component.html',
-  styleUrl: './storeproducts.component.scss'
+    selector: 'app-storeproducts',
+    standalone:true,
+    imports: [CommonModule, FontAwesomeModule],
+    templateUrl: './storeproducts.component.html',
+    styleUrl: './storeproducts.component.scss'
 })
 export class StoreproductsComponent implements OnInit {
 

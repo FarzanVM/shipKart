@@ -12,11 +12,11 @@ import { OrderService } from '../../../core/services/orderservice/order.service'
 import { Product } from '../../../core/models/interfaces/ProductModel.interface';
 
 @Component({
-  selector: 'app-product-page',
-  standalone: true,
-  imports: [CommonModule, FontAwesomeModule, SimpleproductcardComponent],
-  templateUrl: './product-page.component.html',
-  styleUrl: './product-page.component.scss'
+    selector: 'app-product-page',
+    standalone:true,
+    imports: [CommonModule, FontAwesomeModule, SimpleproductcardComponent],
+    templateUrl: './product-page.component.html',
+    styleUrl: './product-page.component.scss'
 })
 export class ProductPageComponent implements OnInit {
 

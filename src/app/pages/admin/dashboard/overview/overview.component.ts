@@ -4,11 +4,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faIndianRupeeSign } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-overview',
-  standalone: true,
-  imports: [CommonModule,FontAwesomeModule],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+    selector: 'app-overview',
+    standalone:true,
+    imports: [CommonModule, FontAwesomeModule],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.scss'
 })
 export class OverviewComponent {
 

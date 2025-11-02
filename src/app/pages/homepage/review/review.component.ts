@@ -8,11 +8,11 @@ import { ToastrService } from 'ngx-toastr';
 import { ReviewService } from '../../../core/services/reviewservice/review.service';
 
 @Component({
-  selector: 'app-review',
-  standalone: true,
-  imports: [FontAwesomeModule,CommonModule,ReactiveFormsModule],
-  templateUrl: './review.component.html',
-  styleUrl: './review.component.scss'
+    selector: 'app-review',
+    standalone:true,
+    imports: [FontAwesomeModule, CommonModule, ReactiveFormsModule],
+    templateUrl: './review.component.html',
+    styleUrl: './review.component.scss'
 })
 export class ReviewComponent implements OnInit{
   

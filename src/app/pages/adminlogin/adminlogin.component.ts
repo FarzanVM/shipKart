@@ -7,11 +7,11 @@ import { ToastrService } from 'ngx-toastr';
 import { AdminService } from '../../core/services/adminservice/admin.service';
 
 @Component({
-  selector: 'app-adminlogin',
-  standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
-  templateUrl: './adminlogin.component.html',
-  styleUrl: './adminlogin.component.scss'
+    selector: 'app-adminlogin',
+    standalone:true,
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './adminlogin.component.html',
+    styleUrl: './adminlogin.component.scss'
 })
 export class AdminloginComponent implements OnInit{
   constructor(private adminservice:AdminService,private router:Router,private toastrservice:ToastrService){

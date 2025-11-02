@@ -9,11 +9,11 @@ import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { ProductService } from '../../../../core/services/productservice/product.service';
 
 @Component({
-  selector: 'app-addproduct',
-  standalone: true,
-  imports: [CommonModule ,ReactiveFormsModule,FontAwesomeModule],
-  templateUrl: './addproduct.component.html',
-  styleUrl: './addproduct.component.scss'
+    selector: 'app-addproduct',
+    standalone:true,
+    imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule],
+    templateUrl: './addproduct.component.html',
+    styleUrl: './addproduct.component.scss'
 })
 export class AddproductComponent implements OnInit{
  

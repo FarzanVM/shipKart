@@ -13,11 +13,11 @@ import { UserService } from '../../../core/services/userservice/user.service';
 import { OrderService } from '../../../core/services/orderservice/order.service';
 
 @Component({
-  selector: 'app-checkout',
-  standalone: true,
-  imports: [CommonModule,FontAwesomeModule],
-  templateUrl: './checkout.component.html',
-  styleUrl: './checkout.component.scss'
+    selector: 'app-checkout',
+    standalone:true,
+    imports: [CommonModule, FontAwesomeModule],
+    templateUrl: './checkout.component.html',
+    styleUrl: './checkout.component.scss'
 })
 export class CheckoutComponent implements OnInit{
   facreditcard=faCreditCard;

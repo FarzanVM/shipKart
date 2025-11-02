@@ -9,11 +9,11 @@ import { faRotateLeft } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from '../../../core/services/userservice/user.service';
 
 @Component({
-  selector: 'app-profile',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule],
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss'
+    selector: 'app-profile',
+    standalone:true,
+    imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule],
+    templateUrl: './profile.component.html',
+    styleUrl: './profile.component.scss'
 })
 export class ProfileComponent implements OnInit {
   fapentosquare = faPenToSquare;

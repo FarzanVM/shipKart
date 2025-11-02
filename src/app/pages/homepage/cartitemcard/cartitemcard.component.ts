@@ -7,11 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { CartService } from '../../../core/services/cartservice/cart.service';
 
 @Component({
-  selector: 'app-cartitemcard',
-  standalone: true,
-  imports: [FormsModule,FontAwesomeModule,CurrencyPipe],
-  templateUrl: './cartitemcard.component.html',
-  styleUrl: './cartitemcard.component.scss'
+    selector: 'app-cartitemcard',
+    standalone:true,
+    imports: [FormsModule, FontAwesomeModule, CurrencyPipe],
+    templateUrl: './cartitemcard.component.html',
+    styleUrl: './cartitemcard.component.scss'
 })
 export class CartitemcardComponent implements OnInit ,AfterContentInit{
 

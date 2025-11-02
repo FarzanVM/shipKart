@@ -6,11 +6,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BestDealsComponent } from './best-deals/best-deals.component';
 
 @Component({
-  selector: 'app-brochure',
-  standalone: true,
-  imports: [OfferComponent,BestDealsComponent,FontAwesomeModule],
-  templateUrl: './brochure.component.html',
-  styleUrl: './brochure.component.scss'
+    selector: 'app-brochure',
+    standalone:true,
+    imports: [OfferComponent, BestDealsComponent, FontAwesomeModule],
+    templateUrl: './brochure.component.html',
+    styleUrl: './brochure.component.scss'
 })
 export class BrochureComponent {
   

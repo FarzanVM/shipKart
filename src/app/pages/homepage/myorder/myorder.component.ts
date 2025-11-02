@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
 import { OrderService } from '../../../core/services/orderservice/order.service';
 
 @Component({
-  selector: 'app-myorder',
-  standalone: true,
-  imports: [CommonModule, FontAwesomeModule],
-  templateUrl: './myorder.component.html',
-  styleUrl: './myorder.component.scss'
+    selector: 'app-myorder',
+    standalone:true,
+    imports: [CommonModule, FontAwesomeModule],
+    templateUrl: './myorder.component.html',
+    styleUrl: './myorder.component.scss'
 })
 export class MyorderComponent implements OnInit{
 

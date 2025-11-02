@@ -9,11 +9,11 @@ import { faAngleDown, faAngleRight, faIndianRupeeSign, faStar } from '@fortaweso
 import { ProductService } from '../../../core/services/productservice/product.service';
 
 @Component({
-  selector: 'app-allproduct',
-  standalone: true,
-  imports: [CommonModule, SimpleproductcardComponent,RouterModule,FontAwesomeModule],
-  templateUrl: './allproduct.component.html',
-  styleUrl: './allproduct.component.scss'
+    selector: 'app-allproduct',
+    standalone:true,
+    imports: [CommonModule, SimpleproductcardComponent, RouterModule, FontAwesomeModule],
+    templateUrl: './allproduct.component.html',
+    styleUrl: './allproduct.component.scss'
 })
 export class AllproductComponent implements OnInit,AfterViewInit{
 

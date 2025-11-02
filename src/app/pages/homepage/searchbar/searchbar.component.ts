@@ -8,11 +8,11 @@ import { debounceTime } from 'rxjs';
 import { ProductService } from '../../../core/services/productservice/product.service';
 
 @Component({
-  selector: 'app-searchbar',
-  standalone: true,
-  imports: [FontAwesomeModule, CommonModule, ReactiveFormsModule],
-  templateUrl: './searchbar.component.html',
-  styleUrl: './searchbar.component.scss'
+    selector: 'app-searchbar',
+    standalone:true,
+    imports: [FontAwesomeModule, CommonModule, ReactiveFormsModule],
+    templateUrl: './searchbar.component.html',
+    styleUrl: './searchbar.component.scss'
 })
 export class SearchbarComponent implements OnInit {
   mockdata: any[] = ["mobiles", "toys", "dress", "Iphone"]

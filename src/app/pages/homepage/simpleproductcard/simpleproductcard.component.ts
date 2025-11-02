@@ -10,11 +10,11 @@ import { CartService } from '../../../core/services/cartservice/cart.service';
 import { WishlistService } from '../../../core/services/wishlistservice/wishlist.service';
 
 @Component({
-  selector: 'app-simpleproductcard',
-  standalone: true,
-  imports: [FontAwesomeModule, CommonModule],
-  templateUrl: './simpleproductcard.component.html',
-  styleUrl: './simpleproductcard.component.scss'
+    selector: 'app-simpleproductcard',
+    standalone:true,
+    imports: [FontAwesomeModule, CommonModule],
+    templateUrl: './simpleproductcard.component.html',
+    styleUrl: './simpleproductcard.component.scss'
 })
 export class SimpleproductcardComponent implements OnInit {
   faHeart = faHeart;

@@ -7,11 +7,11 @@ import { ToastrService } from 'ngx-toastr';
 import { WishlistService } from '../../../core/services/wishlistservice/wishlist.service';
 
 @Component({
-  selector: 'app-wishlist',
-  standalone: true,
-  imports: [CommonModule,FontAwesomeModule],
-  templateUrl: './wishlist.component.html',
-  styleUrl: './wishlist.component.scss'
+    selector: 'app-wishlist',
+    standalone:true,
+    imports: [CommonModule, FontAwesomeModule],
+    templateUrl: './wishlist.component.html',
+    styleUrl: './wishlist.component.scss'
 })
 export class WishlistComponent implements OnInit {
   farupee = faIndianRupee

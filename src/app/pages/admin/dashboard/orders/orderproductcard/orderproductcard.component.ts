@@ -9,11 +9,11 @@ import { ProductService } from '../../../../../core/services/productservice/prod
 
 
 @Component({
-  selector: 'app-orderproductcard',
-  standalone: true,
-  imports: [CommonModule,FontAwesomeModule],
-  templateUrl: './orderproductcard.component.html',
-  styleUrl: './orderproductcard.component.scss'
+    selector: 'app-orderproductcard',
+    standalone:true,
+    imports: [CommonModule, FontAwesomeModule],
+    templateUrl: './orderproductcard.component.html',
+    styleUrl: './orderproductcard.component.scss'
 })
 export class OrderproductcardComponent implements OnInit {
   

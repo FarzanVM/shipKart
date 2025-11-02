@@ -7,11 +7,11 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import { ProductService } from '../../../../core/services/productservice/product.service';
 
 @Component({
-  selector: 'app-best-deals',
-  standalone: true,
-  imports: [CommonModule,FontAwesomeModule],
-  templateUrl: './best-deals.component.html',
-  styleUrl: './best-deals.component.scss'
+    selector: 'app-best-deals',
+    standalone:true,
+    imports: [CommonModule, FontAwesomeModule],
+    templateUrl: './best-deals.component.html',
+    styleUrl: './best-deals.component.scss'
 })
 export class BestDealsComponent implements OnInit,AfterViewInit {
 
