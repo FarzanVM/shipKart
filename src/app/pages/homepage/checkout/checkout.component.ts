@@ -63,12 +63,12 @@ export class CheckoutComponent implements OnInit{
 
   ngOnInit(): void {
 
-    const username=localStorage.getItem('username')
-    if(username){
-      this.user$ =  this.userservice.getUser(username)
+    const userId=localStorage.getItem('userId')
+    if(userId){
+      this.user$ =  this.userservice.getUser(userId)
     }
     const user={
-      username:username
+      userId:userId
     }
     this.orders$ = this.orderservice.getCurrentOrders(user)
     this.orders$.subscribe((item:any)=>{

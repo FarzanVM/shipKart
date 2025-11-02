@@ -76,9 +76,9 @@ export class AdminloginComponent implements OnInit{
     else{
       this.adminservice.login(this.loginForm.value).subscribe((res:any)=>{
         this.toastrservice.success(res.message)
-        localStorage.removeItem('username');
+        localStorage.removeItem('userId');
         localStorage.setItem('token',res['token'])
-        localStorage.setItem('storename',res['storename'])
+        localStorage.setItem('storeId',res['storeId'])
         const t=localStorage.getItem('token');
         this.router.navigateByUrl('/admin')
       },

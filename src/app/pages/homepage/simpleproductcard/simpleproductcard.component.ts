@@ -33,14 +33,14 @@ export class SimpleproductcardComponent implements OnInit {
 
   addtoWishlist(product_id: any) {
 
-    const username = localStorage.getItem('username')
-    if (!username){
+    const userId = localStorage.getItem('userId')
+    if (!userId){
       this.router.navigate(['login'])
       return 
     }
     const product = {
       product_id: product_id,
-      username: username
+      userId: userId
     }
     this.wishlistservice.addToWishList(product).subscribe((res:any)=> {
       this.toastrservice.success(res.message)
@@ -59,14 +59,14 @@ export class SimpleproductcardComponent implements OnInit {
 
   addtoCart(productid: any) {
 
-    const username = localStorage.getItem('username')
-    if (!username){
+    const userId = localStorage.getItem('userId')
+    if (!userId){
       this.router.navigate(['login'])
       return 
     }
     const cart = {
       product_id: productid,
-      username: username
+      userId: userId
     }
     this.cartservice.addToCart(cart).subscribe((res:any) => {
       this.toastrservice.success(res.message)

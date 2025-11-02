@@ -72,9 +72,9 @@ export class AddproductComponent implements OnInit{
 
   addProduct(){
   
-    let storename = localStorage.getItem('storename');
+    let storeId = localStorage.getItem('storeId');
     const product = {...this.productForm.value,
-      storename:storename
+      storeId:storeId
     }
     console.log("added",product)
     this.productservice.addProduct(product).subscribe((res:any)=>{

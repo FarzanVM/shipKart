@@ -30,9 +30,9 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const username = localStorage.getItem('username');
-    if (username) {
-      this.userservice.getUser(username).subscribe((user: any) => {
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      this.userservice.getUser(userId).subscribe((user: any) => {
         this.profileForm.patchValue({ name: user.name, address: user.address, contactno: user.contactno })
       })
     }
@@ -47,10 +47,10 @@ export class ProfileComponent implements OnInit {
     console.log(this.readOnly)
   }
   updateProfile() {
-    const email = localStorage.getItem('username');
+    const userId = localStorage.getItem('userId');
     const user = {
       ...this.profileForm.value,
-      email: email
+      userId: userId
     }
 
     this.userservice.updateUser(user).subscribe((res: any) => {

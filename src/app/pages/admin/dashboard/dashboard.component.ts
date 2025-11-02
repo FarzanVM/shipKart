@@ -53,7 +53,7 @@ export class DashboardComponent {
 
   logout(){
     localStorage.removeItem('token')
-    localStorage.removeItem('storename')
+    localStorage.removeItem('storeId')
     this.router.navigate(['/'])
   }
 }

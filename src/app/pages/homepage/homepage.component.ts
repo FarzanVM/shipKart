@@ -17,7 +17,7 @@ import { BestDealsComponent } from './brochure/best-deals/best-deals.component';
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [OfferComponent,BestDealsComponent,RouterOutlet,FontAwesomeModule,SearchbarComponent,UserLoginComponent,CommonModule],
+  imports: [RouterOutlet, FontAwesomeModule, SearchbarComponent, CommonModule],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss'
 })
@@ -39,9 +39,9 @@ export class HomepageComponent implements OnInit {
     const subscription = this.authservice.watchStorage().pipe(switchMap((value:boolean):Observable<any>=>{
       if(value){
         this.loggedIn=true
-        const username = localStorage.getItem('username')
-        if(username){
-          return this.userservice.getUser(username);
+        const userId = localStorage.getItem('userId')
+        if(userId){
+          return this.userservice.getUser(userId);
         }
       }
         this.loggedIn=false
@@ -86,7 +86,7 @@ export class HomepageComponent implements OnInit {
 
   logOut(){
     localStorage.removeItem('token');
-    localStorage.removeItem('username')
+    localStorage.removeItem('userId')
     this.authservice.deauthenticateuser();
     this.router.navigate(['/'])
   }

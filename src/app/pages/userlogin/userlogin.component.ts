@@ -83,16 +83,16 @@ export class UserLoginComponent implements OnInit {
   login(){
     this.submitted=true
     if(this.loginForm.invalid){
-      console
+      console.log("invalid form")
     }
     else{
       this.userservice.login(this.loginForm.value).subscribe((data:any)=>{
-        console.log(data)
+        
         const token = data.token
-        const username = data.username
+        const userId = data.userId
 
         localStorage.setItem('token',token)
-        localStorage.setItem('username',username)
+        localStorage.setItem('userId',userId)
         
         this.authservice.authenticateUser();
         const redirecturl = this.authservice.redirectUrl;

@@ -25,9 +25,9 @@ export class OrdersComponent implements OnInit {
   constructor(private orderservice:OrderService){}
 
   ngOnInit(): void {
-   const storename=localStorage.getItem('storename')
+   const storeId=localStorage.getItem('storeId')
    const store={
-    storename:storename
+    storeId:storeId
    }
     this.orders$ = this.orderservice.getStoreOrders(store)
     this.orders$.subscribe(res=>{

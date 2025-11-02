@@ -21,10 +21,10 @@ export class WishlistComponent implements OnInit {
 
   constructor(private wishlistservice:WishlistService,private toastrservice:ToastrService){}
   ngOnInit(): void {
-    const username=localStorage.getItem('username');
+    const userId=localStorage.getItem('userId');
 
     const user={
-      username:username
+      userId:userId
     }
 
     this.wishlistItems$= this.wishlistservice.getWishListItems(user)

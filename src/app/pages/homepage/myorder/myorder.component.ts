@@ -26,10 +26,10 @@ export class MyorderComponent implements OnInit{
   constructor(private orderservice:OrderService,private router:Router){}
 
   ngOnInit(): void {
-    const username = localStorage.getItem('username')
+    const userId = localStorage.getItem('userId')
 
     const user={
-      username:username
+      userId:userId
     }
     this.getOngoingOrders();
     // this.orders$ =  this.orderservice.getorders(user);    
@@ -41,10 +41,10 @@ export class MyorderComponent implements OnInit{
   getOngoingOrders(){
     this.inprogress=true;
     this.completed=false
-    const username = localStorage.getItem('username')
+    const userId = localStorage.getItem('userId')
 
     const user={
-      username:username
+      userId:userId
     }
     this.orders$ =  this.orderservice.getorders(user);    
     // this.ngOnInit()
@@ -52,10 +52,10 @@ export class MyorderComponent implements OnInit{
   getCompletedOrders(){
     this.inprogress=false;
     this.completed=true;
-    const username = localStorage.getItem('username')
+    const userId = localStorage.getItem('userId')
 
     const user={
-      username:username
+      userId:userId
     }
     this.orders$= this.orderservice.getPastOrders(user)
   }

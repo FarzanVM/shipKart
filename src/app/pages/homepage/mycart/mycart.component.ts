@@ -45,9 +45,9 @@ export class MycartComponent implements OnInit, OnDestroy {
   }
 
   private getCartItems() {
-    const username = localStorage.getItem('username')
+    const userId = localStorage.getItem('userId')
     const user = {
-      username: username
+      userId: userId
     }
     this.cartItems$ = this.cartservice.getCartItems(user)
    

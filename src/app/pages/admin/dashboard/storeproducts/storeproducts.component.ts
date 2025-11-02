@@ -29,10 +29,10 @@ export class StoreproductsComponent implements OnInit {
   constructor(private productservice:ProductService,private productupdateservice:ProductUpdateService,private router:Router){}
 
   ngOnInit(): void {
-    const storename = localStorage.getItem('storename')
-    console.log("storename",storename)
+    const storeId = localStorage.getItem('storeId')
+    console.log("storename",storeId)
     const store = {
-      storename:storename
+      storeId:storeId
     }
     this.storeProducts$ = this.productservice.getStoreProducts(store);
     this.storeProducts$.subscribe(data =>{

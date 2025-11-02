@@ -6,7 +6,7 @@
             <div class="account-options-container">
                 <div class="account">
                     <button *ngIf="!(loggedIn)" class="loginbtn" (click)="openLoginForm()"><fa-icon [icon]="faUserCircle"></fa-icon>Login</button>
-                    <button *ngIf="(loggedIn)" class="loginbtn" ><fa-icon [icon]="faUserCircle"></fa-icon>{{user?.name}}</button>
+                    <button *ngIf="(loggedIn)" class="loginbtn" ><fa-icon [icon]="faUserCircle"></fa-icon>{{user?.username}}</button>
                     <div class="dropdown">
                         <div *ngIf="!(loggedIn)"  class="userAlert">
                             <span>New Customer?</span>

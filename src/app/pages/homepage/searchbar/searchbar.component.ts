@@ -25,9 +25,9 @@ export class SearchbarComponent implements OnInit {
   constructor(private productservice:ProductService,private router:Router,private destroyRef:DestroyRef){}
 
   ngOnInit(): void {
-    const username = localStorage.getItem('username')
+    const userId = localStorage.getItem('userId')
     const user={
-      username:username
+      userId:userId
     }
     const subscription = this.userInput.valueChanges.pipe(debounceTime(500)).subscribe((data: any) => {
       if(data?.length){

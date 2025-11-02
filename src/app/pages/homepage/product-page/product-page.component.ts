@@ -39,12 +39,12 @@ export class ProductPageComponent implements OnInit {
     this.product$ = this.productservice.getSingleProduct(productId).pipe(exhaustMap((product:Product)=>{
       this.productcategory = product.productcategory
       this.product_id = product._id;
-      const username = localStorage.getItem('username')
+      const userId = localStorage.getItem('userId')
       this.newOrder={
         product_id: product._id,
         quantity: 1,
         storename: product.storename,
-        username: username,
+        userId: userId,
         price: product.productnewprice,
         orderstatus: {
           inprogress: {
@@ -70,10 +70,10 @@ export class ProductPageComponent implements OnInit {
     }))
   }
   addToCart() {
-    const username = localStorage.getItem('username')
+    const userId = localStorage.getItem('userId')
     const cart = {
       product_id: this.product_id,
-      username: username
+      userId:userId
     }
     this.cartservice.addToCart(cart).subscribe((res: any) => {
       this.toastrservice.success(res.message)

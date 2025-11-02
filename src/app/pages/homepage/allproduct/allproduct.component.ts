@@ -66,10 +66,10 @@ export class AllproductComponent implements OnInit,AfterViewInit{
       const searchKey= localStorage.getItem('searchKey')
       this.currentlevel=searchKey;
 
-      const username = localStorage.getItem('username')
+      const userId = localStorage.getItem('userId')
 
       const user={
-        username:username
+        userId:userId
       }
       this.product$ = this.productservice.getProducts(user,searchKey)
       this.product$.subscribe((res:any)=>{
@@ -115,10 +115,10 @@ export class AllproductComponent implements OnInit,AfterViewInit{
 
   getProductsBy(order:string){
     const searchKey= localStorage.getItem('searchKey')
-    const username = localStorage.getItem('username')
+    const userId = localStorage.getItem('userId')
 
     const user={
-      username:username,
+      userId:userId,
       startrange:parseInt(this.startVal),
       endrange:parseInt(this.endVal)
     }
@@ -128,10 +128,10 @@ export class AllproductComponent implements OnInit,AfterViewInit{
 
   getProducts_By_PriceRange(){
     const searchKey= localStorage.getItem('searchKey')
-    const username = localStorage.getItem('username')
+    const userId = localStorage.getItem('userId')
 
     const user={
-      username:username,
+      userId:userId,
       startrange:parseInt(this.startVal),
       endrange:parseInt(this.endVal)
     }

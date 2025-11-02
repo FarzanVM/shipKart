@@ -22,8 +22,9 @@ export class UserService {
     return this.http.post(environment.user_api+APIConstant.user.signup,model);
   }
 
-  getUser(username:String){
-    return this.http.get(environment.user_api+APIConstant.user.getUser+username);
+  getUser(userId:String){
+    console.log("getUser api call made")
+    return this.http.get(environment.user_api+APIConstant.user.getUser+userId);
   }
 
   updateUser(model:any){
