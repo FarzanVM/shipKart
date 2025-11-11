@@ -1,0 +1,76 @@
+.formContainer{
+    position: fixed;
+    top:30%;
+    left:30%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 10px 50px 10px ;
+    border-radius: 10px;
+    display: flex;
+    width: 500px;
+    height:auto;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    // background-image: url("/assets/images/backgrounds/shop.jpg");
+    // background-size: cover;
+    .loginForm,.signupForm{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 10px;
+    }
+   
+    .errmsg{
+        color: red;
+        margin: 0px;
+    }
+    input,button{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        outline: none;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    }
+    .invalid{
+        border:1px solid red;
+        box-shadow: none;
+    }
+    button{
+        background-color: rgb(75, 75, 182);
+        color: #fff;
+    }
+    form{
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        row-gap: 10px;  
+      
+    }
+    .signupmsg{
+        display: inline-block;
+        p{
+            display: inline-block;
+        }
+        a{
+            cursor: pointer;
+            text-decoration: underline;
+            // color: rgb(75, 75, 182);
+            color: black;
+        }
+    }
+    .loginmsg{
+        display: flex;
+        width: 60%;
+        align-items: center;
+       button{
+        cursor: pointer;
+        background-color: #ffbf00;
+        color: #212427;
+       }
+    }
+}

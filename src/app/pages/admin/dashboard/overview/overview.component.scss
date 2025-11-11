@@ -1,0 +1,110 @@
+section{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    // outline: auto;
+    .contentbox{
+        width: 300px;
+        padding:10px;
+        border-radius: 10px;
+        height:70px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        p{  
+            font-size: 14px;
+            margin:5px 0px;
+            color: #404968;
+        }
+        fa-icon{
+            font-size: 16px;
+        }
+    }
+    .chartbox{
+        width: 380px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        padding: 10px;
+        .circle{
+            margin: auto;
+            width: 180px;
+            height: 180px;
+            border-radius: 50% 50%;
+            // background-color: ;
+            border: 15px solid #404968;
+        }
+    }
+
+    .top-products{
+        width: 400px;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        .productchart{
+            width: 100%;
+            display: flex;  
+            outline: auto;
+            img{
+                border-radius: 8px;
+                width: 40px;
+                height: 40px;
+                background-color: aquamarine;
+                margin-right: 10px;
+            }
+            .details{
+                width: 100%;
+                outline: auto;
+                padding: 0px 10px;
+                // display: flex;
+                // flex-direction: column;
+                // position: relative;
+                p{
+                    margin: 0;
+                    width: max-content;
+                    display: inline;
+                    font-size: 13px;
+                    color: #404968;
+
+                }
+                p.total{
+                    float: right;
+                    margin-right: 10px;
+                }
+                .percentage{
+                    padding:2px 7px;
+                    background-color: #E1EBEE;
+                    border-radius: 4px;
+                    font-size: 13px;
+                    float: right;
+                    color:#318CE7;
+                }
+                .graph-bar{
+                    position: relative;
+                    display: block;
+                    margin-top: 10px;
+                    height: 6px;
+                    background-color: lightgray;
+                    border-radius: 5px;
+                    width: 100%;
+                    .progress{
+                        position: absolute;
+                        height: 6px;  
+                        background-color:#318CE7 ;
+                        left:0;
+                        right:0;
+                        width: auto;
+                        border-radius: 5px;
+                    
+                    }
+                }
+                   
+            }
+           
+        }
+    }
+}
+.section2{
+    justify-content: space-between;
+    // padding-left: 180px;
+}

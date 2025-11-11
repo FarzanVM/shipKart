@@ -1,0 +1,109 @@
+import { CommonModule } from '@angular/common';
+import { Component,OnInit} from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import { UserService } from '../../core/services/userservice/user.service';
+import { Router } from '@angular/router';
+import { LoginsignupService } from '../../core/services/sharedservice/loginsignup.service';
+import { AuthService } from '../../core/services/sharedservice/auth.service';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+
+@Component({
+    selector: 'app-userlogin',
+    standalone:true,
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './userlogin.component.html',
+    styleUrl: './userlogin.component.scss'
+})
+export class UserLoginComponent implements OnInit {
+ 
+  constructor(private userservice:UserService,private router:Router,private loginsignupservice:LoginsignupService,private authservice:AuthService,
+    private toastrservice:ToastrService
+  ){
+
+  }
+
+  
+  loginFormOpened:boolean=true;
+  signupFormOpened:boolean=false;
+  submitted:boolean=false;
+
+  loginForm:FormGroup | any;
+  signupForm:FormGroup | any;
+
+  ngOnInit(): void {
+   this.loginForm = new FormGroup({
+    email:new FormControl('',[Validators.required,Validators.email]),
+    password:new FormControl('',Validators.required)
+   })
+
+   this.signupForm = new FormGroup({
+    email:new FormControl('',[Validators.required,Validators.email]),
+    password:new FormControl('',Validators.required)
+   })
+
+   this.loginsignupservice.getFormType().subscribe(type =>{
+    if(type=='signup'){
+      this.loginFormOpened=false;
+      this.signupFormOpened=true;
+    }
+   })
+  
+  }
+
+  openSignupForm(){
+    this.loginForm.reset()
+    this.signupFormOpened=true;
+    this.submitted=false;
+    this.loginFormOpened=!this.signupFormOpened
+  }
+  openloginForm(){
+    this.signupForm.reset()
+    this.loginFormOpened=true;
+    this.submitted=false;
+    this.signupFormOpened=!this.loginFormOpened
+  }
+
+  createAccount(){
+    this.submitted=true
+    if(this.signupForm.invalid){
+      console.log("error")
+    }
+    else{
+      this.userservice.signup(this.signupForm.value).subscribe((data:any)=>{
+        console.log(data)
+        this.router.navigateByUrl('/allproduct')
+      },
+    error=>{
+      console.log(error)
+    })
+      console.log(this.signupForm.value)
+    }
+  }
+
+  login(){
+    this.submitted=true
+    if(this.loginForm.invalid){
+      console.log("invalid form")
+    }
+    else{
+      this.userservice.login(this.loginForm.value).subscribe((data:any)=>{
+        
+        const token = data.token
+        const userId = data.userId
+
+        localStorage.setItem('token',token)
+        localStorage.setItem('userId',userId)
+        
+        this.authservice.authenticateUser();
+        const redirecturl = this.authservice.redirectUrl;
+        this.toastrservice.success(data.message)
+        this.router.navigate([redirecturl]);
+      },
+    error=>{
+      this.toastrservice.error(error.error.message)
+    })
+      // console.log(this.loginForm.value)
+    }
+    
+  }
+}

@@ -1,0 +1,23 @@
+<nav>
+    <h3>Rate & Reviews</h3>
+</nav>
+<section>
+    <div class="contentBox">
+        <h4>Rate this product</h4>
+        <ng-container *ngFor="let item of [].constructor(5); index as i">
+            <fa-icon [icon]="fastar" [ngClass]="{'selected':i<=hoverrate}" (mouseover)="showRate(i)" (mouseleave)="setDefault()" (click)="setRating(i)"></fa-icon>
+        </ng-container>
+     
+    </div>
+    <div class="contentBox">
+        <h4>Review this product</h4>
+        <form [formGroup]="reviewForm" (ngSubmit)="submitReview()" >
+            <textarea class="description" formControlName="comment" placeholder="Description" [ngClass]="{'invalid':this.reviewForm.controls['comment'].touched && this.reviewForm.controls['comment'].invalid}"></textarea>
+            <p *ngIf="this.reviewForm.controls['comment'].touched && this.reviewForm.controls['comment'].invalid">Description cannot be empty</p>
+            <textarea formControlName="title" placeholder="Title(Optional)"></textarea>
+            <textarea formControlName="customername" placeholder="Name"></textarea>
+            <button>Submit</button>
+        </form>
+    </div>
+    
+</section>

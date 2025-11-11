@@ -1,0 +1,14 @@
+<nav>
+    <h3>Reviews&Ratings</h3>
+    <p>dashboard<fa-icon [icon]="facaretright"></fa-icon>storeproducts<fa-icon [icon]="facaretright"></fa-icon>review</p>
+</nav>
+<section>
+    <ng-container *ngFor="let review of (reviews$|async)?.comments">
+        <div class="reviewbox">
+            <p><fa-icon [icon]="fastar"></fa-icon>{{review.rating}} {{review.title}}</p>
+            <p>Posted on {{review.date|date:'fullDate'}} by {{review.customername}}</p>
+            <p>{{review.comment}}</p>
+        </div>
+    </ng-container>
+   
+</section>

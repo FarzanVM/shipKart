@@ -1,0 +1,137 @@
+.breadcrumb{
+    // color: black;
+    background-color: #fff;
+    padding: 8px;
+    color:#8c92ac;
+    font-size: 14px;
+    fa-icon{
+        font-size: 12px;
+    }
+}
+button{
+    padding: 8px;
+    border: none;
+    color: #9AA4B2;
+    cursor: pointer;
+}
+button:first-child{
+    border-radius: 5px 0px 0px 5px;
+}
+.selected{
+    border-radius: 5px !important;
+    font-weight: bold;
+    background-color: #fff;
+    color: #101323;
+}
+.container{
+    display: flex;
+    width: 100%;
+    column-gap: 10px;
+    .orderitemscontainer{
+        display: flex;
+        width: 100%;
+
+        flex-direction: column;
+        .orderProductCard{
+            display: flex;
+            box-sizing: border-box;
+            // flex-direction: column;
+            column-gap: 20px;
+            border-bottom: 1px solid rgb(168, 166, 166);
+            width: 100%;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #fff;
+            .details{
+                display: flex;
+                column-gap: 10px;
+                img{
+                    width: 100px;
+                    height: 100px;
+                    object-fit: contain;
+                }
+                .detailsContainer {
+                    display: flex;
+                    flex-direction: column;
+                    h3{
+                        margin: 0px;
+                    }
+                    .productDetails p{
+                        font-size: 14px;
+                        span{
+                            color: #717BBC;
+                        }
+                    }
+                    .price-section{
+                        display: flex;
+                        align-items: center;
+                        column-gap: 10px;
+                        .current-price{
+                            font-size: 18px;
+                           font-weight: bold;
+                        }
+                    }
+                }
+                
+            }
+            .progressbar{
+                display: flex;
+                align-items: center;
+                .section{
+                    display: flex;
+                    width: 120px;
+                    box-sizing: border-box;
+                    flex-direction: column;
+                    .orderStatus{
+                        margin-left: -10px;
+                        font-size: 12px;
+                        color: #388e3c;
+                        font-weight: bold;
+                    }
+                    
+                    .dateconfirmed{
+                        font-size: 13px;
+                        margin-left: -10px;
+                        color: rgb(137, 132, 132);
+                        font-weight: bold;
+                    }
+                }
+               
+                .status{
+                    display: flex;
+                    align-items: center;
+                    .circle{
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 50%;
+                        background-color:rgb(200, 196, 196);
+    
+                    }
+                   
+                    .bar{
+                        width: 105px;
+                        height: 0px;
+                        border: 2px solid rgb(200, 196, 196);
+                    }
+                    .circlesuccess{
+                        background-color: #388e3c ;
+                    }
+                    .barsuccess{
+                        border:2px solid #388e3c;
+                    }
+                }     
+
+            }
+            .completed{
+                fa-icon{
+                    color:#32de84;
+                }
+                
+            }
+            .rate-review{
+                color: #692be0;
+                cursor: pointer;
+            }
+        }
+    }
+}

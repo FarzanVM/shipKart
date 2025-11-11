@@ -1,0 +1,77 @@
+<div class="allproductContainer">
+    <div class="filterOptions">
+        <div class="heading">
+            <p class="heading">FILTERS</p>
+        </div>
+        <div class="price">
+            <p class="subheading">PRICE</p>
+            <div class="rangeContainer">
+                <div #progress [ngStyle]="{'left':leftPos,'right':rightPos}"  class="progress"></div>
+                <input #minrange type="range" min="1" max="100000" value="1" step="1" class="rangeSlider" (mouseup)="getStartRange()" (input)="selectMinRange(minrange)">
+                <input #maxrange type="range" min="1" max="100000" value="100000" step="1" class="rangeSlider"(mouseup)="getEndRange()" (input)="selectMaxRange(maxrange)">
+                
+            </div>      
+            <div class="pricerange">
+                <div class="startrange">{{startVal|currency:'INR':'symbol':'0.0'}}</div>
+                <p>to</p>
+                <div class="endrange">{{endVal|currency:'INR':'symbol':'0.0'}}</div>
+            </div>         
+        </div>
+        <div>
+            <p class="subheading">BRAND</p>
+        </div>
+        <div class="section" [ngClass]="{'opensection':opendiscount}">
+            <p class="subheading" (click)="openDiscount()">DISCOUNT <fa-icon [icon]="angledown" class="rotate"></fa-icon></p>    
+            <input type="checkbox" id="above70">
+            <label for="above70">70% or more</label><br>
+            <input type="checkbox" id="above60">
+            <label for="above60">60% or more</label><br>
+            <input type="checkbox" id="above50">
+            <label for="above50">50% or more</label><br>
+            <input type="checkbox" id="above40">
+            <label for="above40">40% or more</label><br>
+            <input type="checkbox" id="above30">
+            <label for="above30">30% or more</label><br>
+        </div>
+        <div class="section" [ngClass]="{'opensection':openrating}">
+            <p class="subheading" (click)="openRating()">CUSTOMER RATING<fa-icon [icon]="angledown" class="rotate"></fa-icon></p>
+            <input type="checkbox" id="4star">
+            <label for="4star">4<fa-icon [icon]="fastar"></fa-icon> & above</label><br>
+            <input type="checkbox" id="3star">
+            <label for="3star">3<fa-icon [icon]="fastar"></fa-icon> & above</label><br>
+            <input type="checkbox" id="2star">
+            <label for="2star">2<fa-icon [icon]="fastar"></fa-icon> & above</label><br>
+
+        </div>
+        
+    
+    </div>
+    <div class="productContainer">
+        <div class="headSection">
+            <p><a [routerLink]="['/']">Home</a><fa-icon [icon]="angleright"></fa-icon>{{currentlevel}}</p>
+            <p class="result-count">Showing result:{{totalresults}}</p>
+            <div class="sortBy-section">
+                <p>Sort By</p>
+                <button>Relevance</button>
+                <button>Popularity</button>
+                <button (click)="getProductsBy('asc')">Price-low--High</button>
+                <button (click)="getProductsBy('desc')">Price-Hight--low</button>
+                <button>Newest</button>
+            </div>
+        </div>
+        <div class="loader" *ngIf="!(product$|async)">
+        </div>
+        <div class="notFound" *ngIf="totalresults==0">
+            <p>Oops!Not Found</p>
+        </div>
+        <div class="productsArray">
+            
+            <ng-container  *ngFor="let product of (product$|async)">
+                
+                <app-simpleproductcard (refreshNeeded)="refresh($event)" [product]="product"></app-simpleproductcard>
+            </ng-container>
+            
+        </div>    
+    </div>
+</div>
+

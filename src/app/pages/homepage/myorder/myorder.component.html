@@ -1,0 +1,69 @@
+<p class="breadcrumb">Home <fa-icon [icon]="faangleright"></fa-icon>My Orders</p>
+<button [ngClass]="{'selected':inprogress}" (click)="getOngoingOrders()">On the Way</button>
+<button [ngClass]="{'selected':completed}" (click)="getCompletedOrders()">Delivered</button>
+<div class="container">
+    <div class="orderitemscontainer">
+        <ng-container *ngFor="let order of (orders$|async)">
+            <div class="orderProductCard">
+                <div class="details">
+                    <img src={{order.products.productimg}} alt="product image">
+                    <div class="detailsContainer">
+                        <div class="productDetails">
+                            <h3>{{order.products.productname}}</h3>
+                            <p><span>seller:</span>{{order.storename}}</p>
+                        </div>
+                        <div class="price-section">
+                            <p class="current-price">{{order.price|currency:'INR':'symbol':'0.0'}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="progressbar">
+                    <div class="section">
+                        <p class="orderStatus">Order Confirmed</p>
+                        <div class="status">
+                            <div class="circle" [ngClass]="{'circlesuccess':order.orderstatus.confirmed.status}"></div>
+                            <div class="bar" [ngClass]="{'barsuccess':order.orderstatus.confirmed.status}"></div>
+                        </div>
+                        <p class="dateconfirmed" *ngIf="order.orderstatus.confirmed.status">
+                            {{order.orderstatus.confirmed.date|date:'longDate'}}</p>
+                        <p class="dateconfirmed" *ngIf="!order.orderstatus.confirmed.status">Not available</p>
+                    </div>
+                    <div class="section">
+                        <p class="orderStatus">Shipped</p>
+                        <div class="status">
+                            <div class="circle" [ngClass]="{'circlesuccess':order.orderstatus.shipped.status}"></div>
+                            <div class="bar" [ngClass]="{'barsuccess':order.orderstatus.shipped.status}"></div>
+                        </div>
+                        <p class="dateconfirmed" *ngIf="order.orderstatus.shipped.status">
+                            {{order.orderstatus.shipped.date|date:'longDate'}}</p>
+                        <p class="dateconfirmed" *ngIf="!order.orderstatus.shipped.status">Not available</p>
+                    </div>
+                    <div class="section">
+                        <p class="orderStatus">Out For Delivery</p>
+                        <div class="status">
+                            <div class="circle" [ngClass]="{'circlesuccess':order.orderstatus.outfordelivery.status}">
+                            </div>
+                            <div class="bar" [ngClass]="{'barsuccess':order.orderstatus.outfordelivery.status}"></div>
+                        </div>
+                        <p class="dateconfirmed" *ngIf="order.orderstatus.outfordelivery.status">
+                            {{order.orderstatus.outfordelivery.date|date:'longDate'}}</p>
+                        <p class="dateconfirmed" *ngIf="!order.orderstatus.outfordelivery.status">Not available</p>
+                    </div>
+                    <div class="section">
+                        <p class="orderStatus">Delivered</p>
+                        <div class="status">
+                            <div class="circle" [ngClass]="{'circlesuccess':order.orderstatus.delivered.status}"></div>
+                        </div>
+                        <p class="dateconfirmed" *ngIf="order.orderstatus.delivered.status">
+                            {{order.orderstatus.delivered.date|date:'longDate'}}</p>
+                        <p class="dateconfirmed" *ngIf="!order.orderstatus.delivered.status">Not available</p>
+                    </div>
+                </div>
+                <p *ngIf="order.orderstatus.delivered.status" class="completed"><fa-icon
+                        [icon]="facirclecheck"></fa-icon>This product has been delivered</p>
+                <p *ngIf="order.orderstatus.delivered.status" (click)="gotoReview(order.product_id)" class="rate-review">Rate & Review Product</p>
+            </div>
+        </ng-container>
+
+    </div>
+</div>

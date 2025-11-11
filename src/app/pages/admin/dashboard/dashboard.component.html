@@ -1,0 +1,32 @@
+<div class="header">
+    <h1 (click)="gotoHome()">ShipKart</h1>
+    <div class="welcomemsg">
+        <h3>Welcome Back,Seller!</h3>
+        <p>Here's whats happening in your store today</p>
+    </div>
+    
+    <div class="account">
+        <button><fa-icon [icon]="fabell"></fa-icon></button>
+        <button (click)="opendropdown()">
+            <fa-icon [icon]="faUserLarge"></fa-icon>
+        </button>
+        <div *ngIf="dropdown" class="dropdown">
+            <button class="logout" (click)="logout()">Log Out</button>
+        </div>
+    </div>
+
+
+</div>
+<div class="opContainer">
+    <div class="operation">
+        <button><fa-icon [icon]="faoverview" (click)="goToOverview()"></fa-icon>Overview</button>
+        <button (click)="gotostoreproducts()"><fa-icon [icon]="faproduct"></fa-icon>Storeproducts</button>
+        <button (click)="gotoaddproduct()"><fa-icon [icon]="faadd"></fa-icon>Add product</button>
+        <button (click)="gotoOrders()"><fa-icon [icon]="fabasket"></fa-icon>Orders</button> 
+        <div class="end"></div>  
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+    
+</div>

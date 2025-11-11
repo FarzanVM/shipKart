@@ -1,0 +1,52 @@
+<div class="productPageContainer">
+    <div class="productContainer">
+        <div class="imgContainer">
+            <div class="img">
+                <img src={{(product$|async)?.productimg}} alt="imagesrc">
+            </div>
+            
+            <div class="btnContainer">
+                <button class="btn1" (click)="addToCart()"><fa-icon [icon]="facart"></fa-icon> ADD TO CART</button>
+                <button class="btn2" (click)="buyNow()"><fa-icon [icon]="fabolt"></fa-icon> BUY NOW</button>
+            </div>
+        </div>
+        <div class="productdetails">
+            <p class="breadcrumb">
+                Home<fa-icon [icon]="fa_angleright"></fa-icon>{{(product$|async)?.productcategory}}<fa-icon [icon]="fa_angleright"></fa-icon>{{(product$|async)?.productname}}
+            </p>
+            <p class="productname">{{(product$|async)?.productname}}</p>
+            <div class="rating">
+                <div class="totalrating">
+                    4.3
+                    <fa-icon [icon]="faStar"></fa-icon>
+                </div> 
+                <div class="review">
+                   54 Ratings & 4 Reviews 
+                </div>
+            </div>
+            <div class="price-section">
+                <p class="current-price"><span><fa-icon [icon]="farupee"></fa-icon></span>{{(product$|async)?.productnewprice}}</p>&nbsp;
+                <p class="original-price"><span><fa-icon [icon]="farupee"></fa-icon></span>{{(product$|async)?.productprice}}</p>&nbsp;
+                <span class="discount">{{(product$|async)?.productdiscount}}% off</span>
+                <div>
+                    <p class="deliverymethod ">free delivery</p>
+                </div>
+            </div>
+            <div class="productdescription">
+                <p>Description</p>
+                {{(product$|async)?.productdesc}}
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="similarProductsContainer">
+        <p>Similar Products</p>
+        <div>
+            <ng-container *ngFor="let product of similarProducts$|async">
+                <app-simpleproductcard [product]="product"></app-simpleproductcard>
+            </ng-container>
+        </div>
+       
+    </div>
+</div>
