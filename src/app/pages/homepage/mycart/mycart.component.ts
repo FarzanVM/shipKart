@@ -116,37 +116,31 @@ export class MycartComponent implements OnInit, OnDestroy {
   }
 
   orderItem(){
-    const username = localStorage.getItem('username')
+    const userId = localStorage.getItem('userId')
       this.checkoutItems = this.selectedCartItems.map((product:any)=>{
         const newOrder = {
-          product_id:product.product_id,
+          productId:product.product_id,
           quantity:product.quantity,
-          storename:product.storename,
-          username:username,
-          price:product.price*product.quantity,
-          orderstatus:{
-            inprogress:{
-              status:true,
-            },
-            confirmed:{
-              status:false,
-            },
-            shipped:{
-              status:false
-            },
-            outfordelivery:{
-              status:false
-            },
-            delivered:{
-              status:false
-            }
-    
-          }
         }
         return newOrder
       })
       console.log("checkout items",this.checkoutItems)
-    this.orderservice.addOrder(this.checkoutItems).subscribe((res:any)=>{
+      const order = {
+        userId,
+        address:{
+          name:'snowy',
+          phone: '12345',
+          pincode: '234',
+          state: 'kerala',
+          city: 'ijk',
+          houseNo: '200',
+          area: 'edj',
+          landmark: 'villageoffice',
+        },
+        products:this.checkoutItems,
+        paymentMethod:'ONLINE',
+      }
+    this.orderservice.addOrder(order).subscribe((res:any)=>{
       this.toastrservice.success(res.message)
       this.router.navigate(['checkout'])
     },

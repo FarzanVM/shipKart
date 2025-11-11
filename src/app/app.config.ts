@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 import { HTTP_INTERCEPTORS,  HttpClientModule,  provideHttpClient } from '@angular/common/http';
 
 import { routes } from './app.routes';
-
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 
 
@@ -11,6 +11,7 @@ import { HeaderInterceptor } from './core/interceptors/header-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),provideHttpClient(),
+    provideAnimations(),
     importProvidersFrom(HttpClientModule),
     {
       provide:HTTP_INTERCEPTORS,

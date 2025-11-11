@@ -24,7 +24,7 @@ export class OrderproductcardComponent implements OnInit {
   fatruckrampbox=faTruckRampBox;
   facheckdouble=faCheckDouble;
   opendropdown:boolean=false;
-  allstatus:String[]=["confirmed","shipped","outfordelivery","delivered"]
+  allstatus:String[]=["confirmed","shipped","out-for-delivery","delivered","cancelled"]
   faicons:IconDefinition[]=[this.facheck,this.fatruck,this.fatruckrampbox,this.facheckdouble]
   orderstatus:String="Set Status";
   currIndex:number=0;
@@ -63,7 +63,7 @@ export class OrderproductcardComponent implements OnInit {
   confirm(id:any){
     const date = new Date()
     const orderId={
-      _id:id,
+      orderId:id,
       orderstatus:this.orderstatus,
       date:date.toDateString()
     }
