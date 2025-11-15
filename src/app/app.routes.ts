@@ -14,63 +14,70 @@ import { CheckoutComponent } from './pages/homepage/checkout/checkout.component'
 import { checkoutDeactivateGuard } from './core/guards/checkout-deactivate.guard';
 import { ProfileComponent } from './pages/homepage/profile/profile.component';
 import { ProductPageComponent } from './pages/homepage/product-page/product-page.component';
+import { MainLayout } from './core/layouts/main-layout/main-layout';
 
-export const routes: Routes = [{
-    path:'',
-    component:HomepageComponent,
-    children:[
-        {
-            path:'',
-            component:BrochureComponent,
-        },
-            {
-            path:'allproduct/:productname',
-            component:AllproductComponent
-        },
-        {
-            path:'login',
-            component:UserLoginComponent,
-            // canActivate:[isLoggedInGuard]
-        },
-        {
-            path:'adminlogin',
-            component:AdminloginComponent
-        },
-        {
-            path:'wishlist',
-            component:WishlistComponent,
-            canActivate:[authGuard]
-        },
-        {
-            path:'mycart',
-            component:MycartComponent,
-            canActivate:[authGuard]
-        },
-        {
-            path:'myorder',
-            component:MyorderComponent,
-            canActivate:[authGuard]
-        },
-        {
-            path:'review',
-            component:ReviewComponent
-        },
-        {
-            path:'checkout',
-            component:CheckoutComponent,
-            canActivate:[authGuard],
-            canDeactivate:[checkoutDeactivateGuard]
-        },
-        {
-            path:'profile',
-            component:ProfileComponent,
-            canActivate:[authGuard]
-        },
-        {
-            path:'product',
-            component:ProductPageComponent
-        }
-       ]},
+export const routes: Routes = [
+    {
+        path:'',
+        component:MainLayout
+    }
+    // {
+    // path:'',
+    // component:HomepageComponent,
+    // children:[
+    //     {
+    //         path:'',
+    //         component:BrochureComponent,
+    //     },
+    //         {
+    //         path:'allproduct/:productname',
+    //         component:AllproductComponent
+    //     },
+    //     {
+    //         path:'login',
+    //         component:UserLoginComponent,
+    //         // canActivate:[isLoggedInGuard]
+    //     },
+    //     {
+    //         path:'adminlogin',
+    //         component:AdminloginComponent
+    //     },
+    //     {
+    //         path:'wishlist',
+    //         component:WishlistComponent,
+    //         canActivate:[authGuard]
+    //     },
+    //     {
+    //         path:'mycart',
+    //         component:MycartComponent,
+    //         canActivate:[authGuard]
+    //     },
+    //     {
+    //         path:'myorder',
+    //         component:MyorderComponent,
+    //         canActivate:[authGuard]
+    //     },
+    //     {
+    //         path:'review',
+    //         component:ReviewComponent
+    //     },
+    //     {
+    //         path:'checkout',
+    //         component:CheckoutComponent,
+    //         canActivate:[authGuard],
+    //         canDeactivate:[checkoutDeactivateGuard]
+    //     },
+    //     {
+    //         path:'profile',
+    //         component:ProfileComponent,
+    //         canActivate:[authGuard]
+    //     },
+    //     {
+    //         path:'product',
+    //         component:ProductPageComponent
+    //     }
+    //    ]},
+    ,
         {
             path:'admin',
             loadChildren:()=>import('./pages/admin/admin.module').then(m=>m.AdminModule)
